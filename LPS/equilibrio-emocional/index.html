@@ -14,11 +14,13 @@
        TOKENS
     ============================================================ */
     :root {
-      --accent:       #5B7FD6;
-      --accent-dark:  #4A6BC4;
-      --accent-deeper:#3558b0;
-      --accent-light: #e8edf9;
-      --accent-xlight:#f4f6fd;
+      --accent:       #48C5DE;
+      --accent-dark:  #408C9C;
+      --accent-deeper:#2f6e7c;
+      --accent-light: #e0f7fb;
+      --accent-xlight:#f0fbfd;
+      --orange:       #fa7501;
+      --orange-dark:  #d96401;
       --green:        #46b070;
       --green-dark:   #27AE60;
       --green-deeper: #1e8449;
@@ -107,14 +109,14 @@
       white-space: nowrap;
     }
     .btn-primary {
-      background: var(--green-dark);
+      background: var(--orange);
       color: var(--white);
-      box-shadow: 0 4px 18px rgba(39,174,96,.28);
+      box-shadow: 0 4px 18px rgba(250,117,1,.28);
     }
     .btn-primary:hover {
-      background: var(--green-deeper);
+      background: var(--orange-dark);
       transform: translateY(-2px);
-      box-shadow: 0 7px 24px rgba(39,174,96,.42);
+      box-shadow: 0 7px 24px rgba(250,117,1,.42);
     }
     .btn-primary i, .btn-primary svg { width: 20px; height: 20px; flex-shrink: 0; }
     .btn-ghost {
@@ -177,10 +179,11 @@
       margin-bottom: 20px;
     }
     .pulse {
-      width: 7px; height: 7px;
-      background: var(--accent-dark);
+      width: 8px; height: 8px;
+      background: #22c55e;
       border-radius: 50%;
-      animation: pulse 2s infinite;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 0 2px rgba(34,197,94,.3);
     }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
 
@@ -218,12 +221,12 @@
       flex-shrink: 0;
       width: 22px; height: 22px;
       border-radius: 50%;
-      background: var(--green-light);
-      border: 1.5px solid var(--green);
+      background: var(--accent-light);
+      border: 1.5px solid var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--green-dark);
+      color: var(--accent-dark);
     }
     .chk i { width: 12px; height: 12px; }
 
@@ -240,7 +243,7 @@
       font-size: 0.78rem;
       color: var(--gray);
     }
-    .trust-item i { width: 15px; height: 15px; color: var(--green-dark); }
+    .trust-item i { width: 15px; height: 15px; color: var(--accent-dark); }
 
     /* Hero image / slideshow */
     .hero-img-col { position: relative; }
@@ -365,6 +368,7 @@
       margin-bottom: 4px;
     }
     .cond-icon-wrap i { width: 28px; height: 28px; color: #fff; }
+    .cond-icon-wrap img { width: 51px; height: 51px; object-fit: contain; filter: hue-rotate(50deg); }
     .cond-name { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--dark); }
     .cond-desc { font-size: 0.76rem; color: var(--gray); line-height: 1.55; }
 
@@ -746,7 +750,7 @@
       margin-top: 12px;
       font-size: 0.74rem; color: var(--gray);
     }
-    .form-secure i { width: 13px; height: 13px; color: var(--green-dark); }
+    .form-secure i { width: 13px; height: 13px; color: var(--accent-dark); }
 
     /* ===== FAQ ===== */
     #faq { background: var(--white); }
@@ -1101,13 +1105,13 @@
       <div class="hero-img-col">
         <div class="hero-img-wrap" id="heroSlider">
           <div class="hero-slide active">
-            <img src="../Assets/anxiety-hero.jpg" alt="Ansiedade e equilíbrio emocional" style="object-position:center 30%;" loading="eager" />
+            <img src="../Assets/anxiety-hero.jpg" alt="Médico acolhendo paciente" style="object-position:center 25%;" loading="eager" />
           </div>
           <div class="hero-slide">
-            <img src="../Assets/insomnia-hero.jpg" alt="Insônia e dificuldade para dormir" style="object-position:center 25%;" loading="lazy" />
+            <img src="../Assets/insomnia-hero.jpg" alt="Médico apoiando paciente" style="object-position:center 20%;" loading="lazy" />
           </div>
           <div class="hero-slide">
-            <img src="../Assets/stress-hero.jpg" alt="Estresse e burnout" style="object-position:center 30%;" loading="lazy" />
+            <img src="../Assets/stress-hero.jpg" alt="Angústia e sofrimento emocional" style="object-position:center 10%;" loading="lazy" />
           </div>
           <div class="hero-dots">
             <div class="hero-dot active" onclick="goSlide(0)"></div>
@@ -1166,49 +1170,49 @@
     <div class="conds-grid">
 
       <div class="cond-card rv">
-        <div class="cond-icon-wrap"><i data-lucide="brain"></i></div>
+        <div class="cond-icon-wrap"><img src="../Assets/icons/ansiedade-mental.png" alt="Ansiedade" /></div>
         <div class="cond-name">Ansiedade</div>
         <div class="cond-desc">Preocupação excessiva, tensão constante e dificuldade de relaxar</div>
       </div>
 
       <div class="cond-card rv rv-d1">
-        <div class="cond-icon-wrap"><i data-lucide="cloud-drizzle"></i></div>
+        <div class="cond-icon-wrap"><img src="../Assets/icons/depressao.png" alt="Depressão" /></div>
         <div class="cond-name">Sintomas Depressivos</div>
         <div class="cond-desc">Tristeza persistente, apatia, falta de energia e perda de interesse</div>
       </div>
 
       <div class="cond-card rv rv-d2">
-        <div class="cond-icon-wrap"><i data-lucide="moon"></i></div>
+        <div class="cond-icon-wrap"><img src="../Assets/icons/insonia.png" alt="Insônia" /></div>
         <div class="cond-name">Insônia</div>
         <div class="cond-desc">Dificuldade para dormir, sono interrompido ou não reparador</div>
       </div>
 
       <div class="cond-card rv rv-d3">
-        <div class="cond-icon-wrap"><i data-lucide="zap"></i></div>
+        <div class="cond-icon-wrap"><img src="../Assets/icons/estresse.png" alt="Estresse" /></div>
         <div class="cond-name">Estresse Crônico</div>
         <div class="cond-desc">Sobrecarga mental e física que impacta a saúde e o bem-estar</div>
       </div>
 
       <div class="cond-card rv">
-        <div class="cond-icon-wrap"><i data-lucide="battery-low"></i></div>
+        <div class="cond-icon-wrap"><img src="../Assets/icons/burnout.png" alt="Burnout" /></div>
         <div class="cond-name">Burnout</div>
         <div class="cond-desc">Esgotamento total por sobrecarga profissional ou emocional</div>
       </div>
 
       <div class="cond-card rv rv-d1">
-        <div class="cond-icon-wrap"><i data-lucide="alert-triangle"></i></div>
+        <div class="cond-icon-wrap"><img src="../Assets/icons/panico.png" alt="Síndrome do Pânico" /></div>
         <div class="cond-name">Síndrome do Pânico</div>
         <div class="cond-desc">Crises de ansiedade intensa com sintomas físicos súbitos</div>
       </div>
 
       <div class="cond-card rv rv-d2">
-        <div class="cond-icon-wrap"><i data-lucide="shield-alert"></i></div>
+        <div class="cond-icon-wrap"><img src="../Assets/icons/traumatico.png" alt="Estresse Pós-Traumático" /></div>
         <div class="cond-name">Estresse Pós-Traumático</div>
         <div class="cond-desc">Memórias intrusivas, hipervigilância e dificuldade de seguir em frente</div>
       </div>
 
       <div class="cond-card rv rv-d3">
-        <div class="cond-icon-wrap"><i data-lucide="bed"></i></div>
+        <div class="cond-icon-wrap"><img src="../Assets/icons/sono.png" alt="Distúrbios do Sono" /></div>
         <div class="cond-name">Distúrbios do Sono</div>
         <div class="cond-desc">Alterações no padrão de sono que afetam humor, memória e disposição</div>
       </div>
@@ -1294,7 +1298,7 @@
     <div class="video-sec-inner">
       <div class="video-copy">
         <span class="eyebrow">Você não precisa carregar isso sozinho</span>
-        <h2 class="sec-title">Existe um caminho para restaurar seu bem-estar sem perder sua essência</h2>
+        <h2 class="sec-title">Existe um caminho para restaurar seu bem-estar sem perder sua&nbsp;essência</h2>
         <p class="sec-sub">
           Com a <strong>abordagem médica certa</strong>, é possível aliviar a ansiedade, retomar o sono e resgatar o equilíbrio emocional que você merece.
         </p>
@@ -1313,7 +1317,7 @@
 
       <div class="abord-copy rv">
         <span class="eyebrow">Nossa abordagem</span>
-        <h2 class="abord-title">Médicos especializados em saúde mental com abordagem integrativa</h2>
+        <h2 class="abord-title">Médicos especializados em saúde mental com abordagem&nbsp;integrativa</h2>
         <p class="abord-text">
           Depressão, estresse, síndrome do pânico, insônia e burnout têm tratamento. E nem sempre ele precisa envolver medicamentos com efeitos colaterais como sedação ou dependência.
         </p>
