@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dor Crônica tem Tratamento — Agende sua Consulta | Cannabis & Saúde</title>
-  <meta name="description" content="Consulta online com especialista em medicina integrativa. Avaliação individualizada para dores crônicas: artrite, fibromialgia, enxaqueca e mais. Agende agora." />
+  <meta name="description" content="Consulta online com médico prescritor em medicina integrativa. Avaliação individualizada para dores crônicas: artrite, fibromialgia, enxaqueca e mais. Agende agora." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -350,12 +350,13 @@
       background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: var(--r);
-      padding: 20px 16px 18px;
+      padding: 0 0 14px;
       transition: var(--ease);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 8px;
+      gap: 0;
+      overflow: hidden;
     }
     .cond-card:hover {
       border-color: var(--green);
@@ -363,6 +364,9 @@
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(70,176,112,.12);
     }
+    .cond-card .cond-name,
+    .cond-card .cond-desc { padding: 0 14px; }
+    .cond-card .cond-name { margin-top: 12px; }
     .cond-icon-wrap {
       width: 56px; height: 56px;
       background: var(--green);
@@ -370,11 +374,76 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 4px;
+      margin: 14px 14px 6px;
     }
     .cond-icon-wrap img { width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1); }
+    .cond-icon-wrap.photo {
+      width: 100%; height: 140px;
+      background: none;
+      border-radius: 0;
+      overflow: hidden;
+      margin: 0;
+    }
+    .cond-icon-wrap.photo img { width: 100%; height: 140px; object-fit: cover; filter: none; border-radius: 0; }
     .cond-name { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--dark); }
     .cond-desc { font-size: 0.76rem; color: var(--gray); line-height: 1.55; }
+
+    /* ===== CREDENCIAIS ===== */
+    .cred-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 860px) {
+      .cred-split { grid-template-columns: 1fr; gap: 36px; }
+      .cred-split-img { order: -1; max-height: 320px; }
+      .cred-split-content .sec-title { text-align: center !important; }
+      .cred-split-content .eyebrow { display: block; text-align: center; }
+      .cred-split-content > p { text-align: center; }
+      .cred-split-content > div:last-child { text-align: center; }
+    }
+    .cred-split-img {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .cred-split-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .cred-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .cred-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .cred-icon {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      background: var(--green-light);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cred-icon i { width: 22px; height: 22px; color: var(--green-dark); }
+    .cred-stat {
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+    .cred-label {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
 
     /* ===== VIDEO SECTION ===== */
     #video-sec {
@@ -1179,9 +1248,11 @@
       .tbar-item { font-size: 0.78rem; }
 
       /* Conditions grid card padding */
-      .cond-card { padding: 16px 12px 14px; }
-      .cond-icon-wrap { width: 48px; height: 48px; }
+      .cond-card { padding: 0 0 12px; }
+      .cond-icon-wrap { width: 48px; height: 48px; margin: 12px 12px 6px; }
       .cond-icon-wrap img { width: 26px; height: 26px; }
+      .cond-icon-wrap.photo { width: 100%; height: 110px; margin: 0; }
+      .cond-icon-wrap.photo img { height: 110px; }
       .cond-name { font-size: 0.85rem; }
       .cond-desc { font-size: 0.73rem; }
 
@@ -1353,7 +1424,7 @@
         <ul class="hero-checks">
           <li>
             <span class="chk"><i data-lucide="check"></i></span>
-            Médicos especialistas em dor crônica com abordagem integrativa
+            Médicos prescritores em dor crônica com abordagem integrativa
           </li>
           <li>
             <span class="chk"><i data-lucide="check"></i></span>
@@ -1440,14 +1511,14 @@
   <div class="container">
     <span class="eyebrow">Indicações</span>
     <h2 class="sec-title">Dores crônicas têm tratamento!</h2>
-    <p class="sec-sub">Nosso especialista atende as principais condições de dor crônica com abordagem integrativa e individualizada.</p>
+    <p class="sec-sub">Nosso médico prescritor atende as principais condições de dor crônica com abordagem integrativa e individualizada.</p>
 
     <div class="conds-grid">
 
       <!-- Artrite -->
       <div class="cond-card rv">
-        <div class="cond-icon-wrap">
-          <img src="/LPS/Assets/icons/artrite.png" alt="Artrite" />
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/artrite-foto.jpg" alt="Artrite" />
         </div>
         <div class="cond-name">Artrite</div>
         <div class="cond-desc">Inflamação e dor persistente nas articulações que limita o movimento</div>
@@ -1455,8 +1526,8 @@
 
       <!-- Artrose -->
       <div class="cond-card rv rv-d1">
-        <div class="cond-icon-wrap">
-          <img src="/LPS/Assets/icons/artrose.png" alt="Artrose" />
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/artrose-foto.png" alt="Artrose" />
         </div>
         <div class="cond-name">Artrose</div>
         <div class="cond-desc">Desgaste da cartilagem com dor, rigidez e dificuldade de locomoção</div>
@@ -1464,8 +1535,8 @@
 
       <!-- Dores na Coluna -->
       <div class="cond-card rv rv-d2">
-        <div class="cond-icon-wrap">
-          <img src="/LPS/Assets/icons/dores-cronicas.png" alt="Dores na Coluna" />
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/dor-coluna-foto.jpg" alt="Dores na Coluna" />
         </div>
         <div class="cond-name">Dores na Coluna</div>
         <div class="cond-desc">Lombalgia, hérnia de disco, dor cervical e ciática crônica</div>
@@ -1473,8 +1544,8 @@
 
       <!-- Fibromialgia -->
       <div class="cond-card rv rv-d3">
-        <div class="cond-icon-wrap">
-          <img src="/LPS/Assets/icons/fibromialgia.png" alt="Fibromialgia" />
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/fibromialgia-foto.jpg" alt="Fibromialgia" />
         </div>
         <div class="cond-name">Fibromialgia</div>
         <div class="cond-desc">Dor difusa pelo corpo com fadiga, sono ruim e sensibilidade aumentada</div>
@@ -1482,8 +1553,8 @@
 
       <!-- Enxaqueca -->
       <div class="cond-card rv">
-        <div class="cond-icon-wrap">
-          <img src="/LPS/Assets/icons/cefaleia.png" alt="Enxaqueca" />
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/enxaqueca.png" alt="Enxaqueca" />
         </div>
         <div class="cond-name">Enxaqueca Crônica</div>
         <div class="cond-desc">Cefaleia recorrente e intensa que impacta a qualidade de vida</div>
@@ -1491,8 +1562,8 @@
 
       <!-- Endometriose -->
       <div class="cond-card rv rv-d1">
-        <div class="cond-icon-wrap">
-          <img src="/LPS/Assets/icons/tendinite.png" alt="Endometriose" />
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/endometriose-foto.jpg" alt="Endometriose" />
         </div>
         <div class="cond-name">Endometriose</div>
         <div class="cond-desc">Dor pélvica crônica e intensa associada ao ciclo menstrual</div>
@@ -1500,8 +1571,8 @@
 
       <!-- Espasmos Musculares -->
       <div class="cond-card rv rv-d2">
-        <div class="cond-icon-wrap">
-          <img src="/LPS/Assets/icons/osteoartrose.png" alt="Espasmos Musculares" />
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/espasmos-foto.png" alt="Espasmos Musculares" />
         </div>
         <div class="cond-name">Espasmos Musculares</div>
         <div class="cond-desc">Contrações involuntárias e rigidez muscular, inclusive na Esclerose Múltipla</div>
@@ -1509,8 +1580,8 @@
 
       <!-- Dor Neuropática -->
       <div class="cond-card rv rv-d3">
-        <div class="cond-icon-wrap">
-          <img src="/LPS/Assets/icons/fibromialgia.png" alt="Dor Neuropática" />
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/neuropatica-foto.png" alt="Dor Neuropática" />
         </div>
         <div class="cond-name">Dor Neuropática</div>
         <div class="cond-desc">Dor em queimação ou formigamento causada por lesão nos nervos</div>
@@ -1525,65 +1596,57 @@
 </section>
 
 <!-- ================================================================
-     AUTORIDADE — 4 médicos
+     AUTORIDADE — Credenciais médicas
 ================================================================ -->
 <section id="autoridade" class="section">
-  <div class="container tc">
-    <span class="eyebrow">Especialistas</span>
-    <h2 class="sec-title">Conheça os médicos</h2>
-    <p class="sec-sub" style="margin:0 auto">Médicos registrados, com experiência em medicina integrativa e dor crônica, prontos para te atender online.</p>
+  <div class="container">
+    <div class="cred-split rv">
 
-    <div class="doctors-grid">
-
-      <!-- Médico 1 -->
-      <div class="doc-card rv">
-        <div class="doc-card-photo">
-          <img src="/LPS/Assets/doctor-placeholder.png" alt="Médico especialista" />
-        </div>
-        <div class="doc-card-name">Dr. [Nome Placeholder]</div>
-        <div class="doc-card-spec">Medicina da Dor · Medicina Integrativa</div>
-        <div class="doc-card-crm">CRM-SP XXXXX | RQE: XXXXX</div>
-        <div class="doc-card-location"><i data-lucide="map-pin"></i> São Paulo, SP</div>
+      <div class="cred-split-img">
+        <img src="/LPS/Assets/advice-doctor-and-patient-holding-hands-in-office-2026-01-09-11-46-12-utc.jpg" alt="Médico prescritor em consulta com paciente" />
       </div>
 
-      <!-- Médico 2 -->
-      <div class="doc-card rv rv-d1">
-        <div class="doc-card-photo">
-          <img src="/LPS/Assets/doctor-placeholder.png" alt="Médico especialista" />
+      <div class="cred-split-content">
+        <span class="eyebrow">Quem vai te atender</span>
+        <h2 class="sec-title" style="text-align:left;">Médicos reais.<br>Credenciais verificadas.</h2>
+        <p style="font-size:0.9rem;color:var(--gray);line-height:1.7;margin-bottom:28px;">Todos os médicos da Cannabis &amp; Saúde são registrados no CFM, possuem CRM ativo e RQE específico em medicina integrativa e uso terapêutico de canabinoides.</p>
+
+        <div class="cred-list">
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="shield-check"></i></div>
+            <div>
+              <div class="cred-stat">CRM + RQE ativos</div>
+              <div class="cred-label">Registro ativo no Conselho Regional de Medicina e Registro de Qualificação de Especialidade</div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="stethoscope"></i></div>
+            <div>
+              <div class="cred-stat">Médicos com foco em dor</div>
+              <div class="cred-label">Formação em medicina da dor, medicina integrativa, neurologia e reumatologia</div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="video"></i></div>
+            <div>
+              <div class="cred-stat">Telemedicina regulamentada</div>
+              <div class="cred-label">Autorizado pela resolução CFM nº 2.314/2022, com validade jurídica plena</div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="file-check-2"></i></div>
+            <div>
+              <div class="cred-stat">Prescrição com validade legal</div>
+              <div class="cred-label">Assinatura digital ICP-Brasil, válida em todo o território nacional</div>
+            </div>
+          </div>
         </div>
-        <div class="doc-card-name">Dra. [Nome Placeholder]</div>
-        <div class="doc-card-spec">Reumatologia · Medicina Integrativa</div>
-        <div class="doc-card-crm">CRM-SP XXXXX | RQE: XXXXX</div>
-        <div class="doc-card-location"><i data-lucide="map-pin"></i> Rio de Janeiro, RJ</div>
+
+        <div style="margin-top:32px;">
+          <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Agende sua Consulta</a>
+        </div>
       </div>
 
-      <!-- Médico 3 -->
-      <div class="doc-card rv rv-d2">
-        <div class="doc-card-photo">
-          <img src="/LPS/Assets/doctor-placeholder.png" alt="Médico especialista" />
-        </div>
-        <div class="doc-card-name">Dr. [Nome Placeholder]</div>
-        <div class="doc-card-spec">Neurologia · Dor Crônica</div>
-        <div class="doc-card-crm">CRM-MG XXXXX | RQE: XXXXX</div>
-        <div class="doc-card-location"><i data-lucide="map-pin"></i> Belo Horizonte, MG</div>
-      </div>
-
-      <!-- Médico 4 -->
-      <div class="doc-card rv rv-d3">
-        <div class="doc-card-photo">
-          <img src="/LPS/Assets/doctor-placeholder.png" alt="Médico especialista" />
-        </div>
-        <div class="doc-card-name">Dra. [Nome Placeholder]</div>
-        <div class="doc-card-spec">Ortopedia · Medicina Integrativa</div>
-        <div class="doc-card-crm">CRM-RS XXXXX | RQE: XXXXX</div>
-        <div class="doc-card-location"><i data-lucide="map-pin"></i> Porto Alegre, RS</div>
-      </div>
-
-    </div>
-
-    <div class="autoridade-cta rv">
-      <p>Nós selecionamos o melhor médico conforme sua necessidade e disponibilidade. Estes e outros especialistas estão à disposição para te atender.</p>
-      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Agende sua Consulta</a>
     </div>
   </div>
 </section>
@@ -1622,12 +1685,12 @@
       <!-- Esquerda: copy -->
       <div class="abord-copy rv">
         <span class="eyebrow">Nossa abordagem</span>
-        <h2 class="abord-title">Médicos especialistas em dor crônica com abordagem integrativa</h2>
+        <h2 class="abord-title">Médicos prescritores em dor crônica com abordagem integrativa</h2>
         <p class="abord-text">
           Com a abordagem médica certa, é possível aliviar a dor, resgatar seu bem-estar e voltar a ter controle sobre sua rotina.
         </p>
         <p class="abord-text">
-          Nossos especialistas utilizam <strong>terapias naturais regulamentadas</strong> e práticas de medicina integrativa, com foco em <strong>tratamentos com extratos de plantas medicinais</strong> reconhecidos pela Anvisa — seguros, individualizados e eficazes para dores crônicas.
+          Nossos médicos prescritores utilizam <strong>terapias naturais regulamentadas</strong> e práticas de medicina integrativa, com foco em <strong>tratamentos com extratos de plantas medicinais</strong> reconhecidos pela Anvisa — seguros, individualizados e eficazes para dores crônicas.
         </p>
         <p class="abord-text">
           Atendimento 100% online, humanizado e personalizado para o seu caso.
@@ -1862,7 +1925,7 @@
           Preciso levar exames ou laudos?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Não é obrigatório, mas se tiver exames anteriores ou laudos médicos, traga-os — isso ajuda o médico a ter um diagnóstico mais preciso. O especialista faz uma avaliação completa mesmo sem exames prévios.</div>
+        <div class="faq-a">Não é obrigatório, mas se tiver exames anteriores ou laudos médicos, traga-os — isso ajuda o médico a ter um diagnóstico mais preciso. O médico prescritor faz uma avaliação completa mesmo sem exames prévios.</div>
       </div>
 
       <div class="faq-item">
@@ -1894,7 +1957,7 @@
           Quais condições de dor crônica vocês tratam?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Nossos especialistas atendem as principais condições de dor crônica, incluindo: artrite, artrose, fibromialgia, dores na coluna (lombalgia, hérnia de disco, ciática), enxaqueca crônica, endometriose, espasmos musculares, dor neuropática e osteoartrose. Se a sua condição não está na lista, entre em contato — nossos médicos avaliam cada caso individualmente.</div>
+        <div class="faq-a">Nossos médicos prescritores atendem as principais condições de dor crônica, incluindo: artrite, artrose, fibromialgia, dores na coluna (lombalgia, hérnia de disco, ciática), enxaqueca crônica, endometriose, espasmos musculares, dor neuropática e osteoartrose. Se a sua condição não está na lista, entre em contato — nossos médicos avaliam cada caso individualmente.</div>
       </div>
 
       <div class="faq-item">
@@ -1910,7 +1973,7 @@
           Como é feito o encaminhamento para o médico certo?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Após o preenchimento do formulário, nossa equipe analisa seu caso e seleciona o especialista mais qualificado para a sua condição, garantindo um atendimento direcionado, empático e eficaz. Você receberá a confirmação com os dados do médico e o horário pelo WhatsApp em até 2 horas.</div>
+        <div class="faq-a">Após o preenchimento do formulário, nossa equipe analisa seu caso e seleciona o médico prescritor mais qualificado para a sua condição, garantindo um atendimento direcionado, empático e eficaz. Você receberá a confirmação com os dados do médico e o horário pelo WhatsApp em até 2 horas.</div>
       </div>
 
       <div class="faq-item">

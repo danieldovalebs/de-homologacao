@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equilíbrio Emocional — Agende sua Consulta | Cannabis & Saúde</title>
-  <meta name="description" content="Consulta online com especialista em saúde mental e medicina integrativa. Avaliação individualizada para ansiedade, insônia, estresse e sintomas depressivos. Agende agora." />
+  <meta name="description" content="Consulta online com médico prescritor em saúde mental e medicina integrativa. Avaliação individualizada para ansiedade, insônia, estresse e sintomas depressivos. Agende agora." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -346,12 +346,13 @@
       background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: var(--r);
-      padding: 20px 16px 18px;
+      padding: 0 0 14px;
       transition: var(--ease);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 8px;
+      gap: 0;
+      overflow: hidden;
     }
     .cond-card:hover {
       border-color: var(--accent);
@@ -359,6 +360,9 @@
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(91,127,214,.12);
     }
+    .cond-card .cond-name,
+    .cond-card .cond-desc { padding: 0 14px; }
+    .cond-card .cond-name { margin-top: 12px; }
     .cond-icon-wrap {
       width: 56px; height: 56px;
       background: var(--accent);
@@ -366,12 +370,77 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 4px;
+      margin: 14px 14px 6px;
     }
     .cond-icon-wrap i { width: 28px; height: 28px; color: #fff; }
     .cond-icon-wrap img { width: 51px; height: 51px; object-fit: contain; filter: hue-rotate(50deg); }
+    .cond-icon-wrap.photo {
+      width: 100%; height: 90px;
+      background: none;
+      border-radius: 0;
+      overflow: hidden;
+      margin: 0;
+    }
+    .cond-icon-wrap.photo img { width: 100%; height: 90px; object-fit: cover; object-position: center 20%; filter: none; border-radius: 0; }
     .cond-name { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--dark); }
     .cond-desc { font-size: 0.76rem; color: var(--gray); line-height: 1.55; }
+
+    /* ===== CREDENCIAIS ===== */
+    .cred-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 860px) {
+      .cred-split { grid-template-columns: 1fr; gap: 36px; }
+      .cred-split-img { order: -1; max-height: 320px; }
+      .cred-split-content .sec-title { text-align: center !important; }
+      .cred-split-content .eyebrow { display: block; text-align: center; }
+      .cred-split-content > p { text-align: center; }
+      .cred-split-content > div:last-child { text-align: center; }
+    }
+    .cred-split-img {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .cred-split-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .cred-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .cred-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .cred-icon {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      background: var(--green-light);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cred-icon i { width: 22px; height: 22px; color: var(--green-dark); }
+    .cred-stat {
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+    .cred-label {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
 
     /* ===== VIDEO SECTION ===== */
     #video-sec {
@@ -986,7 +1055,9 @@
       .hero-checks li { font-size: 0.84rem; }
       #trust-bar { padding: 16px 0; }
       .tbar-item { font-size: 0.76rem; }
-      .cond-card { padding: 16px 12px 14px; }
+      .cond-card { padding: 0 0 12px; }
+      .cond-icon-wrap.photo { width: 100%; height: 80px; margin: 0; }
+      .cond-icon-wrap.photo img { height: 80px; }
       .cond-name { font-size: 0.82rem; }
       .steps.steps-3col { grid-template-columns: 1fr !important; gap: 24px; }
       .steps.steps-3col::before { display: none; }
@@ -1152,54 +1223,54 @@
   <div class="container">
     <span class="eyebrow">Você tem vivido algum desses sinais?</span>
     <h2 class="sec-title">Desequilíbrios emocionais têm tratamento!</h2>
-    <p class="sec-sub">Nossos especialistas atendem as principais condições de saúde mental com abordagem integrativa e individualizada.</p>
+    <p class="sec-sub">Nossos médicos prescritores atendem as principais condições de saúde mental com abordagem integrativa e individualizada.</p>
 
     <div class="conds-grid">
 
       <div class="cond-card rv">
-        <div class="cond-icon-wrap"><img src="/LPS/Assets/icons/ansiedade-mental.png" alt="Ansiedade" /></div>
+        <div class="cond-icon-wrap photo"><img src="/LPS/Assets/ansiedade-foto.jpg" alt="Ansiedade" /></div>
         <div class="cond-name">Ansiedade</div>
         <div class="cond-desc">Preocupação excessiva, tensão constante e dificuldade de relaxar</div>
       </div>
 
       <div class="cond-card rv rv-d1">
-        <div class="cond-icon-wrap"><img src="/LPS/Assets/icons/depressao.png" alt="Depressão" /></div>
+        <div class="cond-icon-wrap photo"><img src="/LPS/Assets/sintomas-depressivos-foto.jpg" alt="Sintomas Depressivos" /></div>
         <div class="cond-name">Sintomas Depressivos</div>
         <div class="cond-desc">Tristeza persistente, apatia, falta de energia e perda de interesse</div>
       </div>
 
       <div class="cond-card rv rv-d2">
-        <div class="cond-icon-wrap"><img src="/LPS/Assets/icons/insonia.png" alt="Insônia" /></div>
+        <div class="cond-icon-wrap photo"><img src="/LPS/Assets/insonia-foto.jpg" alt="Insônia" /></div>
         <div class="cond-name">Insônia</div>
         <div class="cond-desc">Dificuldade para dormir, sono interrompido ou não reparador</div>
       </div>
 
       <div class="cond-card rv rv-d3">
-        <div class="cond-icon-wrap"><img src="/LPS/Assets/icons/estresse.png" alt="Estresse" /></div>
+        <div class="cond-icon-wrap photo"><img src="/LPS/Assets/estresse-cronico-foto.jpg" alt="Estresse Crônico" /></div>
         <div class="cond-name">Estresse Crônico</div>
         <div class="cond-desc">Sobrecarga mental e física que impacta a saúde e o bem-estar</div>
       </div>
 
       <div class="cond-card rv">
-        <div class="cond-icon-wrap"><img src="/LPS/Assets/icons/burnout.png" alt="Burnout" /></div>
+        <div class="cond-icon-wrap photo"><img src="/LPS/Assets/burnout-foto.jpg" alt="Burnout" /></div>
         <div class="cond-name">Burnout</div>
         <div class="cond-desc">Esgotamento total por sobrecarga profissional ou emocional</div>
       </div>
 
       <div class="cond-card rv rv-d1">
-        <div class="cond-icon-wrap"><img src="/LPS/Assets/icons/panico.png" alt="Síndrome do Pânico" /></div>
+        <div class="cond-icon-wrap photo"><img src="/LPS/Assets/sindrome-panico-foto.jpg" alt="Síndrome do Pânico" /></div>
         <div class="cond-name">Síndrome do Pânico</div>
         <div class="cond-desc">Crises de ansiedade intensa com sintomas físicos súbitos</div>
       </div>
 
       <div class="cond-card rv rv-d2">
-        <div class="cond-icon-wrap"><img src="/LPS/Assets/icons/traumatico.png" alt="Estresse Pós-Traumático" /></div>
+        <div class="cond-icon-wrap photo"><img src="/LPS/Assets/estresse-pos-traumatico-foto.jpg" alt="Estresse Pós-Traumático" /></div>
         <div class="cond-name">Estresse Pós-Traumático</div>
         <div class="cond-desc">Memórias intrusivas, hipervigilância e dificuldade de seguir em frente</div>
       </div>
 
       <div class="cond-card rv rv-d3">
-        <div class="cond-icon-wrap"><img src="/LPS/Assets/icons/sono.png" alt="Distúrbios do Sono" /></div>
+        <div class="cond-icon-wrap photo"><img src="/LPS/Assets/disturbios-sono-foto.jpg" alt="Distúrbios do Sono" /></div>
         <div class="cond-name">Distúrbios do Sono</div>
         <div class="cond-desc">Alterações no padrão de sono que afetam humor, memória e disposição</div>
       </div>
@@ -1213,61 +1284,57 @@
 </section>
 
 <!-- ================================================================
-     AUTORIDADE — 4 médicos
+     AUTORIDADE — Credenciais médicas
 ================================================================ -->
 <section id="autoridade" class="section">
-  <div class="container tc">
-    <span class="eyebrow">Especialistas</span>
-    <h2 class="sec-title">Conheça os médicos</h2>
-    <p class="sec-sub" style="margin:0 auto">Médicos registrados, com experiência em saúde mental e medicina integrativa, prontos para te atender online.</p>
+  <div class="container">
+    <div class="cred-split rv">
 
-    <div class="doctors-grid">
-
-      <div class="doc-card rv">
-        <div class="doc-card-photo">
-          <img src="/LPS/Assets/doctor-placeholder.png" alt="Médico especialista" />
-        </div>
-        <div class="doc-card-name">Dr. [Nome Placeholder]</div>
-        <div class="doc-card-spec">Psiquiatria · Medicina Integrativa</div>
-        <div class="doc-card-crm">CRM-SP XXXXX | RQE: XXXXX</div>
-        <div class="doc-card-location"><i data-lucide="map-pin"></i> São Paulo, SP</div>
+      <div class="cred-split-img">
+        <img src="/LPS/Assets/advice-doctor-and-patient-holding-hands-in-office-2026-01-09-11-46-12-utc.jpg" alt="Médico prescritor em consulta com paciente" />
       </div>
 
-      <div class="doc-card rv rv-d1">
-        <div class="doc-card-photo">
-          <img src="/LPS/Assets/doctor-placeholder.png" alt="Médico especialista" />
+      <div class="cred-split-content">
+        <span class="eyebrow">Quem vai te atender</span>
+        <h2 class="sec-title" style="text-align:left;">Médicos reais.<br>Credenciais verificadas.</h2>
+        <p style="font-size:0.9rem;color:var(--gray);line-height:1.7;margin-bottom:28px;">Todos os médicos da Cannabis &amp; Saúde são registrados no CFM, possuem CRM ativo e RQE específico em medicina integrativa e uso terapêutico de canabinoides.</p>
+
+        <div class="cred-list">
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="shield-check"></i></div>
+            <div>
+              <div class="cred-stat">CRM + RQE ativos</div>
+              <div class="cred-label">Registro ativo no Conselho Regional de Medicina e Registro de Qualificação de Especialidade</div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="brain"></i></div>
+            <div>
+              <div class="cred-stat">Médicos com foco em saúde mental</div>
+              <div class="cred-label">Formação em psiquiatria, neurologia e medicina integrativa</div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="video"></i></div>
+            <div>
+              <div class="cred-stat">Telemedicina regulamentada</div>
+              <div class="cred-label">Autorizado pela resolução CFM nº 2.314/2022, com validade jurídica plena</div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="file-check-2"></i></div>
+            <div>
+              <div class="cred-stat">Prescrição com validade legal</div>
+              <div class="cred-label">Assinatura digital ICP-Brasil, válida em todo o território nacional</div>
+            </div>
+          </div>
         </div>
-        <div class="doc-card-name">Dra. [Nome Placeholder]</div>
-        <div class="doc-card-spec">Saúde Mental · Medicina Integrativa</div>
-        <div class="doc-card-crm">CRM-SP XXXXX | RQE: XXXXX</div>
-        <div class="doc-card-location"><i data-lucide="map-pin"></i> Rio de Janeiro, RJ</div>
+
+        <div style="margin-top:32px;">
+          <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Agende sua Consulta</a>
+        </div>
       </div>
 
-      <div class="doc-card rv rv-d2">
-        <div class="doc-card-photo">
-          <img src="/LPS/Assets/doctor-placeholder.png" alt="Médico especialista" />
-        </div>
-        <div class="doc-card-name">Dra. [Nome Placeholder]</div>
-        <div class="doc-card-spec">Neurologia · Saúde Mental</div>
-        <div class="doc-card-crm">CRM-MG XXXXX | RQE: XXXXX</div>
-        <div class="doc-card-location"><i data-lucide="map-pin"></i> Belo Horizonte, MG</div>
-      </div>
-
-      <div class="doc-card rv rv-d3">
-        <div class="doc-card-photo">
-          <img src="/LPS/Assets/doctor-placeholder.png" alt="Médico especialista" />
-        </div>
-        <div class="doc-card-name">Dr. [Nome Placeholder]</div>
-        <div class="doc-card-spec">Psiquiatria · Terapia Integrativa</div>
-        <div class="doc-card-crm">CRM-RS XXXXX | RQE: XXXXX</div>
-        <div class="doc-card-location"><i data-lucide="map-pin"></i> Porto Alegre, RS</div>
-      </div>
-
-    </div>
-
-    <div class="autoridade-cta rv">
-      <p>Nós selecionamos o melhor médico conforme sua necessidade e disponibilidade. Estes e outros especialistas estão à disposição para te atender.</p>
-      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Agende sua Consulta</a>
     </div>
   </div>
 </section>
@@ -1581,7 +1648,7 @@
           Quais condições de saúde mental vocês tratam?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Nossos especialistas atendem: ansiedade, sintomas depressivos, insônia, estresse crônico, burnout, síndrome do pânico, estresse pós-traumático e distúrbios do sono. Se a sua condição não está na lista, entre em contato — avaliamos cada caso individualmente.</div>
+        <div class="faq-a">Nossos médicos prescritores atendem: ansiedade, sintomas depressivos, insônia, estresse crônico, burnout, síndrome do pânico, estresse pós-traumático e distúrbios do sono. Se a sua condição não está na lista, entre em contato — avaliamos cada caso individualmente.</div>
       </div>
 
       <div class="faq-item">
