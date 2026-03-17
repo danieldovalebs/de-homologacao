@@ -5,6 +5,8 @@
     { "source": "/dor-cronica/index.html", "destination": "/LPS/dor-cronica/index.html" },
     { "source": "/equilibrio-emocional", "destination": "/LPS/equilibrio-emocional/index.html" },
     { "source": "/equilibrio-emocional/index.html", "destination": "/LPS/equilibrio-emocional/index.html" },
+    { "source": "/condicoes-neurologicas", "destination": "/LPS/condicoes-neurologicas/index.html" },
+    { "source": "/condicoes-neurologicas/index.html", "destination": "/LPS/condicoes-neurologicas/index.html" },
     { "source": "/obrigado", "destination": "/LPS/obrigado/index.html" },
     { "source": "/obrigado/index.html", "destination": "/LPS/obrigado/index.html" }
   ]
