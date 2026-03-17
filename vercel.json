@@ -7,6 +7,8 @@
     { "source": "/equilibrio-emocional/index.html", "destination": "/LPS/equilibrio-emocional/index.html" },
     { "source": "/condicoes-neurologicas", "destination": "/LPS/condicoes-neurologicas/index.html" },
     { "source": "/condicoes-neurologicas/index.html", "destination": "/LPS/condicoes-neurologicas/index.html" },
+    { "source": "/neurodesenvolvimento", "destination": "/LPS/neurodesenvolvimento/index.html" },
+    { "source": "/neurodesenvolvimento/index.html", "destination": "/LPS/neurodesenvolvimento/index.html" },
     { "source": "/obrigado", "destination": "/LPS/obrigado/index.html" },
     { "source": "/obrigado/index.html", "destination": "/LPS/obrigado/index.html" }
   ]

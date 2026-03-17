@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autismo e TDAH têm Acompanhamento — Agende sua Consulta | Cannabis & Saúde</title>
+  <meta name="description" content="Consulta online com médico prescritor para Autismo (TEA) e TDAH. Hiperatividade, irritabilidade, distúrbios de sono e ansiedade: acompanhamento individualizado com medicina integrativa. Agende agora." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* ============================================================
+       TOKENS
+    ============================================================ */
+    :root {
+      --orange:       #F07A28;
+      --orange-dark:  #d4661a;
+      --green:        #9B59B6;
+      --green-dark:   #7D3C98;
+      --green-deeper: #6C3483;
+      --green-light:  #F0E6F7;
+      --green-xlight: #FAF5FF;
+      --dark:         #2F2B2C;
+      --dark-60:      rgba(47,43,44,0.6);
+      --gray:         #6b7280;
+      --gray-light:   #f7f9f8;
+      --border:       #dde8e2;
+      --white:        #ffffff;
+      --pill:         27px;
+      --r:            10px;
+      --r-lg:         18px;
+      --ease:         0.22s cubic-bezier(.4,0,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Gabarito', sans-serif;
+      line-height: 1.15;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section     { padding: 80px 0; }
+    .section-alt { background: var(--gray-light); }
+    .section-green { background: var(--green-light); }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+
+    .sec-title {
+      font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+
+    .sec-sub {
+      font-size: 0.94rem;
+      color: var(--gray);
+      line-height: 1.8;
+      max-width: 540px;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 11px 22px;
+      border-radius: var(--pill);
+      transition: var(--ease);
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--orange-dark); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--green-dark);
+      border: 2px solid var(--green);
+    }
+    .btn-ghost:hover { background: var(--green-light); }
+    .btn-lg   { padding: 14px 30px; font-size: 1rem; }
+    .btn-full { width: 100%; }
+    .mt16 { margin-top: 16px; }
+    .tc { text-align: center; }
+    .tc .sec-sub { margin: 0 auto 32px; }
+
+    /* ===== NAVBAR ===== */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 900;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    #nav.up { box-shadow: 0 2px 16px rgba(0,0,0,.07); }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo img { height: 36px; }
+
+    /* ===== HERO ===== */
+    #hero {
+      padding: 112px 0 60px;
+      background: var(--white);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: var(--pill);
+      margin-bottom: 18px;
+    }
+    .pulse {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 1.6s ease infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .5; transform: scale(1.3); }
+    }
+    .hero-title {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 18px;
+      line-height: 1.1;
+    }
+    .hero-title em { font-style: normal; color: var(--green-dark); }
+    .hero-sub {
+      font-size: 0.97rem;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .hero-checks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .hero-checks li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--dark);
+    }
+    .chk {
+      width: 20px; height: 20px;
+      background: var(--green-light);
+      border: 1.5px solid var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .chk i { width: 11px; height: 11px; color: var(--green-dark); }
+    .hero-trust {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      color: var(--gray);
+    }
+    .trust-item i { width: 13px; height: 13px; color: var(--green-dark); }
+
+    /* hero image */
+    .hero-img-col { position: relative; }
+    .hero-img-wrap {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      position: relative;
+      background: var(--green-light);
+    }
+    .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.7s ease; }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-dots {
+      position: absolute;
+      bottom: 16px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; gap: 6px; z-index: 10;
+    }
+    .hero-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.5);
+      cursor: pointer; transition: var(--ease);
+    }
+    .hero-dot.active { background: #fff; transform: scale(1.2); }
+    .hero-img-badge {
+      position: absolute;
+      bottom: -20px; left: -16px;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.1);
+      z-index: 10;
+    }
+    .badge-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--green-light);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .badge-icon i { width: 18px; height: 18px; color: var(--green-dark); }
+    .badge-text-top { font-family: 'Gabarito', sans-serif; font-weight: 800; font-size: 0.85rem; }
+    .badge-text-bot { font-size: 0.68rem; color: var(--gray); }
+    .hero-badge-patients { left: auto; right: -16px; bottom: 80px; }
+
+    /* ===== TRUST BAR ===== */
+    #trust-bar {
+      background: var(--green-dark);
+      padding: 14px 0;
+      overflow: hidden;
+    }
+    .trust-bar-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 28px;
+    }
+    .tbar-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.9);
+      white-space: nowrap;
+    }
+    .tbar-item i { width: 18px; height: 18px; color: var(--green-dark); }
+
+    /* ===== CONDITIONS GRID ===== */
+    .conds-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin: 36px 0 40px;
+    }
+    .cond-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 0 0 14px;
+      transition: var(--ease);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      overflow: hidden;
+    }
+    .cond-card:hover {
+      border-color: var(--green);
+      background: var(--green-xlight);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(155,89,182,.12);
+    }
+    .cond-card .cond-name,
+    .cond-card .cond-desc { padding: 0 14px; }
+    .cond-card .cond-name { margin-top: 12px; }
+    .cond-icon-wrap {
+      width: 56px; height: 56px;
+      background: var(--green);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 14px 14px 6px;
+    }
+    .cond-icon-wrap i { width: 26px; height: 26px; color: #fff; }
+    .cond-icon-wrap img { width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1); }
+    .cond-icon-wrap.photo {
+      width: 100%; height: 140px;
+      background: none;
+      border-radius: 0;
+      overflow: hidden;
+      margin: 0;
+    }
+    .cond-icon-wrap.photo img { width: 100%; height: 140px; object-fit: cover; filter: none; border-radius: 0; }
+    .cond-name { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--dark); }
+    .cond-desc { font-size: 0.76rem; color: var(--gray); line-height: 1.55; }
+
+    /* ===== CREDENCIAIS ===== */
+    .cred-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .cred-split-img {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .cred-split-img img { width: 100%; height: 100%; object-fit: cover; }
+    .cred-split-content { display: flex; flex-direction: column; }
+    .cred-list { display: flex; flex-direction: column; gap: 20px; }
+    .cred-item { display: flex; align-items: flex-start; gap: 14px; }
+    .cred-icon {
+      width: 42px; height: 42px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cred-icon i { width: 22px; height: 22px; color: var(--green-dark); }
+    .cred-stat { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--dark); margin-bottom: 2px; }
+    .cred-label { font-size: 0.78rem; color: var(--gray); line-height: 1.55; }
+
+    /* ===== VIDEO SECTION ===== */
+    #video-sec {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0;
+      background: #0d0d0d;
+    }
+    .vid-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+    }
+    .vid-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(108,52,131,.55) 0%, rgba(13,13,13,.7) 100%);
+    }
+    .video-sec-inner { position: relative; z-index: 2; max-width: 640px; }
+    .video-copy .eyebrow { color: var(--green); }
+    .video-copy .sec-title { color: #fff; }
+    .video-copy .sec-sub { color: rgba(255,255,255,.78); max-width: 100%; }
+    .video-copy .sec-sub strong { color: var(--green); font-weight: 700; }
+
+    /* ===== ABORDAGEM ===== */
+    .abord-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .abord-title {
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .abord-text {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .abord-text strong { color: var(--dark); }
+    .abord-photo {
+      margin-top: 28px;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      position: relative;
+    }
+    .abord-photo img { width: 100%; max-height: 280px; object-fit: cover; }
+    .abord-photo-tag {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      background: rgba(255,255,255,.95);
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .abord-photo-tag i { width: 14px; height: 14px; color: var(--green-dark); }
+    .abord-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .abord-card {
+      background: var(--green-dark);
+      border-radius: var(--r-lg);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .abord-card:hover { background: var(--green-deeper); transform: translateY(-3px); }
+    .abord-card-icon i { width: 24px; height: 24px; color: rgba(255,255,255,.85); }
+    .abord-card-label {
+      font-family: 'Gabarito', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    /* ===== STEPS ===== */
+    .steps {
+      display: grid;
+      gap: 32px;
+      margin: 48px 0 36px;
+      text-align: left;
+    }
+    .steps-3col { grid-template-columns: repeat(3, 1fr); }
+    .step { position: relative; }
+    .step-num {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: repeating-linear-gradient(90deg, var(--green) 0, var(--green) 8px, transparent 8px, transparent 14px);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 900; font-size: 1.2rem;
+      color: var(--white);
+      margin: 0 auto 16px;
+      box-shadow: 0 0 0 4px var(--green-light);
+    }
+    .step-title {
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      color: var(--dark); margin-bottom: 8px;
+      text-align: center;
+    }
+    .step-desc {
+      font-size: 0.84rem;
+      color: var(--gray);
+      line-height: 1.65;
+      text-align: center;
+    }
+    .step-desc strong { color: var(--dark); }
+
+    /* ===== DEPOIMENTOS ===== */
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .stars { color: #f59e0b; font-size: 1.1rem; letter-spacing: 2px; }
+    .rating-num { font-family: 'Gabarito', sans-serif; font-weight: 800; font-size: 1rem; }
+    .rating-label { font-size: 0.8rem; color: var(--gray); }
+    .testi-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 40px;
+      background: var(--green-xlight);
+      border-radius: var(--r-lg);
+      padding: 24px 20px;
+    }
+    .testi-stat {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 4px;
+      border-right: 1px solid var(--border);
+    }
+    .testi-stat:last-child { border-right: none; }
+    .testi-stat-accent { background: none; }
+    .testi-stat strong { font-family: 'Gabarito', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--green-dark); }
+    .testi-stat span { font-size: 0.72rem; color: var(--gray); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testi-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px 20px 20px;
+    }
+    .testi-quote {
+      font-size: 0.86rem;
+      color: var(--dark);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .testi-quote::before { content: '\201C'; }
+    .testi-quote::after  { content: '\201D'; }
+    .testi-footer { display: flex; flex-direction: column; gap: 2px; }
+    .testi-name { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.85rem; }
+    .testi-problem { font-size: 0.75rem; color: var(--green-dark); font-weight: 600; }
+
+    /* ===== FORMULÁRIO ===== */
+    #form-sec { background: var(--green-light); padding: 80px 0; }
+    .form-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 48px 40px;
+      max-width: 680px;
+      margin: 0 auto;
+      box-shadow: 0 8px 40px rgba(155,89,182,.1);
+    }
+    .form-header { text-align: center; margin-bottom: 36px; }
+    .form-header .sec-title { margin-bottom: 8px; }
+    .form-header .sec-sub { margin: 0 auto 14px; }
+    .form-horario {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--gray);
+      background: var(--gray-light);
+      padding: 6px 14px;
+      border-radius: var(--pill);
+    }
+    .form-horario i { width: 13px; height: 13px; color: var(--green-dark); }
+    .fgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .fgroup { display: flex; flex-direction: column; gap: 6px; }
+    .fcol2 { grid-column: span 2; }
+    .flabel { font-size: 0.78rem; font-weight: 600; color: var(--dark); }
+    .finput {
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      font-size: 0.88rem;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      transition: var(--ease);
+      appearance: none;
+    }
+    .finput:focus { outline: none; border-color: var(--green); background: var(--white); }
+    .form-urgency {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--orange-dark);
+      font-weight: 600;
+      margin: 18px 0 8px;
+    }
+    .form-urgency i { width: 16px; height: 16px; }
+    .form-submit { margin-top: 8px; }
+    .form-secure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 0.73rem;
+      color: var(--gray);
+      margin-top: 10px;
+    }
+    .form-secure i { width: 13px; height: 13px; color: var(--green-dark); }
+
+    /* ===== FAQ ===== */
+    .faq-list { max-width: 720px; margin: 36px auto 36px; text-align: left; }
+    .faq-item {
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: var(--ease);
+    }
+    .faq-item.open { border-color: var(--green); background: var(--white); }
+    .faq-q {
+      padding: 16px 18px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
+    }
+    .faq-item.open .faq-q { color: var(--green-dark); }
+    .faq-chevron { flex-shrink: 0; transition: transform var(--ease); }
+    .faq-chevron i { width: 16px; height: 16px; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      font-size: 0.84rem;
+      color: var(--gray);
+      line-height: 1.7;
+      padding: 0 18px;
+      transition: max-height 0.35s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-a {
+      max-height: 400px;
+      padding: 0 18px 16px;
+      border-color: var(--green);
+      color: var(--dark);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      padding: 48px 0 28px;
+    }
+    .foot-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+    .foot-logo img { height: 36px; filter: brightness(0) invert(1); }
+    .foot-tagline { font-size: 0.8rem; color: rgba(255,255,255,.55); }
+    .foot-links { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .foot-links a { font-size: 0.78rem; color: rgba(255,255,255,.55); transition: var(--ease); }
+    .foot-links a:hover { color: var(--green); }
+    .foot-line { width: 60px; height: 1px; background: rgba(255,255,255,.12); }
+    .foot-disclaimer {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,.35);
+      line-height: 1.7;
+      max-width: 620px;
+    }
+    .foot-copy { font-size: 0.72rem; color: rgba(255,255,255,.35); }
+
+    /* ===== CHAT BALLOON ===== */
+    .chat-balloon {
+      position: fixed;
+      bottom: 90px; right: 24px;
+      z-index: 800;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      cursor: pointer;
+      animation: floatIn 0.5s ease 3s both;
+    }
+    @keyframes floatIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .chat-balloon.hidden { display: none; }
+    .chat-bubble {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 14px 14px 0 14px;
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      color: var(--dark);
+      line-height: 1.5;
+      max-width: 220px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.1);
+      position: relative;
+    }
+    .chat-bubble strong { color: var(--green-dark); }
+    .chat-close {
+      position: absolute; top: 4px; right: 8px;
+      background: none; border: none; font-size: 0.9rem;
+      color: var(--gray); cursor: pointer; line-height: 1;
+    }
+    .chat-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--green);
+      position: relative;
+    }
+    .chat-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .chat-dot {
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      background: #22c55e;
+      border: 2px solid #fff;
+      position: absolute;
+      bottom: 1px; right: 1px;
+    }
+
+    /* ===== SOCIAL PROOF TOAST ===== */
+    .sp-toast {
+      position: fixed;
+      bottom: 100px; left: 24px;
+      z-index: 800;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.12);
+      border-left: 4px solid var(--green-dark);
+      transform: translateX(-140%);
+      transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+      cursor: pointer;
+      max-width: 270px;
+    }
+    .sp-toast.show { transform: translateX(0); }
+    .sp-toast-icon { flex-shrink: 0; }
+    .sp-toast-icon i { width: 18px; height: 18px; color: var(--green-dark); }
+    .sp-toast-main { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.82rem; color: var(--dark); }
+    .sp-toast-sub { font-size: 0.7rem; color: var(--gray); }
+    .sp-toast-pulse {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      flex-shrink: 0;
+      animation: pulse 1.6s ease infinite;
+    }
+
+    /* ===== MOBILE STICKY ===== */
+    .mob-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      padding: 12px 16px;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      z-index: 850;
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .rv { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .rv.in { opacity: 1; transform: translateY(0); }
+    .rv-d1 { transition-delay: 0.1s; }
+    .rv-d2 { transition-delay: 0.2s; }
+    .rv-d3 { transition-delay: 0.3s; }
+    .rv-d4 { transition-delay: 0.4s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-img-col { display: none; }
+      .conds-grid { grid-template-columns: repeat(2, 1fr); }
+      .cred-split { grid-template-columns: 1fr; }
+      .cred-split-img { display: none; }
+      .abord-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .testi-stats { grid-template-columns: repeat(2, 1fr); }
+      .steps-3col { grid-template-columns: 1fr; }
+      .mob-bar { display: block; }
+      .cond-icon-wrap { width: 48px; height: 48px; margin: 12px 12px 6px; }
+      .cond-icon-wrap img { width: 26px; height: 26px; }
+      .cond-icon-wrap.photo { width: 100%; height: 110px; margin: 0; }
+      .cond-icon-wrap.photo img { height: 110px; }
+    }
+    @media (max-width: 640px) {
+      .section { padding: 56px 0; }
+      #hero { padding: 90px 0 48px; }
+      .conds-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .fgrid { grid-template-columns: 1fr; }
+      .fcol2 { grid-column: span 1; }
+      .form-card { padding: 32px 20px; }
+      .abord-cards { grid-template-columns: 1fr; }
+      .cond-icon-wrap { width: 42px; height: 42px; border-radius: 9px; }
+      .cond-icon-wrap img { width: 22px; height: 22px; }
+      .cond-icon-wrap.photo { height: 110px; }
+      .cond-icon-wrap.photo img { height: 110px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+     NAVBAR
+================================================================ -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-wrap">
+      <a href="#" class="nav-logo">
+        <img src="/LPS/Assets/logo-consulta-cs.webp" alt="Consulta C&S" />
+      </a>
+      <a href="#form-sec" class="btn btn-primary">Solicitar Consulta</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================================================================
+     HERO
+================================================================ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Copy -->
+      <div>
+        <div class="hero-tag">
+          <span class="pulse"></span>
+          Consulta Online Disponível
+        </div>
+        <h1 class="hero-title">
+          Seu filho não é difícil.<br/>
+          Ele precisa de um<br/>
+          <em>cuidado diferente.</em>
+        </h1>
+        <p class="hero-sub">
+          Autismo (TEA) e TDAH impactam a rotina, a aprendizagem e o bem-estar da família inteira.
+          Com acompanhamento médico qualificado, é possível reduzir sintomas, melhorar o comportamento e devolver qualidade de vida para todos.
+        </p>
+        <ul class="hero-checks">
+          <li>
+            <span class="chk"><i data-lucide="check"></i></span>
+            Médicos prescritores com foco em neurodesenvolvimento
+          </li>
+          <li>
+            <span class="chk"><i data-lucide="check"></i></span>
+            Plano individualizado para cada perfil — criança, adolescente ou adulto
+          </li>
+          <li>
+            <span class="chk"><i data-lucide="check"></i></span>
+            Agendamento rápido e 100% online — sem sair de casa
+          </li>
+          <li>
+            <span class="chk"><i data-lucide="check"></i></span>
+            Abordagem humanizada — confirmação em até 2h
+          </li>
+        </ul>
+        <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Solicitar Consulta</a>
+        <div class="hero-trust">
+          <span class="trust-item"><i data-lucide="shield-check"></i> Consulta Segura</span>
+          <span class="trust-item"><i data-lucide="star"></i> Médicos Verificados</span>
+          <span class="trust-item"><i data-lucide="file-text"></i> CRM Registrado</span>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="hero-img-col">
+        <div class="hero-img-wrap" id="heroSlider">
+          <div class="hero-slide active">
+            <img src="/LPS/Assets/happy-black-pediatrician-in-her-office-looking-at-2026-03-16-03-29-26-utc.jpg" alt="Médica pediatra em consulta" style="object-position:center 20%;" loading="eager" />
+          </div>
+          <div class="hero-slide">
+            <img src="/LPS/Assets/advice-doctor-and-patient-holding-hands-in-office-2026-01-09-11-46-12-utc.jpg" alt="Médico prescritor com paciente" style="object-position:center 30%;" loading="lazy" />
+          </div>
+          <div class="hero-slide">
+            <img src="/LPS/Assets/patient-with-a-doctor-in-medical-office-2026-01-07-05-59-49-utc.jpg" alt="Consulta médica online" style="object-position:center 20%;" loading="lazy" />
+          </div>
+          <div class="hero-dots">
+            <div class="hero-dot active" onclick="goSlide(0)"></div>
+            <div class="hero-dot" onclick="goSlide(1)"></div>
+            <div class="hero-dot" onclick="goSlide(2)"></div>
+          </div>
+        </div>
+        <div class="hero-img-badge hero-badge-price">
+          <div class="badge-icon" style="background:#fff3ea;">
+            <i data-lucide="circle-dollar-sign" style="color:var(--orange);"></i>
+          </div>
+          <div>
+            <div class="badge-text-top" style="color:var(--orange);">Apenas R$ 200</div>
+            <div class="badge-text-bot">por consulta · particular</div>
+          </div>
+        </div>
+        <div class="hero-img-badge hero-badge-patients" style="left:auto; right:-16px;">
+          <div class="badge-icon"><i data-lucide="users"></i></div>
+          <div>
+            <div class="badge-text-top">+10 mil pacientes</div>
+            <div class="badge-text-bot">atendidos com sucesso</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     TRUST BAR
+================================================================ -->
+<div id="trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <span class="tbar-item"><i data-lucide="monitor"></i> Telemedicina em todo o Brasil</span>
+      <span class="tbar-item"><i data-lucide="users"></i> +30 mil consultas agendadas</span>
+      <span class="tbar-item"><i data-lucide="credit-card"></i> A partir de R$ 200</span>
+      <span class="tbar-item"><i data-lucide="badge-check"></i> Médicos verificados e registrados</span>
+      <span class="tbar-item"><i data-lucide="clock"></i> Confirmação em até 2 horas</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     PARA QUEM É
+================================================================ -->
+<section id="para-quem" class="section section-alt">
+  <div class="container">
+    <span class="eyebrow">Indicações</span>
+    <h2 class="sec-title">Distúrbios de neurodesenvolvimento têm acompanhamento!</h2>
+    <p class="sec-sub">Nosso médico prescritor atende Autismo (TEA) e TDAH em todas as faixas etárias, com abordagem integrativa, humanizada e adaptada a cada perfil.</p>
+
+    <div class="conds-grid">
+
+      <!-- Autismo TEA -->
+      <div class="cond-card rv">
+        <div class="cond-icon-wrap">
+          <i data-lucide="puzzle"></i>
+        </div>
+        <div class="cond-name">Autismo (TEA)</div>
+        <div class="cond-desc">Transtorno do Espectro Autista: dificuldades de comunicação, interação social e comportamentos repetitivos que impactam o desenvolvimento e a rotina familiar</div>
+      </div>
+
+      <!-- TDAH -->
+      <div class="cond-card rv rv-d1">
+        <div class="cond-icon-wrap">
+          <i data-lucide="zap"></i>
+        </div>
+        <div class="cond-name">TDAH</div>
+        <div class="cond-desc">Transtorno do Déficit de Atenção com Hiperatividade: desatenção, impulsividade e dificuldade de concentração que afetam o aprendizado, trabalho e relacionamentos</div>
+      </div>
+
+      <!-- Hiperatividade & Irritabilidade -->
+      <div class="cond-card rv rv-d2">
+        <div class="cond-icon-wrap">
+          <i data-lucide="activity"></i>
+        </div>
+        <div class="cond-name">Hiperatividade & Irritabilidade</div>
+        <div class="cond-desc">Agitação excessiva, crises de raiva, baixa tolerância à frustração e comportamentos desafiadores associados ao TEA e TDAH</div>
+      </div>
+
+      <!-- Sono & Ansiedade -->
+      <div class="cond-card rv rv-d3">
+        <div class="cond-icon-wrap">
+          <i data-lucide="moon"></i>
+        </div>
+        <div class="cond-name">Sono & Ansiedade</div>
+        <div class="cond-desc">Distúrbios de sono, dificuldade para adormecer, ansiedade e hipersensibilidade sensorial frequentemente associadas ao autismo e ao TDAH</div>
+      </div>
+
+    </div>
+
+    <div class="tc">
+      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Quero Agendar Minha Avaliação</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     AUTORIDADE — Credenciais médicas
+================================================================ -->
+<section id="autoridade" class="section">
+  <div class="container">
+    <div class="cred-split rv">
+
+      <div class="cred-split-img">
+        <img src="/LPS/Assets/advice-doctor-and-patient-holding-hands-in-office-2026-01-09-11-46-12-utc.jpg" alt="Médico prescritor em consulta" />
+      </div>
+
+      <div class="cred-split-content">
+        <span class="eyebrow">Quem vai te atender</span>
+        <h2 class="sec-title" style="text-align:left;">Médicos reais.<br>Credenciais verificadas.</h2>
+        <p style="font-size:0.9rem;color:var(--gray);line-height:1.7;margin-bottom:28px;">Todos os médicos da Cannabis &amp; Saúde são registrados no CFM, possuem CRM ativo e RQE específico em medicina integrativa e uso terapêutico de canabinoides.</p>
+
+        <div class="cred-list">
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="shield-check"></i></div>
+            <div>
+              <div class="cred-stat">CRM + RQE ativos</div>
+              <div class="cred-label">Registro ativo no Conselho Regional de Medicina e Registro de Qualificação de Especialidade</div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="brain"></i></div>
+            <div>
+              <div class="cred-stat">Médicos com foco em neurodesenvolvimento</div>
+              <div class="cred-label">Formação em neuropediatria e medicina integrativa — diretamente relacionada ao acompanhamento de TEA e TDAH</div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="video"></i></div>
+            <div>
+              <div class="cred-stat">Telemedicina regulamentada</div>
+              <div class="cred-label">Autorizado pela resolução CFM nº 2.314/2022, com validade jurídica plena</div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="file-check-2"></i></div>
+            <div>
+              <div class="cred-stat">Prescrição com validade legal</div>
+              <div class="cred-label">Assinatura digital ICP-Brasil, válida em todo o território nacional</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:32px;">
+          <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Agende sua Consulta</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     VÍDEO — Background
+================================================================ -->
+<section id="video-sec">
+  <video class="vid-bg" autoplay muted loop playsinline preload="auto">
+    <source src="https://www.cannabisesaude.com.br/wp-content/uploads/2025/12/CS-1.mp4" type="video/mp4" />
+  </video>
+  <div class="vid-overlay"></div>
+
+  <div class="container">
+    <div class="video-sec-inner">
+      <div class="video-copy">
+        <span class="eyebrow">Você não está sozinho</span>
+        <h2 class="sec-title">Um diagnóstico não define o futuro do <span style="white-space:nowrap">seu filho</span></h2>
+        <p class="sec-sub">
+          Com o <strong>acompanhamento médico certo</strong>, é possível reduzir crises, melhorar a comunicação, o sono e a qualidade de vida — tanto para a criança quanto para toda a família.
+        </p>
+        <a href="#form-sec" class="btn btn-primary mt16" style="display:inline-block;">Solicitar Consulta →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ABORDAGEM — copy + 4 cards
+================================================================ -->
+<section id="abordagem" class="section section-alt">
+  <div class="container">
+    <div class="abord-grid">
+
+      <!-- Esquerda: copy -->
+      <div class="abord-copy rv">
+        <span class="eyebrow">Nossa abordagem</span>
+        <h2 class="abord-title">Médicos prescritores com foco em neurodesenvolvimento e medicina integrativa</h2>
+        <p class="abord-text">
+          O diagnóstico de autismo ou TDAH pode ser o ponto de partida para uma nova qualidade de vida. Com acompanhamento médico qualificado, é possível reduzir sintomas, melhorar o comportamento e devolver à família mais segurança e autonomia no dia a dia.
+        </p>
+        <p class="abord-text">
+          Nossos médicos prescritores utilizam <strong>terapias naturais regulamentadas</strong> e práticas de medicina integrativa, com foco em <strong>tratamentos com extratos de plantas medicinais</strong> reconhecidos pela Anvisa — seguros, individualizados e adaptados para cada perfil neurodivergente.
+        </p>
+        <p class="abord-text">
+          Atendimento 100% online, humanizado e personalizado para crianças, adolescentes e adultos.
+        </p>
+        <div class="abord-photo rv">
+          <img src="/LPS/Assets/variety-of-herbs-and-dropper-on-blur-background-2026-01-06-10-58-24-utc.jpg"
+               alt="Óleo natural para TEA e TDAH regulamentado pela Anvisa" />
+          <div class="abord-photo-tag">
+            <i data-lucide="leaf"></i>
+            Terapia com óleo natural regulamentada pela Anvisa
+          </div>
+        </div>
+      </div>
+
+      <!-- Direita: 4 cards -->
+      <div class="abord-cards">
+        <div class="abord-card rv rv-d1">
+          <div class="abord-card-icon"><i data-lucide="stethoscope"></i></div>
+          <div class="abord-card-label">Médicos qualificados e comprometidos</div>
+        </div>
+        <div class="abord-card rv rv-d2">
+          <div class="abord-card-icon"><i data-lucide="heart-handshake"></i></div>
+          <div class="abord-card-label">Abordagem humanizada e acolhedora</div>
+        </div>
+        <div class="abord-card rv rv-d3">
+          <div class="abord-card-icon"><i data-lucide="users"></i></div>
+          <div class="abord-card-label">Orientação completa para pais e cuidadores</div>
+        </div>
+        <div class="abord-card rv rv-d4">
+          <div class="abord-card-icon"><i data-lucide="puzzle"></i></div>
+          <div class="abord-card-label">Plano adaptado ao perfil neurodivergente</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     COMO FUNCIONA
+================================================================ -->
+<section id="como" class="section section-alt">
+  <div class="container tc">
+    <span class="eyebrow">Processo</span>
+    <h2 class="sec-title">Acompanhamento médico em 3 passos simples</h2>
+    <p class="sec-sub" style="margin:0 auto">Cuidar bem começa com o médico certo. E ficou mais fácil do que você imagina.</p>
+
+    <div class="steps steps-3col">
+      <div class="step rv">
+        <div class="step-num">1</div>
+        <div class="step-title">Solicite seu pré-agendamento</div>
+        <div class="step-desc"><strong>Preencha um formulário rápido com seus dados e a condição principal.</strong> Nossa equipe vai entender o caso e direcionar para o médico ideal.</div>
+      </div>
+      <div class="step rv rv-d1">
+        <div class="step-num">2</div>
+        <div class="step-title">Encaminhamento personalizado</div>
+        <div class="step-desc"><strong>Selecionamos o médico prescritor mais qualificado para o perfil do paciente,</strong> garantindo um atendimento seguro, empático e direcionado.</div>
+      </div>
+      <div class="step rv rv-d2">
+        <div class="step-num">3</div>
+        <div class="step-title">Consulta 100% online</div>
+        <div class="step-desc"><strong>Converse com um médico no conforto da sua casa, por videoconferência.</strong> O pagamento é feito diretamente ao consultório.</div>
+      </div>
+    </div>
+
+    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:20px;">Solicite agora e cuide da saúde da sua família sem sair de casa!</p>
+    <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Iniciar Agendamento</a>
+  </div>
+</section>
+
+<!-- ================================================================
+     DEPOIMENTOS
+================================================================ -->
+<section id="depoimentos" class="section">
+  <div class="container">
+    <span class="eyebrow">Depoimentos</span>
+    <h2 class="sec-title">Veja o que nossos pacientes estão dizendo!</h2>
+    <div class="rating-row">
+      <span class="stars">★★★★★</span>
+      <span class="rating-num">4.9/5</span>
+      <span class="rating-label">— Baseado em +200 avaliações verificadas</span>
+    </div>
+
+    <div class="testi-stats rv">
+      <div class="testi-stat">
+        <strong>+10.000</strong>
+        <span>pacientes atendidos</span>
+      </div>
+      <div class="testi-stat testi-stat-accent">
+        <strong>94,2%</strong>
+        <span>muito satisfeitos</span>
+      </div>
+      <div class="testi-stat">
+        <strong>4.9★</strong>
+        <span>nota média</span>
+      </div>
+      <div class="testi-stat">
+        <strong>+200</strong>
+        <span>avaliações verificadas</span>
+      </div>
+    </div>
+
+    <div class="testi-grid">
+
+      <div class="testi-card rv">
+        <div class="testi-quote">Meu filho tem autismo e as crises de agressividade eram diárias. Depois do acompanhamento médico, o comportamento dele mudou completamente. Ele dorme melhor, a ansiedade reduziu e a nossa família respirou de novo.</div>
+        <div class="testi-footer">
+          <div class="testi-name">Patrícia Albuquerque</div>
+          <div class="testi-problem">Mãe de paciente com TEA · redução de crises</div>
+        </div>
+      </div>
+
+      <div class="testi-card rv rv-d1">
+        <div class="testi-quote">Tenho TDAH e sempre tive dificuldade de concentração no trabalho. O tratamento me ajudou a focar, reduzir a impulsividade e melhorar meu desempenho profissional. Existe um antes e um depois na minha vida.</div>
+        <div class="testi-footer">
+          <div class="testi-name">Rafael Monteiro</div>
+          <div class="testi-problem">TDAH · foco e produtividade</div>
+        </div>
+      </div>
+
+      <div class="testi-card rv rv-d2">
+        <div class="testi-quote">Minha filha não conseguia dormir mais de 3 horas seguidas por causa do autismo. Hoje ela dorme a noite toda. Isso mudou a vida dela e a nossa. Não imaginava que seria possível chegar nesse resultado.</div>
+        <div class="testi-footer">
+          <div class="testi-name">Carla Drummond</div>
+          <div class="testi-problem">TEA · distúrbios de sono resolvidos</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FORMULÁRIO
+================================================================ -->
+<section id="form-sec">
+  <div class="container">
+    <div class="form-card rv">
+      <div class="form-header">
+        <span class="eyebrow">Agendamento</span>
+        <h2 class="sec-title">Solicite seu Pré-Agendamento</h2>
+        <p class="sec-sub" style="margin:0 auto">Preencha o formulário rápido abaixo. Nossa equipe entrará em contato em até 2 horas para confirmar seu horário.</p>
+        <div class="form-horario">
+          <i data-lucide="clock"></i>
+          Atendemos seg a sex, 8h–18h · Confirmação em até 2h úteis
+        </div>
+      </div>
+
+      <form id="booking-form" action="/obrigado" method="GET" novalidate>
+        <div class="fgrid">
+          <div class="fgroup">
+            <label class="flabel" for="nome">Nome *</label>
+            <input class="finput" type="text" id="nome" name="nome" placeholder="Seu nome" required />
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="sobrenome">Sobrenome *</label>
+            <input class="finput" type="text" id="sobrenome" name="sobrenome" placeholder="Seu sobrenome" required />
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="email">E-mail *</label>
+            <input class="finput" type="email" id="email" name="email" placeholder="seu@email.com" required />
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="telefone">WhatsApp *</label>
+            <input class="finput" type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
+          </div>
+          <div class="fgroup fcol2">
+            <label class="flabel" for="condicao">Condição principal *</label>
+            <select class="finput" id="condicao" name="condicao" required>
+              <option value="" disabled selected>Selecione a condição</option>
+              <option value="autismo-tea">Autismo (TEA)</option>
+              <option value="tdah">TDAH — Déficit de Atenção e Hiperatividade</option>
+              <option value="hiperatividade">Hiperatividade / Irritabilidade</option>
+              <option value="sono-ansiedade">Distúrbios de Sono / Ansiedade</option>
+              <option value="outra">Outra condição de neurodesenvolvimento</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-urgency">
+          <i data-lucide="alert-circle"></i>
+          Vagas limitadas esta semana — garanta seu horário agora
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary btn-full" style="border-radius:10px; padding:17px; font-size:1.02rem;">
+            Quero Agendar Minha Consulta →
+          </button>
+        </div>
+        <div class="form-secure mt16">
+          <i data-lucide="lock"></i>
+          Seus dados estão seguros. Não compartilhamos suas informações.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FAQ
+================================================================ -->
+<section id="faq" class="section section-alt">
+  <div class="container tc">
+    <span class="eyebrow">Dúvidas</span>
+    <h2 class="sec-title">Perguntas Frequentes</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          A consulta é realmente online?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Sim, 100% online por videochamada. Você pode ser atendido de qualquer lugar do Brasil, no conforto da sua casa, sem precisar se deslocar.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quanto custa a consulta?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">A consulta custa R$ 200,00. Atendemos apenas de forma particular — não aceitamos convênios ou planos de saúde. O pagamento é realizado antes da consulta de forma segura.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Preciso de laudo diagnóstico para agendar?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Não é obrigatório. Nosso médico prescritor faz uma avaliação clínica individualizada mesmo sem laudo prévio. Caso você tenha diagnóstico formal de TEA ou TDAH, traga os documentos pois enriquecem a consulta — mas não são requisito.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O tratamento funciona para crianças?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Sim. O tratamento é individualizado e adaptado para cada faixa etária. Nossos médicos atendem crianças, adolescentes e adultos com TEA e TDAH, com protocolos específicos para cada perfil e idade.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O tratamento substitui a medicação convencional?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Não necessariamente. O médico prescritor avalia cada caso individualmente. Em muitas situações, a terapia integrativa pode complementar o tratamento convencional ou, em alguns casos, possibilitar a redução gradual de outros medicamentos — sempre com acompanhamento médico.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Os pais participam da consulta?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Sim, e é altamente recomendado — especialmente quando o paciente é uma criança. A presença dos pais ou responsáveis é fundamental para que o médico compreenda o histórico clínico completo e possa orientar sobre o dia a dia, os comportamentos e o plano de cuidado.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Em quanto tempo recebo a confirmação?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Nossa equipe confirma seu horário em até 2 horas após o preenchimento do formulário, diretamente pelo WhatsApp que você informar.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O tratamento é seguro e regulamentado?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Sim. Todos os nossos médicos são registrados no CRM e atuam dentro dos protocolos da medicina integrativa brasileira, regulamentados pelo Conselho Federal de Medicina (CFM). Os tratamentos com extratos de plantas medicinais são autorizados pela Anvisa.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quais sintomas do TDAH podem ser tratados?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Nossos médicos atendem os principais sintomas do TDAH: desatenção, hiperatividade, impulsividade, dificuldade de concentração, ansiedade associada, distúrbios de sono e irritabilidade. O plano terapêutico é personalizado para os sintomas predominantes de cada paciente.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Como é feito o encaminhamento para o médico certo?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Após o preenchimento do formulário, nossa equipe analisa o caso e seleciona o médico prescritor mais qualificado para a condição específica. Você receberá a confirmação com os dados do médico e o horário pelo WhatsApp em até 2 horas.</div>
+      </div>
+
+    </div>
+
+    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+      <i data-lucide="message-circle"></i>
+      Ainda tem dúvidas? Fale conosco no WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+================================================================ -->
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-logo">
+        <img src="/LPS/Assets/logo-consulta-cs.webp" alt="Cannabis & Saúde" />
+      </div>
+      <div class="foot-tagline">Tratamento natural com acompanhamento médico qualificado</div>
+      <div class="foot-links">
+        <a href="https://www.cannabisesaude.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>
+        <a href="https://www.cannabisesaude.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Termos de Uso</a>
+        <a href="#form-sec">Agendar Consulta</a>
+      </div>
+      <div class="foot-line"></div>
+      <p class="foot-disclaimer">
+        As informações desta página são de caráter educativo e não substituem consulta médica.
+        Os resultados podem variar de pessoa para pessoa. Consulte sempre um médico qualificado.
+        Todos os médicos anunciados possuem registro ativo no CRM.
+      </p>
+      <div class="foot-copy">© 2025 Cannabis & Saúde. Todos os direitos reservados.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Social proof toast -->
+<div class="sp-toast" id="spToast" onclick="document.getElementById('spToast').classList.remove('show')" role="status" aria-live="polite">
+  <div class="sp-toast-icon"><i data-lucide="users"></i></div>
+  <div class="sp-toast-text">
+    <div class="sp-toast-main">9 famílias agendaram</div>
+    <div class="sp-toast-sub">na última hora · vagas limitadas</div>
+  </div>
+  <div class="sp-toast-pulse"></div>
+</div>
+
+<!-- Balão de atendimento -->
+<div class="chat-balloon" id="chatBalloon" onclick="window.open('https://wa.me/5511999999999','_blank')" role="link" aria-label="Falar no WhatsApp">
+  <div class="chat-bubble">
+    <button class="chat-close" onclick="event.stopPropagation();document.getElementById('chatBalloon').classList.add('hidden')" aria-label="Fechar">×</button>
+    Olá! Tem dúvidas sobre <strong>autismo ou TDAH</strong>? Posso te ajudar a agendar sua consulta. 😊
+  </div>
+  <div class="chat-avatar">
+    <img src="/LPS/Assets/avatar-atendente.webp" alt="Atendente" />
+    <div class="chat-dot"></div>
+  </div>
+</div>
+
+<!-- Mobile sticky -->
+<div class="mob-bar">
+  <a href="#form-sec" class="btn btn-primary btn-full" style="border-radius:8px; padding:13px; font-size:0.9rem;">
+    Agendar Consulta — R$ 200
+  </a>
+</div>
+
+<!-- ================================================================
+     JS
+================================================================ -->
+<script>
+  lucide.createIcons();
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('up', window.scrollY > 20);
+  });
+
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+  document.getElementById('telefone').addEventListener('input', e => {
+    let v = e.target.value.replace(/\D/g, '').substring(0, 11);
+    v = v.length <= 10
+      ? v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3')
+      : v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    e.target.value = v;
+  });
+
+  document.getElementById('booking-form').addEventListener('submit', e => {
+    let ok = true;
+    document.querySelectorAll('[required]').forEach(f => {
+      f.style.borderColor = '';
+      if (!f.value.trim()) { f.style.borderColor = '#e74c3c'; ok = false; }
+    });
+    if (!ok) e.preventDefault();
+  });
+
+  // Hero slideshow
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  function goSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = n;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
+  setInterval(() => goSlide((currentSlide + 1) % slides.length), 4500);
+
+  // Social proof toast
+  setTimeout(() => {
+    document.getElementById('spToast').classList.add('show');
+    setTimeout(() => document.getElementById('spToast').classList.remove('show'), 5000);
+  }, 8000);
+</script>
+</body>
+</html>
