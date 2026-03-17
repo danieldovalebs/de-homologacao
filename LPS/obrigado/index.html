@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedido Recebido — Consulta C&S</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      --orange:      #F07A28;
+      --orange-dark: #d4661a;
+      --purple:      #9B59B6;
+      --purple-dark: #7D3C98;
+      --purple-light:#F0E6F7;
+      --purple-xlight:#FAF5FF;
+      --dark:        #2F2B2C;
+      --gray:        #6b7280;
+      --border:      #e5e7eb;
+      --white:       #ffffff;
+      --green-ok:    #16a34a;
+      --green-ok-bg: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--dark);
+      background: var(--purple-xlight);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ===== NAV ===== */
+    .nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo img { height: 32px; }
+
+    /* ===== MAIN ===== */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px 64px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 52px 48px;
+      max-width: 580px;
+      width: 100%;
+      box-shadow: 0 8px 40px rgba(155,89,182,.10);
+      text-align: center;
+    }
+
+    /* check icon */
+    .check-wrap {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--green-ok-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      animation: pop 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    }
+    .check-wrap i { width: 34px; height: 34px; color: var(--green-ok); }
+    @keyframes pop {
+      0%   { transform: scale(0.5); opacity: 0; }
+      70%  { transform: scale(1.12); }
+      100% { transform: scale(1);   opacity: 1; }
+    }
+
+    .tag-received {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-ok-bg);
+      color: var(--green-ok);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .title {
+      font-family: 'Gabarito', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .title span { color: var(--purple-dark); }
+
+    .sub {
+      font-size: 0.94rem;
+      color: var(--gray);
+      line-height: 1.75;
+      max-width: 420px;
+      margin: 0 auto 32px;
+    }
+
+    /* ===== STEPS ===== */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--purple-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-icon i { width: 20px; height: 20px; color: var(--purple-dark); }
+    .step-icon.done { background: var(--green-ok-bg); }
+    .step-icon.done i { color: var(--green-ok); }
+    .step-label { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--dark); margin-bottom: 2px; }
+    .step-desc  { font-size: 0.76rem; color: var(--gray); line-height: 1.5; }
+
+    /* ===== WHATSAPP ===== */
+    .wpp-box {
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 14px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    .wpp-icon {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: #25d366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wpp-icon svg { width: 24px; height: 24px; fill: white; }
+    .wpp-label { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--dark); margin-bottom: 4px; }
+    .wpp-sub { font-size: 0.75rem; color: var(--gray); margin-bottom: 10px; line-height: 1.5; }
+    .wpp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #25d366;
+      color: #fff;
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 9px 18px;
+      border-radius: 20px;
+      transition: background 0.2s;
+    }
+    .wpp-btn:hover { background: #1ebe5b; }
+    .wpp-btn svg { width: 15px; height: 15px; fill: white; }
+
+    /* ===== DISCLAIMER ===== */
+    .disclaimer {
+      font-size: 0.72rem;
+      color: #9ca3af;
+      line-height: 1.6;
+      margin-top: 8px;
+    }
+
+    /* ===== FOOTER ===== */
+    .foot {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.72rem;
+      color: #bbb;
+    }
+
+    @media (max-width: 560px) {
+      .card { padding: 36px 22px; }
+      .wpp-box { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/LPS/Assets/logo-consulta-cs.webp" alt="Consulta C&S" />
+    </a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="card">
+
+    <!-- check animado -->
+    <div class="check-wrap">
+      <i data-lucide="check"></i>
+    </div>
+
+    <div class="tag-received">
+      <i data-lucide="circle-check" style="width:13px;height:13px;"></i>
+      Pedido recebido
+    </div>
+
+    <h1 class="title">
+      Obrigado!<br/>
+      <span>Seu pedido foi enviado.</span>
+    </h1>
+
+    <p class="sub">
+      Nossa equipe vai analisar as informações e entrar em contato para confirmar sua consulta. Fique de olho no e-mail e WhatsApp.
+    </p>
+
+    <!-- O que acontece agora -->
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon done">
+          <i data-lucide="file-check-2"></i>
+        </div>
+        <div>
+          <div class="step-label">Pedido recebido</div>
+          <div class="step-desc">Suas informações chegaram com sucesso para a equipe Cannabis &amp; Saúde</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">
+          <i data-lucide="search"></i>
+        </div>
+        <div>
+          <div class="step-label">Análise e encaminhamento</div>
+          <div class="step-desc">Identificamos o médico prescritor mais adequado ao seu perfil</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">
+          <i data-lucide="phone-call"></i>
+        </div>
+        <div>
+          <div class="step-label">Confirmação em até 2 horas</div>
+          <div class="step-desc">Você receberá o contato da nossa equipe para confirmar data e horário da consulta</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp acelerado -->
+    <div class="wpp-box">
+      <div class="wpp-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.116 1.522 5.847L.057 23.7a.75.75 0 0 0 .917.912l5.913-1.551A11.93 11.93 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.93 9.93 0 0 1-5.06-1.378l-.363-.215-3.759.986.999-3.648-.235-.375A9.944 9.944 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="wpp-label">Quer agilizar? Fale agora pelo WhatsApp</div>
+        <div class="wpp-sub">Nossa equipe está online e pode confirmar sua consulta na hora.</div>
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20acabei%20de%20enviar%20meu%20pedido%20de%20consulta%20e%20gostaria%20de%20confirmar%20o%20agendamento." class="wpp-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.116 1.522 5.847L.057 23.7a.75.75 0 0 0 .917.912l5.913-1.551A11.93 11.93 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.93 9.93 0 0 1-5.06-1.378l-.363-.215-3.759.986.999-3.648-.235-.375A9.944 9.944 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+          </svg>
+          Falar com a equipe agora
+        </a>
+      </div>
+    </div>
+
+    <p class="disclaimer">
+      Ao prosseguir, você concorda com nossa <a href="https://www.cannabisesaude.com.br/politica-de-privacidade/" target="_blank" rel="noopener" style="color:var(--purple-dark);">Política de Privacidade</a>. Seus dados são tratados com total segurança e não serão compartilhados com terceiros.
+    </p>
+
+  </div>
+</main>
+
+<footer class="foot">
+  © 2025 Cannabis & Saúde · Todos os direitos reservados
+</footer>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
