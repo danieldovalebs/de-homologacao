@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Pages — Consulta C&S</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #f4f6f8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .logo { height: 48px; margin-bottom: 12px; }
+    .subtitle {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 48px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 720px;
+      width: 100%;
+    }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 28px;
+      border: 1.5px solid #e2e8f0;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.09); }
+    .card-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #aaa;
+    }
+    .card-title {
+      font-family: 'Gabarito', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: #f0f4f8;
+      color: #555;
+    }
+    .card-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; }
+    .dot-green { background: #22c55e; }
+    .dot-gray  { background: #d1d5db; }
+
+    /* card colors */
+    .card-1 { border-top: 4px solid #F07A28; }
+    .card-1 .card-title { color: #c4601a; }
+    .card-2 { border-top: 4px solid #48C5DE; }
+    .card-2 .card-title { color: #408C9C; }
+    .card-3 { border-top: 4px solid #a78bfa; }
+    .card-3 .card-title { color: #7c3aed; }
+    .card-4 { border-top: 4px solid #f472b6; }
+    .card-4 .card-title { color: #be185d; }
+
+    .foot {
+      margin-top: 48px;
+      font-size: 0.75rem;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="Assets/logo-consulta-cs.webp" class="logo" alt="Consulta C&S" />
+  <p class="subtitle">Landing Pages · Google Ads</p>
+
+  <div class="grid">
+
+    <a href="dor-cronica/index.html" class="card card-1">
+      <div class="card-num">LP 01</div>
+      <div class="card-title">Dor Crônica</div>
+      <div class="card-tags">
+        <span class="tag">Artrite</span>
+        <span class="tag">Fibromialgia</span>
+        <span class="tag">Coluna</span>
+        <span class="tag">Enxaqueca</span>
+      </div>
+      <div class="card-status">
+        <span class="dot dot-green"></span> Disponível
+      </div>
+    </a>
+
+    <a href="equilibrio-emocional/index.html" class="card card-2">
+      <div class="card-num">LP 02</div>
+      <div class="card-title">Equilíbrio Emocional</div>
+      <div class="card-tags">
+        <span class="tag">Ansiedade</span>
+        <span class="tag">Depressão</span>
+        <span class="tag">Insônia</span>
+        <span class="tag">Estresse</span>
+      </div>
+      <div class="card-status">
+        <span class="dot dot-green"></span> Disponível
+      </div>
+    </a>
+
+    <a href="#" class="card card-3" style="opacity:.5; pointer-events:none; cursor:default;">
+      <div class="card-num">LP 03</div>
+      <div class="card-title">Condições Neurológicas</div>
+      <div class="card-tags">
+        <span class="tag">Alzheimer</span>
+        <span class="tag">Parkinson</span>
+        <span class="tag">Epilepsia</span>
+        <span class="tag">ELA</span>
+      </div>
+      <div class="card-status">
+        <span class="dot dot-gray"></span> Em breve
+      </div>
+    </a>
+
+    <a href="#" class="card card-4" style="opacity:.5; pointer-events:none; cursor:default;">
+      <div class="card-num">LP 04</div>
+      <div class="card-title">Neurodesenvolvimento</div>
+      <div class="card-tags">
+        <span class="tag">Autismo</span>
+        <span class="tag">TDAH</span>
+      </div>
+      <div class="card-status">
+        <span class="dot dot-gray"></span> Em breve
+      </div>
+    </a>
+
+  </div>
+
+  <p class="foot">© 2025 Cannabis & Saúde · Uso interno</p>
+
+</body>
+</html>
