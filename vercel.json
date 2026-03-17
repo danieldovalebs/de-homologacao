@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/LPS/index.html" },
+    { "source": "/dor-cronica", "destination": "/LPS/dor-cronica/index.html" },
+    { "source": "/equilibrio-emocional", "destination": "/LPS/equilibrio-emocional/index.html" },
+    { "source": "/obrigado", "destination": "/LPS/obrigado/index.html" }
+  ]
+}
