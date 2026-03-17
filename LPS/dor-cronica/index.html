@@ -731,83 +731,36 @@
       .testi-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
     }
 
-    .testi-card { display: flex; flex-direction: column; gap: 12px; }
-    .testi-vid {
-      aspect-ratio: 9/16;
+    .testi-card {
+      display: flex; flex-direction: column; gap: 16px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
       border-radius: var(--r);
-      overflow: hidden;
+      padding: 28px 24px;
       position: relative;
-      cursor: pointer;
-      background: var(--green-light);
-      border: 1.5px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
     }
-    .testi-vid img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform .4s;
+    .testi-card::before {
+      content: '\201C';
+      font-family: 'Gabarito', sans-serif;
+      font-size: 5rem; line-height: 1;
+      color: var(--green-light);
+      position: absolute; top: 12px; left: 20px;
+      pointer-events: none;
     }
-    .testi-vid:hover img { transform: scale(1.03); }
-    .testi-vid-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 40%, rgba(47,43,44,.65) 100%);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 8px;
+    .testi-quote {
+      font-size: 0.95rem; color: #444;
+      line-height: 1.75; font-style: italic;
+      padding-top: 28px;
+      flex: 1;
     }
-    .testi-play-btn {
-      width: 48px; height: 48px;
-      background: rgba(255,255,255,.9);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--green-dark);
-      box-shadow: 0 3px 14px rgba(0,0,0,.15);
-      transition: transform .2s;
+    .testi-footer {
+      display: flex; flex-direction: column; gap: 3px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
     }
-    .testi-vid:hover .testi-play-btn { transform: scale(1.1); }
-    .testi-play-btn i { width: 20px; height: 20px; margin-left: 3px; }
-    .testi-tag {
-      position: absolute; bottom: 10px; left: 10px;
-      background: rgba(255,255,255,.88);
-      color: var(--green-dark);
-      font-size: 0.68rem; font-weight: 700;
-      padding: 2px 8px; border-radius: 4px;
-    }
-
-    /* placeholder video (when no image) */
-    .testi-vid-placeholder {
-      aspect-ratio: 9/16;
-      background: var(--green-light);
-      border-radius: var(--r);
-      border: 1.5px solid var(--border);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 10px;
-      cursor: pointer; position: relative;
-    }
-    .testi-initial {
-      width: 50px; height: 50px;
-      border-radius: 50%;
-      background: var(--white); border: 2px solid var(--green);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Gabarito', sans-serif; font-weight: 800;
-      font-size: 1rem; color: var(--green-dark);
-    }
-    .testi-play-sm {
-      width: 40px; height: 40px;
-      background: var(--white); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--green-dark);
-      box-shadow: 0 2px 10px rgba(70,176,112,.2);
-    }
-    .testi-play-sm i { width: 16px; height: 16px; margin-left: 2px; }
-    .testi-cond {
-      position: absolute; bottom: 10px; left: 10px;
-      background: rgba(255,255,255,.88); color: var(--green-dark);
-      font-size: 0.68rem; font-weight: 700;
-      padding: 2px 8px; border-radius: 4px;
-    }
-
-    .testi-name { font-family: 'Gabarito', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--dark); }
-    .testi-quote { font-size: 0.78rem; color: var(--gray); line-height: 1.6; font-style: italic; }
-    .testi-problem { font-size: 0.74rem; color: var(--green-dark); font-weight: 600; margin-top: 2px; }
+    .testi-name { font-family: 'Gabarito', sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--dark); }
+    .testi-problem { font-size: 0.75rem; color: var(--green-dark); font-weight: 600; }
 
     /* Testimonial stats bar */
     .testi-stats {
@@ -1779,52 +1732,31 @@
 
     <div class="testi-grid">
 
-      <!-- Card 1 — imagem real -->
+      <!-- Card 1 -->
       <div class="testi-card rv">
-        <div class="testi-vid">
-          <img src="/LPS/Assets/imgi_107_Angela-Maria-Teixeira-fibromialgia-e-artrose-2048x1367.jpg"
-               alt="Depoimento Neide dos Santos — Fibromialgia e Artrose"
-               style="object-position: center 20%;" />
-          <div class="testi-vid-overlay">
-            <div class="testi-play-btn"><i data-lucide="play"></i></div>
-          </div>
-          <span class="testi-tag">Fibromialgia · Artrose</span>
-        </div>
-        <div class="testi-name">Neide dos Santos</div>
-        <div class="testi-problem">Fibromialgia · 8 anos de dor</div>
         <div class="testi-quote">"Mal conseguia trabalhar e dormir. Depois de 3 meses com o tratamento integrativo, a dor diminuiu muito e voltei a ter energia. Finalmente durmo e acordo bem."</div>
+        <div class="testi-footer">
+          <div class="testi-name">Neide dos Santos</div>
+          <div class="testi-problem">Fibromialgia · 8 anos de dor</div>
+        </div>
       </div>
 
-      <!-- Card 2 — imagem real -->
+      <!-- Card 2 -->
       <div class="testi-card rv rv-d1">
-        <div class="testi-vid">
-          <img src="/LPS/Assets/testi-placeholder.jpg"
-               alt="Depoimento M.A.B — Osteoartrite"
-               style="object-position: center 15%;" />
-          <div class="testi-vid-overlay">
-            <div class="testi-play-btn"><i data-lucide="play"></i></div>
-          </div>
-          <span class="testi-tag">Osteoartrite</span>
-        </div>
-        <div class="testi-name">M.A.B.</div>
-        <div class="testi-problem">Osteoartrite · mobilidade limitada</div>
         <div class="testi-quote">"A osteoartrite me limitava a cada passo. O médico montou um plano personalizado e em poucas semanas minha mobilidade melhorou visivelmente. Existe um antes e um depois."</div>
+        <div class="testi-footer">
+          <div class="testi-name">M.A.B.</div>
+          <div class="testi-problem">Osteoartrite · mobilidade limitada</div>
+        </div>
       </div>
 
-      <!-- Card 3 — placeholder com foto -->
+      <!-- Card 3 -->
       <div class="testi-card rv rv-d2">
-        <div class="testi-vid">
-          <img src="/LPS/Assets/imgi_122_M.-A.-B-osteoartrite-2048x1080.jpg"
-               alt="Depoimento Loren Daniele — Dor Crônica"
-               style="object-position: center 15%;" />
-          <div class="testi-vid-overlay">
-            <div class="testi-play-btn"><i data-lucide="play"></i></div>
-          </div>
-          <span class="testi-tag">Dor Crônica</span>
-        </div>
-        <div class="testi-name">Loren Daniele</div>
-        <div class="testi-problem">Dor crônica · dependência de analgésicos</div>
         <div class="testi-quote">"Vivia tomando analgésico todo dia e nada resolvia. Com o tratamento integrativo, reduzi os remédios e recuperei minha qualidade de vida. Hoje durmo, acordo bem e vivo de verdade."</div>
+        <div class="testi-footer">
+          <div class="testi-name">Loren Daniele</div>
+          <div class="testi-problem">Dor crônica · dependência de analgésicos</div>
+        </div>
       </div>
 
     </div>

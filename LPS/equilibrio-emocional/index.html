@@ -625,50 +625,36 @@
       .testi-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
     }
 
-    .testi-card { display: flex; flex-direction: column; gap: 12px; }
-    .testi-vid {
-      aspect-ratio: 9/16;
-      border-radius: var(--r);
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      background: var(--accent-light);
+    .testi-card {
+      display: flex; flex-direction: column; gap: 16px;
+      background: var(--white);
       border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 28px 24px;
+      position: relative;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
     }
-    .testi-vid img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform .4s;
+    .testi-card::before {
+      content: '\201C';
+      font-family: 'Gabarito', sans-serif;
+      font-size: 5rem; line-height: 1;
+      color: var(--accent-light);
+      position: absolute; top: 12px; left: 20px;
+      pointer-events: none;
     }
-    .testi-vid:hover img { transform: scale(1.03); }
-    .testi-vid-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 40%, rgba(47,43,44,.65) 100%);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 8px;
+    .testi-quote {
+      font-size: 0.95rem; color: #444;
+      line-height: 1.75; font-style: italic;
+      padding-top: 28px;
+      flex: 1;
     }
-    .testi-play-btn {
-      width: 48px; height: 48px;
-      background: rgba(255,255,255,.9);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accent-dark);
-      box-shadow: 0 3px 14px rgba(0,0,0,.15);
-      transition: transform .2s;
+    .testi-footer {
+      display: flex; flex-direction: column; gap: 3px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
     }
-    .testi-vid:hover .testi-play-btn { transform: scale(1.1); }
-    .testi-play-btn i { width: 20px; height: 20px; margin-left: 3px; }
-    .testi-tag {
-      position: absolute; bottom: 10px; left: 10px;
-      background: rgba(255,255,255,.88);
-      color: var(--accent-dark);
-      font-size: 0.68rem; font-weight: 700;
-      padding: 2px 8px; border-radius: 4px;
-    }
-
-    .testi-name { font-family: 'Gabarito', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--dark); }
-    .testi-problem { font-size: 0.74rem; color: var(--accent-dark); font-weight: 600; margin-top: 2px; }
-    .testi-quote { font-size: 0.78rem; color: var(--gray); line-height: 1.6; font-style: italic; }
+    .testi-name { font-family: 'Gabarito', sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--dark); }
+    .testi-problem { font-size: 0.75rem; color: var(--accent-dark); font-weight: 600; }
 
     /* ===== FORM ===== */
     #form-sec { background: var(--accent-light); padding: 80px 0; }
@@ -1428,48 +1414,27 @@
     <div class="testi-grid">
 
       <div class="testi-card rv">
-        <div class="testi-vid">
-          <img src="/LPS/Assets/imgi_107_Angela-Maria-Teixeira-fibromialgia-e-artrose-2048x1367.jpg"
-               alt="Depoimento Loiane Gonçalves — Ansiedade e Depressão"
-               style="object-position: center 20%;" />
-          <div class="testi-vid-overlay">
-            <div class="testi-play-btn"><i data-lucide="play"></i></div>
-          </div>
-          <span class="testi-tag">Ansiedade · Depressão</span>
-        </div>
-        <div class="testi-name">Loiane Gonçalves</div>
-        <div class="testi-problem">Ansiedade crônica e estado depressivo</div>
         <div class="testi-quote">"A primeira coisa que percebi foi a diminuição da dor. Isso também ajudou a reduzir minha ansiedade e melhorou meu estado depressivo. Finalmente consigo viver com mais leveza."</div>
+        <div class="testi-footer">
+          <div class="testi-name">Loiane Gonçalves</div>
+          <div class="testi-problem">Ansiedade crônica e estado depressivo</div>
+        </div>
       </div>
 
       <div class="testi-card rv rv-d1">
-        <div class="testi-vid">
-          <img src="/LPS/Assets/testi-placeholder.jpg"
-               alt="Depoimento Giane Gali — Insônia"
-               style="object-position: center 15%;" />
-          <div class="testi-vid-overlay">
-            <div class="testi-play-btn"><i data-lucide="play"></i></div>
-          </div>
-          <span class="testi-tag">Insônia</span>
-        </div>
-        <div class="testi-name">Giane Gali</div>
-        <div class="testi-problem">Insônia · anos sem dormir bem</div>
         <div class="testi-quote">"Tive melhora no sono — e isso virou um eixo na minha rotina. Dormir melhor significa treinar melhor, ter mais clareza mental, mais paciência e mais disposição para tudo."</div>
+        <div class="testi-footer">
+          <div class="testi-name">Giane Gali</div>
+          <div class="testi-problem">Insônia · anos sem dormir bem</div>
+        </div>
       </div>
 
       <div class="testi-card rv rv-d2">
-        <div class="testi-vid">
-          <img src="/LPS/Assets/imgi_122_M.-A.-B-osteoartrite-2048x1080.jpg"
-               alt="Depoimento — Estresse e Burnout"
-               style="object-position: center 15%;" />
-          <div class="testi-vid-overlay">
-            <div class="testi-play-btn"><i data-lucide="play"></i></div>
-          </div>
-          <span class="testi-tag">Estresse · Burnout</span>
-        </div>
-        <div class="testi-name">Ana Clara (mãe)</div>
-        <div class="testi-problem">Burnout e sobrecarga emocional</div>
         <div class="testi-quote">"Foi um período de muita angústia. O tratamento trouxe um alívio real para mim e para minha filha. O acolhimento dos médicos fez toda a diferença nesse processo."</div>
+        <div class="testi-footer">
+          <div class="testi-name">Ana Clara (mãe)</div>
+          <div class="testi-problem">Burnout e sobrecarga emocional</div>
+        </div>
       </div>
 
     </div>
