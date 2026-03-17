@@ -4,228 +4,149 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dor Crônica tem Tratamento — Agende sua Consulta | Cannabis & Saúde</title>
-  <meta name="description" content="Consulta online com especialista em medicina integrativa. Avaliação individualizada para dores crônicas. Agende agora." />
+  <meta name="description" content="Consulta online com especialista em medicina integrativa. Avaliação individualizada para dores crônicas: artrite, fibromialgia, enxaqueca e mais. Agende agora." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     /* ============================================================
-       DESIGN SYSTEM
+       TOKENS
     ============================================================ */
     :root {
-      --navy:      #000824;
-      --navy-80:   rgba(0, 8, 36, 0.8);
-      --navy-light:#071240;
-      --teal:      #48C5DE;
-      --teal-dark: #33a8bf;
-      --green:     #3BB87D;
-      --green-dark:#2da068;
-      --gray:      #555555;
-      --gray-light:#f4f6f8;
-      --border:    #e2e8f0;
-      --white:     #ffffff;
-      --radius:    12px;
-      --radius-lg: 20px;
-      --shadow:    0 4px 24px rgba(0,8,36,0.10);
-      --shadow-lg: 0 8px 48px rgba(0,8,36,0.18);
-      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+      --orange:       #F07A28;
+      --orange-dark:  #d4661a;
+      --green:        #46b070;
+      --green-dark:   #27AE60;
+      --green-deeper: #1e8449;
+      --green-light:  #daefe2;
+      --green-xlight: #f0faf4;
+      --dark:         #2F2B2C;
+      --dark-60:      rgba(47,43,44,0.6);
+      --gray:         #6b7280;
+      --gray-light:   #f7f9f8;
+      --border:       #dde8e2;
+      --white:        #ffffff;
+      --pill:         27px;
+      --r:            10px;
+      --r-lg:         18px;
+      --ease:         0.22s cubic-bezier(.4,0,.2,1);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
       font-family: 'Open Sans', sans-serif;
-      color: var(--navy);
+      color: var(--dark);
       background: var(--white);
-      line-height: 1.6;
+      line-height: 1.65;
       overflow-x: hidden;
     }
 
-    h1,h2,h3,h4,h5 {
+    h1, h2, h3, h4 {
       font-family: 'Gabarito', sans-serif;
-      line-height: 1.2;
+      line-height: 1.15;
     }
 
-    img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
     .container {
       width: 100%;
-      max-width: 1140px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    .section { padding: 80px 0; }
-    .section-dark { background: var(--navy); color: var(--white); }
-    .section-light { background: var(--gray-light); }
+    .section     { padding: 80px 0; }
+    .section-alt { background: var(--gray-light); }
+    .section-green { background: var(--green-light); }
 
-    .section-label {
+    .eyebrow {
       display: inline-block;
-      font-family: 'Gabarito', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 12px;
+      color: var(--green-dark);
+      margin-bottom: 10px;
     }
 
-    .section-title {
-      font-size: clamp(1.75rem, 4vw, 2.6rem);
+    .sec-title {
+      font-size: clamp(1.65rem, 3.2vw, 2.35rem);
       font-weight: 800;
-      margin-bottom: 16px;
+      color: var(--dark);
+      margin-bottom: 14px;
     }
 
-    .section-sub {
-      font-size: 1.05rem;
+    .sec-sub {
+      font-size: 0.94rem;
       color: var(--gray);
-      max-width: 560px;
-      line-height: 1.7;
+      line-height: 1.8;
+      max-width: 540px;
     }
 
-    /* ============================================================
-       BUTTONS
-    ============================================================ */
+    /* ===== BUTTONS ===== */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 16px 32px;
-      border-radius: 8px;
+      border: none;
+      cursor: pointer;
       font-family: 'Gabarito', sans-serif;
       font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      border: none;
-      transition: var(--transition);
+      font-size: 0.95rem;
+      border-radius: var(--pill);
+      padding: 14px 28px;
+      transition: var(--ease);
       text-decoration: none;
-      letter-spacing: 0.01em;
+      white-space: nowrap;
     }
-
     .btn-primary {
-      background: var(--green);
+      background: var(--orange);
       color: var(--white);
-      box-shadow: 0 4px 20px rgba(59,184,125,0.35);
+      box-shadow: 0 4px 18px rgba(240,122,40,.30);
     }
     .btn-primary:hover {
-      background: var(--green-dark);
+      background: var(--orange-dark);
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(59,184,125,0.45);
+      box-shadow: 0 7px 24px rgba(240,122,40,.45);
     }
-
-    .btn-outline {
+    .btn-primary i, .btn-primary svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .btn-ghost {
       background: transparent;
-      color: var(--teal);
-      border: 2px solid var(--teal);
+      color: var(--green-dark);
+      border: 2px solid var(--green);
     }
-    .btn-outline:hover {
-      background: var(--teal);
-      color: var(--white);
-    }
+    .btn-ghost:hover { background: var(--green-light); }
+    .btn-lg { padding: 17px 38px; font-size: 1.05rem; }
+    .btn-full { width: 100%; justify-content: center; }
 
-    .btn-lg {
-      padding: 18px 40px;
-      font-size: 1.1rem;
-      border-radius: 10px;
-    }
-
-    .btn-full { width: 100%; }
-
-    /* ============================================================
-       NAVBAR
-    ============================================================ */
-    #navbar {
+    /* ===== NAVBAR ===== */
+    #nav {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: var(--navy);
-      border-bottom: 1px solid rgba(72,197,222,0.15);
-      padding: 14px 0;
-      transition: box-shadow 0.3s;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 13px 0;
+      transition: box-shadow .3s;
     }
-    #navbar.scrolled {
-      box-shadow: 0 2px 20px rgba(0,8,36,0.4);
-    }
-    .nav-inner {
+    #nav.up { box-shadow: 0 2px 18px rgba(0,0,0,.07); }
+    .nav-wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
     }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .nav-logo-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--teal);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .nav-logo-icon svg { width: 20px; height: 20px; fill: var(--white); }
-    .nav-logo-text {
-      font-family: 'Gabarito', sans-serif;
-      font-weight: 800;
-      font-size: 1.15rem;
-      color: var(--white);
-    }
-    .nav-logo-text span { color: var(--teal); }
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .nav-phone {
-      color: rgba(255,255,255,0.75);
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .nav-phone svg { width: 16px; height: 16px; stroke: var(--teal); fill: none; }
-    .nav-cta {
-      background: var(--green);
-      color: var(--white);
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-family: 'Gabarito', sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
-    .nav-cta:hover { background: var(--green-dark); }
+    .nav-logo img { height: 38px; width: auto; }
 
-    @media (max-width: 600px) {
-      .nav-phone { display: none; }
-    }
-
-    /* ============================================================
-       HERO
-    ============================================================ */
+    /* ===== HERO ===== */
     #hero {
-      background: var(--navy);
-      color: var(--white);
-      padding: 72px 0 60px;
-      position: relative;
+      background: var(--white);
+      padding: 68px 0 60px;
       overflow: hidden;
-    }
-    #hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(72,197,222,0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(59,184,125,0.08) 0%, transparent 60%);
-      pointer-events: none;
     }
     .hero-grid {
       display: grid;
@@ -233,1190 +154,1968 @@
       gap: 56px;
       align-items: center;
     }
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-img-col { order: -1; }
     }
-    .hero-badge {
+
+    .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(72,197,222,0.12);
-      border: 1px solid rgba(72,197,222,0.3);
-      color: var(--teal);
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      gap: 7px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      padding: 5px 14px;
+      border-radius: var(--pill);
+      font-family: 'Gabarito', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: .07em;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
-    .hero-badge::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      background: var(--teal);
+    .pulse {
+      width: 7px; height: 7px;
+      background: var(--green-dark);
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
-    @keyframes pulse {
-      0%,100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
-    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
+
     .hero-title {
-      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-size: clamp(2rem, 4.2vw, 3.1rem);
       font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      color: var(--white);
+      color: var(--dark);
+      margin-bottom: 18px;
     }
-    .hero-title em {
-      font-style: normal;
-      color: var(--teal);
-    }
+    .hero-title em { font-style: normal; color: var(--green-dark); }
+
     .hero-sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.75;
+      font-size: 0.96rem;
+      color: var(--gray);
+      line-height: 1.8;
       margin-bottom: 28px;
-      max-width: 500px;
+      max-width: 460px;
     }
-    .hero-bullets {
+
+    .hero-checks {
       list-style: none;
-      margin-bottom: 36px;
+      margin-bottom: 34px;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-    .hero-bullets li {
+    .hero-checks li {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      color: var(--dark);
     }
-    .hero-bullets li .check {
+    .chk {
       flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      background: rgba(59,184,125,0.2);
-      border: 1.5px solid var(--green);
+      width: 22px; height: 22px;
       border-radius: 50%;
+      background: var(--green-light);
+      border: 1.5px solid var(--green);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--green);
-      font-size: 0.7rem;
-      font-weight: 700;
+      color: var(--green-dark);
     }
-    .hero-cta-group {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      align-items: flex-start;
-    }
+    .chk i { width: 12px; height: 12px; }
+
     .hero-trust {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 4px;
+      gap: 18px;
+      margin-top: 16px;
     }
     .trust-item {
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.55);
+      font-size: 0.78rem;
+      color: var(--gray);
     }
+    .trust-item i { width: 15px; height: 15px; color: var(--green-dark); }
 
-    /* Video placeholder */
-    .hero-video-wrap {
+    /* Hero image / slideshow */
+    .hero-img-col { position: relative; }
+    .hero-img-wrap {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      max-height: 520px;
+      box-shadow: 0 16px 48px rgba(70,176,112,.15);
       position: relative;
     }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.1s ease;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    /* dots */
+    .hero-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px; z-index: 5;
+    }
+    .hero-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.45);
+      transition: background .3s;
+      cursor: pointer;
+    }
+    .hero-dot.active { background: #fff; }
+    .hero-img-badge {
+      position: absolute;
+      bottom: -16px; left: -16px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 14px 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge-icon {
+      width: 40px; height: 40px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green-dark);
+      flex-shrink: 0;
+    }
+    .badge-icon i { width: 20px; height: 20px; }
+    .badge-text-top { font-family: 'Gabarito', sans-serif; font-weight: 800; font-size: 1rem; color: var(--dark); }
+    .badge-text-bot { font-size: 0.72rem; color: var(--gray); }
+
+    /* ===== TRUST BAR ===== */
+    #trust-bar {
+      background: var(--green-xlight);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .trust-bar-inner {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      justify-items: center;
+      gap: 12px 16px;
+    }
+    @media (max-width: 860px) {
+      .trust-bar-inner {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 520px) {
+      .trust-bar-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .tbar-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .tbar-item i { width: 18px; height: 18px; color: var(--green-dark); }
+
+    /* ===== PARA QUEM É ===== */
+    #para-quem { background: var(--gray-light); }
+    .conds-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 36px 0 40px;
+    }
+    @media (max-width: 900px) { .conds-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .conds-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+    .cond-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 20px 16px 18px;
+      transition: var(--ease);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .cond-card:hover {
+      border-color: var(--green);
+      background: var(--green-xlight);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(70,176,112,.12);
+    }
+    .cond-icon-wrap {
+      width: 56px; height: 56px;
+      background: var(--green);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
+    }
+    .cond-icon-wrap img { width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1); }
+    .cond-name { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--dark); }
+    .cond-desc { font-size: 0.76rem; color: var(--gray); line-height: 1.55; }
+
+    /* ===== VIDEO SECTION ===== */
+    #video-sec {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    #video-sec .vid-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    #video-sec .vid-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(20,30,20,.82) 0%, rgba(10,20,15,.72) 100%);
+      z-index: 1;
+    }
+    .video-sec-inner {
+      position: relative;
+      z-index: 2;
+      padding: 80px 0;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .video-copy .eyebrow { color: var(--green); }
+    .video-copy .sec-title { color: var(--white); }
+    .video-copy .sec-sub { color: rgba(255,255,255,.75); max-width: 520px; margin: 0 auto; }
+    .video-copy .sec-sub strong { color: var(--green); font-weight: 700; }
+
     .video-placeholder {
-      width: 100%;
       aspect-ratio: 16/9;
-      background: linear-gradient(135deg, #071240 0%, #0d1f50 100%);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(72,197,222,0.2);
+      background: rgba(255,255,255,.04);
+      border: 1.5px solid rgba(255,255,255,.1);
+      border-radius: var(--r-lg);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 14px;
       cursor: pointer;
+      transition: border-color .25s;
       position: relative;
       overflow: hidden;
-      transition: border-color 0.3s;
     }
-    .video-placeholder:hover { border-color: rgba(72,197,222,0.5); }
-    .video-placeholder::before {
-      content: '';
+    .video-placeholder:hover { border-color: rgba(70,176,112,.5); }
+    .vid-label {
       position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(72,197,222,0.06) 0%, transparent 70%);
+      top: 14px; left: 14px;
+      background: var(--green);
+      color: var(--white);
+      font-family: 'Gabarito', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--pill);
     }
-    .play-btn {
-      width: 64px;
-      height: 64px;
-      background: rgba(72,197,222,0.15);
-      border: 2px solid rgba(72,197,222,0.4);
+    .play-ring {
+      width: 64px; height: 64px;
+      background: rgba(255,255,255,.1);
+      border: 2px solid rgba(255,255,255,.3);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: var(--transition);
-      position: relative;
-      z-index: 1;
+      transition: var(--ease);
+      color: var(--white);
     }
-    .video-placeholder:hover .play-btn {
-      background: rgba(72,197,222,0.25);
-      transform: scale(1.08);
+    .video-placeholder:hover .play-ring {
+      background: rgba(70,176,112,.2);
+      border-color: var(--green);
     }
-    .play-btn svg { width: 26px; height: 26px; fill: var(--teal); margin-left: 4px; }
-    .video-caption {
-      font-family: 'Gabarito', sans-serif;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.5);
+    .play-ring i { width: 28px; height: 28px; margin-left: 3px; }
+    .vid-caption {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,.45);
       text-align: center;
-      position: relative;
-      z-index: 1;
       padding: 0 20px;
     }
-    .video-tag {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      background: var(--teal);
-      color: var(--navy);
-      font-family: 'Gabarito', sans-serif;
-      font-weight: 700;
-      font-size: 0.72rem;
-      padding: 4px 10px;
-      border-radius: 4px;
-      letter-spacing: 0.05em;
-      z-index: 2;
-    }
 
-    /* ============================================================
-       PARA QUEM É
-    ============================================================ */
-    #para-quem { background: var(--gray-light); }
-
-    .conditions-grid {
+    /* ===== ABORDAGEM ===== */
+    #abordagem { background: var(--gray-light); }
+    .abord-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 16px;
-      margin: 40px 0 44px;
-    }
-    .condition-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px 20px;
-      transition: var(--transition);
-      cursor: default;
-    }
-    .condition-card:hover {
-      border-color: var(--teal);
-      box-shadow: 0 4px 20px rgba(72,197,222,0.12);
-      transform: translateY(-3px);
-    }
-    .condition-icon {
-      font-size: 2rem;
-      margin-bottom: 12px;
-      display: block;
-    }
-    .condition-name {
-      font-family: 'Gabarito', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 6px;
-      color: var(--navy);
-    }
-    .condition-desc {
-      font-size: 0.82rem;
-      color: var(--gray);
-      line-height: 1.5;
-    }
-    .para-quem-cta { text-align: center; }
-
-    /* ============================================================
-       AUTORIDADE
-    ============================================================ */
-    #autoridade { background: var(--white); }
-    .doctor-card {
-      display: flex;
-      gap: 40px;
-      align-items: flex-start;
-      background: var(--navy);
-      color: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 48px;
-      max-width: 820px;
-      margin: 40px auto 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .doctor-card::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 220px; height: 220px;
-      border-radius: 50%;
-      background: rgba(72,197,222,0.07);
-      pointer-events: none;
-    }
-    @media (max-width: 680px) {
-      .doctor-card { flex-direction: column; align-items: center; text-align: center; padding: 32px 24px; }
-    }
-    .doctor-photo {
-      flex-shrink: 0;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: rgba(72,197,222,0.12);
-      border: 3px solid rgba(72,197,222,0.3);
-      display: flex;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
       align-items: center;
-      justify-content: center;
     }
-    .doctor-photo svg { width: 56px; height: 56px; stroke: rgba(72,197,222,0.6); fill: none; }
-    .doctor-info { flex: 1; }
-    .doctor-specialty {
-      font-size: 0.8rem;
-      color: var(--teal);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
-    }
-    .doctor-name {
-      font-size: 1.7rem;
+    @media (max-width: 860px) { .abord-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+    .abord-copy .eyebrow { color: var(--green-dark); }
+    .abord-title {
+      font-family: 'Gabarito', sans-serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
       font-weight: 800;
-      margin-bottom: 4px;
+      color: var(--green-dark);
+      line-height: 1.2;
+      margin: 10px 0 20px;
     }
-    .doctor-crm {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 20px;
+    .abord-text { font-size: 0.92rem; color: var(--gray); line-height: 1.75; margin-bottom: 14px; }
+    .abord-text strong { color: var(--dark); }
+
+    .abord-photo {
+      position: relative;
+      margin-top: 24px;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      max-height: 220px;
     }
-    .doctor-creds {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .abord-photo img {
+      width: 100%; height: 220px;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      border-radius: var(--r-lg);
     }
-    .cred-badge {
+    .abord-photo-tag {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      background: rgba(255,255,255,.92);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--green-dark);
       display: flex;
       align-items: center;
       gap: 6px;
-      background: rgba(72,197,222,0.1);
-      border: 1px solid rgba(72,197,222,0.2);
-      color: rgba(255,255,255,0.8);
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-size: 0.8rem;
     }
-    .cred-badge::before { content: '✓'; color: var(--green); font-weight: 700; }
+    .abord-photo-tag i { width: 13px; height: 13px; }
 
-    /* ============================================================
-       COMO FUNCIONA
-    ============================================================ */
-    #como-funciona { background: var(--gray-light); }
-    .steps-wrapper {
+    .abord-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .abord-card {
+      background: var(--green-dark);
+      border-radius: 14px;
+      padding: 28px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+      transition: var(--ease);
+    }
+    .abord-card:hover { background: var(--green-deeper); transform: translateY(-3px); }
+    .abord-card-icon {
+      width: 64px; height: 64px;
+      background: rgba(255,255,255,.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .abord-card-icon i { width: 30px; height: 30px; color: #fff; }
+    .abord-card-label {
+      font-family: 'Gabarito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+    }
+
+    /* ===== AUTORIDADE ===== */
+    #autoridade { background: var(--white); }
+    .doctors-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 40px 0 36px;
+    }
+    @media (max-width: 900px) { .doctors-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .doctors-grid { grid-template-columns: 1fr 1fr; gap: 12px; } }
+
+    .doc-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      transition: var(--ease);
+      text-align: left;
+    }
+    .doc-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(70,176,112,.14); border-color: var(--green); }
+
+    .doc-card-photo {
+      width: 100%; aspect-ratio: 1/1;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--green-light);
+      margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .doc-card-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .doc-card-photo .doc-placeholder-icon { color: var(--green); }
+    .doc-card-photo .doc-placeholder-icon i { width: 56px; height: 56px; }
+
+    .doc-card-name { font-family: 'Gabarito', sans-serif; font-size: 1rem; font-weight: 800; color: var(--dark); margin-bottom: 4px; line-height: 1.25; }
+    .doc-card-spec { font-size: 0.68rem; font-weight: 700; color: var(--green-dark); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 8px; }
+    .doc-card-crm { font-size: 0.72rem; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+    .doc-card-location {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--gray-light); border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.72rem; color: var(--gray);
+      margin-bottom: 14px;
+      width: fit-content;
+    }
+    .doc-card-location i { width: 13px; height: 13px; color: var(--green-dark); }
+
+    .doc-card-actions { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+    .btn-doc-outline {
+      display: flex; align-items: center; justify-content: center;
+      padding: 10px 12px;
+      border: 1.5px solid var(--green);
+      border-radius: 8px;
+      font-family: 'Gabarito', sans-serif; font-weight: 700;
+      font-size: 0.8rem; color: var(--green-dark);
+      text-decoration: none; cursor: pointer;
+      transition: var(--ease);
+    }
+    .btn-doc-outline:hover { background: var(--green-xlight); }
+    .btn-doc-solid {
+      display: flex; align-items: center; justify-content: center;
+      padding: 11px 12px;
+      background: var(--green-dark); border: none; border-radius: 8px;
+      font-family: 'Gabarito', sans-serif; font-weight: 700;
+      font-size: 0.82rem; color: #fff;
+      text-decoration: none; cursor: pointer;
+      transition: var(--ease);
+    }
+    .btn-doc-solid:hover { background: var(--green-deeper); }
+
+    .autoridade-cta {
+      text-align: center;
+      padding-top: 8px;
+    }
+    .autoridade-cta p { font-size: 0.88rem; color: var(--gray); margin-bottom: 20px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    /* LEGADO — remover depois */
+    .doctor-card {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+      background: var(--green-xlight);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 40px;
+      max-width: 820px;
+      margin: 36px auto 0;
+    }
+    @media (max-width: 640px) {
+      .doctor-card { flex-direction: column; align-items: center; text-align: center; padding: 28px 20px; }
+      .doc-creds { justify-content: center; }
+    }
+    .doc-photo {
+      flex-shrink: 0;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--green);
+      background: var(--green-light);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .doc-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .doc-photo-placeholder { color: var(--green); }
+    .doc-photo-placeholder i { width: 54px; height: 54px; }
+    .doc-spec {
+      font-size: 0.7rem; font-weight: 700;
+      color: var(--green-dark);
+      text-transform: uppercase; letter-spacing: .1em;
+      margin-bottom: 4px;
+    }
+    .doc-name { font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 3px; }
+    .doc-crm { font-size: 0.78rem; color: var(--gray); margin-bottom: 18px; }
+    .doc-creds { display: flex; flex-wrap: wrap; gap: 8px; }
+    .doc-pill {
+      display: flex; align-items: center; gap: 5px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--pill);
+      padding: 5px 12px;
+      font-size: 0.74rem; font-weight: 600; color: var(--dark);
+    }
+    .doc-pill i { width: 13px; height: 13px; color: var(--green-dark); }
+
+    /* ===== COMO FUNCIONA ===== */
+    #como { background: var(--gray-light); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
       gap: 0;
       margin: 48px 0 44px;
       position: relative;
     }
-    .steps-wrapper::before {
+    .steps.steps-3col {
+      grid-template-columns: repeat(3,1fr);
+    }
+    .steps::before {
       content: '';
       position: absolute;
-      top: 28px;
-      left: calc(12.5% + 20px);
-      right: calc(12.5% + 20px);
+      top: 25px;
+      left: calc(12.5% + 14px);
+      right: calc(12.5% + 14px);
       height: 2px;
-      background: linear-gradient(90deg, var(--teal) 0%, var(--green) 100%);
-      z-index: 0;
+      background: repeating-linear-gradient(90deg, var(--green) 0, var(--green) 8px, transparent 8px, transparent 14px);
     }
-    @media (max-width: 780px) {
-      .steps-wrapper {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-      .steps-wrapper::before { display: none; }
+    @media (max-width: 720px) {
+      .steps { grid-template-columns: 1fr; gap: 28px; }
+      .steps::before { display: none; }
     }
     .step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 0 16px;
-      position: relative;
-      z-index: 1;
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      padding: 0 12px; position: relative; z-index: 1;
     }
     .step-num {
-      width: 56px;
-      height: 56px;
+      width: 50px; height: 50px;
       border-radius: 50%;
-      background: var(--navy);
-      color: var(--teal);
+      background: var(--white);
+      border: 2.5px solid var(--green);
+      color: var(--green-dark);
       font-family: 'Gabarito', sans-serif;
-      font-weight: 900;
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      border: 3px solid var(--teal);
-      flex-shrink: 0;
+      font-weight: 900; font-size: 1.15rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
     }
-    .step-title {
-      font-family: 'Gabarito', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      margin-bottom: 8px;
-      color: var(--navy);
-    }
-    .step-desc {
-      font-size: 0.83rem;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-    .como-funciona-cta { text-align: center; }
+    .step-title { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.9rem; margin-bottom: 7px; color: var(--dark); }
+    .step-desc { font-size: 0.78rem; color: var(--gray); line-height: 1.6; }
 
-    /* ============================================================
-       PROVA SOCIAL
-    ============================================================ */
-    #prova-social { background: var(--white); }
-    .rating-bar {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 40px;
+    /* ===== DEPOIMENTOS ===== */
+    #depoimentos { background: var(--white); }
+    .rating-row {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 36px; flex-wrap: wrap;
     }
-    .stars { color: #f5a623; font-size: 1.3rem; letter-spacing: 2px; }
-    .rating-text { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 1.1rem; }
-    .rating-count { color: var(--gray); font-size: 0.9rem; }
+    .stars { color: #f59e0b; font-size: 1.15rem; letter-spacing: 2px; }
+    .rating-num { font-family: 'Gabarito', sans-serif; font-weight: 800; font-size: 1.05rem; }
+    .rating-label { font-size: 0.8rem; color: var(--gray); }
 
-    .videos-grid {
+    .testi-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 20px;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
-    @media (max-width: 680px) {
-      .videos-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
+    @media (max-width: 660px) {
+      .testi-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
     }
-    .video-card { display: flex; flex-direction: column; gap: 12px; }
-    .video-thumb {
+
+    .testi-card { display: flex; flex-direction: column; gap: 12px; }
+    .testi-vid {
       aspect-ratio: 9/16;
-      background: linear-gradient(160deg, #0d1f50 0%, #071240 100%);
-      border-radius: var(--radius);
-      border: 1px solid rgba(72,197,222,0.15);
+      border-radius: var(--r);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: var(--green-light);
+      border: 1.5px solid var(--border);
+    }
+    .testi-vid img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+    .testi-vid:hover img { transform: scale(1.03); }
+    .testi-vid-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(47,43,44,.65) 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+    }
+    .testi-play-btn {
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,.9);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green-dark);
+      box-shadow: 0 3px 14px rgba(0,0,0,.15);
+      transition: transform .2s;
+    }
+    .testi-vid:hover .testi-play-btn { transform: scale(1.1); }
+    .testi-play-btn i { width: 20px; height: 20px; margin-left: 3px; }
+    .testi-tag {
+      position: absolute; bottom: 10px; left: 10px;
+      background: rgba(255,255,255,.88);
+      color: var(--green-dark);
+      font-size: 0.68rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 4px;
+    }
+
+    /* placeholder video (when no image) */
+    .testi-vid-placeholder {
+      aspect-ratio: 9/16;
+      background: var(--green-light);
+      border-radius: var(--r);
+      border: 1.5px solid var(--border);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+      cursor: pointer; position: relative;
+    }
+    .testi-initial {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: var(--white); border: 2px solid var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Gabarito', sans-serif; font-weight: 800;
+      font-size: 1rem; color: var(--green-dark);
+    }
+    .testi-play-sm {
+      width: 40px; height: 40px;
+      background: var(--white); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green-dark);
+      box-shadow: 0 2px 10px rgba(70,176,112,.2);
+    }
+    .testi-play-sm i { width: 16px; height: 16px; margin-left: 2px; }
+    .testi-cond {
+      position: absolute; bottom: 10px; left: 10px;
+      background: rgba(255,255,255,.88); color: var(--green-dark);
+      font-size: 0.68rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 4px;
+    }
+
+    .testi-name { font-family: 'Gabarito', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--dark); }
+    .testi-quote { font-size: 0.78rem; color: var(--gray); line-height: 1.6; font-style: italic; }
+    .testi-problem { font-size: 0.74rem; color: var(--green-dark); font-weight: 600; margin-top: 2px; }
+
+    /* Testimonial stats bar */
+    .testi-stats {
+      display: flex;
+      background: var(--green-xlight);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      margin-bottom: 36px;
+    }
+    .testi-stat {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-      cursor: pointer;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
+      padding: 16px 12px;
+      border-right: 1px solid var(--border);
+      text-align: center;
     }
-    .video-thumb:hover { border-color: rgba(72,197,222,0.4); }
-    .video-thumb:hover .play-btn-sm { transform: scale(1.1); }
-    .patient-initial {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background: rgba(72,197,222,0.12);
-      border: 2px solid rgba(72,197,222,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Gabarito', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--teal);
-    }
-    .play-btn-sm {
-      width: 44px;
-      height: 44px;
-      background: rgba(72,197,222,0.15);
-      border: 2px solid rgba(72,197,222,0.4);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
-    .play-btn-sm svg { width: 16px; height: 16px; fill: var(--teal); margin-left: 3px; }
-    .video-condition-tag {
-      position: absolute;
-      bottom: 12px;
-      left: 12px;
-      background: rgba(0,8,36,0.7);
-      color: rgba(255,255,255,0.7);
-      font-size: 0.72rem;
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-    .video-quote {
-      font-size: 0.85rem;
-      color: var(--gray);
-      line-height: 1.5;
-      font-style: italic;
-      padding: 0 4px;
-    }
-    .video-patient-name {
-      font-family: 'Gabarito', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--navy);
+    .testi-stat:last-child { border-right: none; }
+    .testi-stat strong { font-family: 'Gabarito', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--green-dark); }
+    .testi-stat span { font-size: 0.7rem; color: var(--gray); margin-top: 2px; }
+    .testi-stat-accent strong { color: var(--orange); }
+    @media (max-width: 560px) {
+      .testi-stats { flex-wrap: wrap; }
+      .testi-stat { flex: 1 1 50%; border-bottom: 1px solid var(--border); }
     }
 
-    /* ============================================================
-       FORMULÁRIO
-    ============================================================ */
-    #agendamento {
-      background: var(--navy);
-      color: var(--white);
-      padding: 80px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    #agendamento::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 50% 60% at 0% 100%, rgba(59,184,125,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 100% 0%, rgba(72,197,222,0.07) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .form-wrapper {
-      max-width: 680px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    .form-header { text-align: center; margin-bottom: 40px; }
-    .form-header .section-title { color: var(--white); }
-    .form-header .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto; }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    @media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
-
-    .form-full { grid-column: 1 / -1; }
-
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.65);
-      letter-spacing: 0.04em;
-    }
-    .form-control {
-      background: rgba(255,255,255,0.06);
-      border: 1.5px solid rgba(255,255,255,0.12);
-      border-radius: 8px;
-      padding: 14px 16px;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 0.95rem;
-      color: var(--white);
-      outline: none;
-      transition: border-color 0.2s;
-      width: 100%;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-    .form-control::placeholder { color: rgba(255,255,255,0.3); }
-    .form-control:focus { border-color: var(--teal); background: rgba(72,197,222,0.07); }
-    .form-control option { background: var(--navy-light); color: var(--white); }
-
-    .form-submit-wrap { margin-top: 8px; }
-    .form-disclaimer {
+    /* Form urgency and hours */
+    .form-horario {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      margin-top: 14px;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.35);
+      font-size: 0.77rem;
+      color: var(--gray);
+      margin-top: 8px;
     }
-
-    /* ============================================================
-       FAQ
-    ============================================================ */
-    #faq { background: var(--gray-light); }
-    .faq-list {
-      max-width: 760px;
-      margin: 40px auto 44px;
+    .form-horario i { width: 13px; height: 13px; color: var(--green-dark); }
+    .form-urgency {
+      background: #fff8ec;
+      border: 1.5px solid #f0c060;
+      border-radius: 8px;
+      padding: 10px 14px;
       display: flex;
-      flex-direction: column;
-      gap: 12px;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #8a5a00;
+      margin-top: 18px;
+      margin-bottom: 4px;
+    }
+    .form-urgency i { width: 16px; height: 16px; color: #e67e22; flex-shrink: 0; }
+
+    /* ===== FORM ===== */
+    #form-sec { background: var(--green-light); padding: 80px 0; }
+    .form-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 52px;
+      max-width: 680px;
+      margin: 0 auto;
+      box-shadow: 0 8px 40px rgba(70,176,112,.12);
+    }
+    @media (max-width: 560px) { .form-card { padding: 28px 18px; } }
+
+    .form-header { text-align: center; margin-bottom: 32px; }
+    .form-header .sec-title { font-size: 1.65rem; }
+    .form-header .sec-sub { margin: 0 auto; }
+
+    .fgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 500px) { .fgrid { grid-template-columns: 1fr; } }
+    .fcol2 { grid-column: 1 / -1; }
+
+    .fgroup { display: flex; flex-direction: column; gap: 5px; }
+    .flabel {
+      font-size: 0.72rem; font-weight: 700;
+      color: var(--gray); text-transform: uppercase; letter-spacing: .05em;
+    }
+    .finput {
+      width: 100%;
+      background: var(--gray-light);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 14px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--dark);
+      outline: none;
+      transition: border-color .2s, background .2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .finput::placeholder { color: #bbb; }
+    .finput:focus { border-color: var(--green); background: var(--white); }
+    .finput option { background: var(--white); }
+
+    .form-submit { margin-top: 10px; }
+    .form-secure {
+      display: flex; align-items: center; justify-content: center;
+      gap: 5px;
+      margin-top: 12px;
+      font-size: 0.74rem; color: var(--gray);
+    }
+    .form-secure i { width: 13px; height: 13px; color: var(--green-dark); }
+
+    /* ===== FAQ ===== */
+    #faq { background: var(--white); }
+    .faq-list {
+      max-width: 740px;
+      margin: 36px auto 44px;
+      display: flex; flex-direction: column; gap: 10px;
     }
     .faq-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .faq-item.open { border-color: var(--teal); }
-    .faq-question {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 20px 24px;
-      cursor: pointer;
-      font-family: 'Gabarito', sans-serif;
-      font-weight: 700;
-      font-size: 0.97rem;
-      color: var(--navy);
-      user-select: none;
-      transition: color 0.2s;
-    }
-    .faq-item.open .faq-question { color: var(--teal); }
-    .faq-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
       background: var(--gray-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s, background 0.2s;
-    }
-    .faq-icon svg { width: 12px; height: 12px; stroke: var(--gray); fill: none; stroke-width: 2.5; }
-    .faq-item.open .faq-icon { transform: rotate(180deg); background: rgba(72,197,222,0.1); }
-    .faq-item.open .faq-icon svg { stroke: var(--teal); }
-    .faq-answer {
-      max-height: 0;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
       overflow: hidden;
-      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), padding 0.3s;
-      padding: 0 24px;
-      font-size: 0.93rem;
-      color: var(--gray);
-      line-height: 1.75;
+      transition: border-color .2s;
     }
-    .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 20px; }
-    .faq-cta { text-align: center; }
-
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    footer {
-      background: #000515;
-      color: rgba(255,255,255,0.45);
-      padding: 48px 0 32px;
-    }
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      text-align: center;
-    }
-    .footer-logo {
-      font-family: 'Gabarito', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--white);
-    }
-    .footer-logo span { color: var(--teal); }
-    .footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }
-    .footer-links a:hover { color: var(--teal); }
-    .footer-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.07); }
-    .footer-disclaimer {
-      max-width: 680px;
-      font-size: 0.75rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.3);
-    }
-    .footer-copy { font-size: 0.78rem; }
-
-    /* ============================================================
-       FLOATING ELEMENTS
-    ============================================================ */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 28px;
-      right: 24px;
-      z-index: 999;
-      width: 58px;
-      height: 58px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    .faq-item.open { border-color: var(--green); background: var(--white); }
+    .faq-q {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 12px;
+      padding: 18px 22px;
       cursor: pointer;
-      transition: transform 0.25s, box-shadow 0.25s;
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 700; font-size: 0.92rem;
+      color: var(--dark);
+      user-select: none;
+    }
+    .faq-item.open .faq-q { color: var(--green-dark); }
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gray);
+      transition: transform .3s, border-color .2s, color .2s;
+    }
+    .faq-chevron i { width: 14px; height: 14px; }
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+      border-color: var(--green);
+      color: var(--green-dark);
+    }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s cubic-bezier(.4,0,.2,1);
+      padding: 0 22px;
+      font-size: 0.88rem; color: var(--gray); line-height: 1.8;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 20px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #1c1c1c;
+      color: rgba(255,255,255,.4);
+      padding: 48px 0 28px;
+    }
+    .foot-inner {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 20px; text-align: center;
+    }
+    .foot-logo img { height: 36px; width: auto; filter: brightness(0) invert(1); }
+    .foot-tagline { font-size: 0.82rem; color: rgba(255,255,255,.35); }
+    .foot-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .foot-links a { font-size: 0.78rem; color: rgba(255,255,255,.35); transition: color .2s; }
+    .foot-links a:hover { color: var(--green); }
+    .foot-line { width: 100%; height: 1px; background: rgba(255,255,255,.07); }
+    .foot-disclaimer {
+      max-width: 640px;
+      font-size: 0.7rem; line-height: 1.75;
+      color: rgba(255,255,255,.25);
+    }
+    .foot-copy { font-size: 0.72rem; }
+
+    /* ===== CHAT BALLOON (único elemento flutuante) ===== */
+    .chat-balloon {
+      position: fixed;
+      bottom: 24px; right: 20px;
+      z-index: 999;
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      cursor: pointer;
+      animation: slideInChat 0.45s cubic-bezier(.4,0,.2,1) 2.5s both;
       text-decoration: none;
     }
-    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
-    .whatsapp-float svg { width: 30px; height: 30px; fill: var(--white); }
+    @keyframes slideInChat {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .chat-balloon.hidden { display: none; }
 
-    .mobile-sticky-cta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 998;
-      background: var(--navy);
-      border-top: 1px solid rgba(72,197,222,0.2);
-      padding: 12px 20px;
+    .chat-bubble {
+      background: #fff;
+      border-radius: 16px 16px 4px 16px;
+      padding: 12px 16px 12px 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.16);
+      max-width: 210px;
+      font-size: 0.81rem;
+      line-height: 1.55;
+      color: var(--dark);
+      position: relative;
+    }
+    .chat-bubble strong { color: var(--green-dark); }
+    .chat-close {
+      position: absolute;
+      top: -7px; right: -7px;
+      width: 18px; height: 18px;
+      background: #888;
+      border-radius: 50%;
+      border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; color: #fff;
+      cursor: pointer; line-height: 1;
+    }
+
+    .chat-avatar {
+      position: relative; flex-shrink: 0;
+    }
+    .chat-avatar img {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2.5px solid #fff;
+      box-shadow: 0 2px 14px rgba(0,0,0,.2);
+      display: block;
+    }
+    .chat-dot {
+      width: 13px; height: 13px;
+      background: #25D366;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      position: absolute;
+      bottom: 2px; right: 2px;
     }
     @media (max-width: 768px) {
-      .mobile-sticky-cta { display: block; }
-      .whatsapp-float { bottom: 80px; }
+      .chat-balloon { bottom: 72px; right: 12px; }
+      .chat-bubble { max-width: 178px; font-size: 0.77rem; }
     }
 
-    /* ============================================================
-       ANIMATIONS
-    ============================================================ */
-    .fade-up {
+    .mob-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 998;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 10px 16px;
+      box-shadow: 0 -4px 16px rgba(0,0,0,.07);
+    }
+    @media (max-width: 768px) {
+      .mob-bar { display: block; }
+      body { padding-bottom: 62px; }
+    }
+
+    /* ===== REVEAL ===== */
+    .rv {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .rv.in { opacity: 1; transform: none; }
+    .rv-d1 { transition-delay: .08s; }
+    .rv-d2 { transition-delay: .16s; }
+    .rv-d3 { transition-delay: .24s; }
+    .rv-d4 { transition-delay: .32s; }
+
+    /* ===== UTIL ===== */
+    .tc { text-align: center; }
+    .mt16 { margin-top: 16px; }
+    .mt36 { margin-top: 36px; }
+    .mt44 { margin-top: 44px; }
+
+    /* ===== SOCIAL PROOF TOAST ===== */
+    .sp-toast {
+      position: fixed;
+      bottom: 90px;
+      left: 20px;
+      z-index: 997;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-left: 4px solid var(--green-dark);
+      border-radius: var(--r);
+      padding: 12px 16px 12px 14px;
+      box-shadow: 0 6px 28px rgba(0,0,0,.12);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 290px;
+      transform: translateX(-120%);
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: transform 0.45s cubic-bezier(.4,0,.2,1), opacity 0.45s ease;
+      pointer-events: none;
     }
-    .fade-up.visible {
+    .sp-toast.show {
+      transform: translateX(0);
       opacity: 1;
-      transform: translateY(0);
+      pointer-events: auto;
     }
-    .fade-up:nth-child(2) { transition-delay: 0.1s; }
-    .fade-up:nth-child(3) { transition-delay: 0.2s; }
-    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+    .sp-toast-icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--green-xlight);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sp-toast-icon i { width: 18px; height: 18px; color: var(--green-dark); }
+    .sp-toast-text { flex: 1; }
+    .sp-toast-main {
+      font-family: 'Gabarito', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.35;
+    }
+    .sp-toast-sub {
+      font-size: 0.7rem;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+    .sp-toast-pulse {
+      width: 8px; height: 8px;
+      background: var(--green-dark);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 1.8s infinite;
+    }
+    @media (max-width: 768px) {
+      .sp-toast { bottom: 72px; left: 12px; right: 12px; max-width: calc(100% - 24px); }
+    }
 
-    /* ============================================================
-       UTILITIES
-    ============================================================ */
-    .text-center { text-align: center; }
-    .mt-8 { margin-top: 8px; }
-    .mt-16 { margin-top: 16px; }
-    .mt-24 { margin-top: 24px; }
-    .mt-40 { margin-top: 40px; }
+    /* ===== MOBILE OVERRIDES ===== */
+
+    /* --- 860px: tablet / large mobile --- */
+    @media (max-width: 860px) {
+      /* Section padding */
+      .section { padding: 60px 0; }
+      #form-sec { padding: 60px 0; }
+
+      /* Hero */
+      #hero { padding: 48px 0 40px; }
+
+      /* Hero badges: reposition inside/on-edge of image instead of outside */
+      .hero-img-badge {
+        position: absolute;
+        bottom: 10px !important;
+        left: 10px !important;
+        right: auto !important;
+        padding: 10px 12px;
+        gap: 8px;
+      }
+      .hero-img-badge.hero-badge-price {
+        left: 10px !important;
+        right: auto !important;
+        bottom: 10px !important;
+      }
+      /* second badge (patients) — anchor to bottom-right inside image */
+      .hero-badge-patients {
+        left: auto !important;
+        right: 10px !important;
+        bottom: 10px !important;
+      }
+      .badge-icon { width: 34px; height: 34px; }
+      .badge-icon i { width: 17px; height: 17px; }
+      .badge-text-top { font-size: 0.88rem; }
+      .badge-text-bot { font-size: 0.68rem; }
+
+      /* Hero image: remove overflow cut so badges stay visible */
+      .hero-img-col { overflow: visible; }
+
+      /* Btn-lg full width on mobile */
+      .btn-lg { width: 100%; justify-content: center; }
+
+      /* Abordagem cards: keep 2-col but reduce padding */
+      .abord-card { padding: 22px 14px 18px; gap: 12px; }
+    }
+
+    /* --- 640px: mobile --- */
+    @media (max-width: 640px) {
+      /* Container */
+      .container { padding: 0 16px; }
+
+      /* Section padding */
+      .section { padding: 52px 0; }
+      #form-sec { padding: 52px 0; }
+
+      /* Hero */
+      #hero { padding: 36px 0 32px; }
+      .hero-title { font-size: clamp(1.75rem, 7.5vw, 2.2rem); }
+      .hero-sub { font-size: 0.92rem; }
+      .hero-checks li { font-size: 0.87rem; }
+      .hero-trust { gap: 12px; }
+
+      /* Hero image: limit height on mobile so it doesn't dominate */
+      .hero-img-wrap { max-height: 380px; }
+
+      /* Hero badges: smaller on mobile */
+      .hero-img-badge { padding: 8px 10px; gap: 7px; }
+      .badge-icon { width: 30px; height: 30px; }
+      .badge-icon i { width: 15px; height: 15px; }
+      .badge-text-top { font-size: 0.82rem; }
+      .badge-text-bot { font-size: 0.66rem; }
+
+      /* Trust bar: ensure last item in 2-col doesn't look orphaned */
+      .trust-bar-inner { gap: 10px 12px; }
+      .tbar-item { font-size: 0.78rem; }
+
+      /* Conditions grid card padding */
+      .cond-card { padding: 16px 12px 14px; }
+      .cond-icon-wrap { width: 48px; height: 48px; }
+      .cond-icon-wrap img { width: 26px; height: 26px; }
+      .cond-name { font-size: 0.85rem; }
+      .cond-desc { font-size: 0.73rem; }
+
+      /* Doctor cards: reduce padding on mobile */
+      .doc-card { padding: 18px 14px 16px; }
+      .doc-card-name { font-size: 0.9rem; }
+
+      /* Steps: ensure the inline override is handled at 640 too */
+      .steps { grid-template-columns: 1fr !important; gap: 24px; }
+      .steps::before { display: none; }
+
+      /* Testimonials grid: already 1-col at 660px; center properly */
+      .testi-grid { max-width: 300px; }
+
+      /* Testi stats: fix bottom border on last 2-cell row */
+      .testi-stat:nth-child(3),
+      .testi-stat:nth-child(4) { border-bottom: none; }
+
+      /* Form urgency: allow wrap */
+      .form-urgency { font-size: 0.78rem; flex-wrap: wrap; gap: 6px; }
+
+      /* Video section */
+      .video-sec-inner { padding: 56px 0; }
+      .video-copy .sec-title { font-size: clamp(1.4rem, 5.5vw, 1.8rem); }
+
+      /* FAQ questions */
+      .faq-q { font-size: 0.86rem; padding: 15px 16px; }
+      .faq-a { padding: 0 16px; font-size: 0.84rem; }
+      .faq-item.open .faq-a { padding-bottom: 16px; }
+
+      /* Footer */
+      footer { padding: 40px 0 24px; }
+    }
+
+    /* --- 480px: small mobile --- */
+    @media (max-width: 480px) {
+      /* Section padding */
+      .section { padding: 44px 0; }
+      #form-sec { padding: 44px 0; }
+
+      /* Hero */
+      #hero { padding: 28px 0 24px; }
+      .hero-img-wrap { max-height: 320px; }
+
+      /* Hero badges: on very small screens stack both bottom-center
+         using a flex row inside the image col */
+      .hero-img-badge {
+        padding: 7px 9px;
+        gap: 6px;
+        border-radius: 8px;
+      }
+      .badge-icon { width: 26px; height: 26px; }
+      .badge-icon i { width: 13px; height: 13px; }
+      .badge-text-top { font-size: 0.76rem; }
+      .badge-text-bot { font-size: 0.62rem; }
+
+      /* Only show the price badge on very small screens to avoid overlap */
+      .hero-badge-patients {
+        display: none;
+      }
+
+      /* Conditions grid: keep 2-col but tighter */
+      .cond-card { padding: 13px 10px 12px; gap: 6px; }
+      .cond-icon-wrap { width: 42px; height: 42px; border-radius: 9px; }
+      .cond-icon-wrap img { width: 22px; height: 22px; }
+      .cond-name { font-size: 0.82rem; }
+      .cond-desc { font-size: 0.7rem; }
+
+      /* Abordagem cards: on small mobile stack to 1-col */
+      .abord-cards { grid-template-columns: 1fr; }
+
+      /* Steps */
+      .steps { gap: 20px; }
+      .step { padding: 0 6px; }
+
+      /* Testi stats: fix 2x2 grid gaps */
+      .testi-stat { padding: 14px 10px; }
+      .testi-stat strong { font-size: 1.1rem; }
+      .testi-stat span { font-size: 0.66rem; }
+
+      /* Form card */
+      .form-card { border-radius: 14px; }
+      .form-header .sec-title { font-size: 1.45rem; }
+
+      /* FAQ */
+      .faq-list { margin: 28px auto 36px; }
+      .faq-q { font-size: 0.84rem; padding: 14px 14px; gap: 10px; }
+
+      /* Section titles */
+      .sec-title { font-size: clamp(1.45rem, 5.5vw, 2rem); }
+    }
+
+    /* --- 375px: very small (iPhone SE) --- */
+    @media (max-width: 375px) {
+      /* Container */
+      .container { padding: 0 12px; }
+
+      /* Section padding */
+      .section { padding: 36px 0; }
+
+      /* Hero */
+      .hero-title { font-size: 1.7rem; }
+      .hero-sub { font-size: 0.88rem; }
+      .hero-checks li { font-size: 0.83rem; gap: 8px; }
+      .hero-img-wrap { max-height: 280px; }
+
+      /* Doctor cards: 1 column on iPhone SE */
+      .doctors-grid { grid-template-columns: 1fr !important; }
+
+      /* Testi stats: 2x2 already via flex-wrap */
+      .testi-stat { padding: 12px 8px; }
+
+      /* Form */
+      .form-card { padding: 22px 12px !important; }
+      .form-header .sec-title { font-size: 1.35rem; }
+
+      /* Buttons */
+      .btn-lg { font-size: 0.95rem; padding: 15px 20px; }
+
+      /* FAQ */
+      .faq-q { font-size: 0.82rem; padding: 13px 12px; }
+      .faq-a { padding: 0 12px; }
+      .faq-item.open .faq-a { padding-bottom: 14px; }
+
+      /* Chat balloon: keep above mob-bar */
+      .chat-balloon { bottom: 76px; right: 10px; }
+      .chat-bubble { max-width: 160px; font-size: 0.74rem; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- ============================================================
-       NAVBAR
-  ============================================================ -->
-  <nav id="navbar">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="#" class="nav-logo">
-          <div class="nav-logo-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
-          </div>
-          <span class="nav-logo-text"><span>Cannabis</span> & Saúde</span>
-        </a>
-        <div class="nav-right">
-          <div class="nav-phone">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            (11) 9999-9999
-          </div>
-          <a href="#agendamento" class="nav-cta">Agendar Consulta</a>
-        </div>
-      </div>
+<!-- ================================================================
+     NAVBAR
+================================================================ -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-wrap">
+      <a href="#" class="nav-logo">
+        <img src="../Assets/logo-consulta-cs.webp" alt="Consulta C&S" />
+      </a>
+      <a href="#form-sec" class="btn btn-primary">Solicitar Consulta</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- ============================================================
-       HERO
-  ============================================================ -->
-  <section id="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <!-- Left: Copy -->
-        <div class="hero-copy">
-          <div class="hero-badge">Consulta Online Disponível</div>
-          <h1 class="hero-title">
-            Dor Crônica<br/>
-            <em>tem Tratamento.</em><br/>
-            Agende sua Avaliação<br/>Médica Online
-          </h1>
-          <p class="hero-sub">
-            Consulta online com especialista em medicina integrativa.
-            Avaliação individualizada para identificar a causa da sua dor
-            e definir o melhor tratamento natural.
-          </p>
-          <ul class="hero-bullets">
-            <li><span class="check">✓</span> Consulta 100% online — de qualquer lugar do Brasil</li>
-            <li><span class="check">✓</span> Especialistas credenciados com CRM ativo</li>
-            <li><span class="check">✓</span> Plano de tratamento individualizado</li>
-            <li><span class="check">✓</span> Agendamento confirmado em até 2 horas</li>
-          </ul>
-          <div class="hero-cta-group">
-            <a href="#agendamento" class="btn btn-primary btn-lg">
-              Agendar Minha Consulta
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <div class="hero-trust">
-              <span class="trust-item">🔒 Consulta Segura</span>
-              <span class="trust-item">⭐ Médicos Verificados</span>
-              <span class="trust-item">📋 CRM Registrado</span>
-            </div>
-          </div>
+<!-- ================================================================
+     HERO
+================================================================ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Copy -->
+      <div>
+        <div class="hero-tag">
+          <span class="pulse"></span>
+          Consulta Online Disponível
         </div>
-
-        <!-- Right: Video -->
-        <div class="hero-video-wrap">
-          <div class="video-placeholder">
-            <div class="video-tag">▶ Assista</div>
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="video-caption">Dr. [Nome] explica como funciona<br/>o tratamento para dores crônicas</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       PARA QUEM É
-  ============================================================ -->
-  <section id="para-quem" class="section">
-    <div class="container">
-      <span class="section-label">Indicações</span>
-      <h2 class="section-title">Esta consulta é para você que sofre com:</h2>
-      <p class="section-sub">Nosso especialista atende uma ampla gama de condições de dor crônica com abordagem integrativa e personalizada.</p>
-
-      <div class="conditions-grid">
-        <div class="condition-card fade-up">
-          <span class="condition-icon">🦴</span>
-          <div class="condition-name">Artrite e Artrose</div>
-          <div class="condition-desc">Dor e rigidez nas articulações que limitam o dia a dia</div>
-        </div>
-        <div class="condition-card fade-up">
-          <span class="condition-icon">🦜</span>
-          <div class="condition-name">Dores na Coluna</div>
-          <div class="condition-desc">Lombalgia, hérnia de disco e dor cervical crônica</div>
-        </div>
-        <div class="condition-card fade-up">
-          <span class="condition-icon">💢</span>
-          <div class="condition-name">Fibromialgia</div>
-          <div class="condition-desc">Dor difusa, fadiga e sensibilidade generalizada</div>
-        </div>
-        <div class="condition-card fade-up">
-          <span class="condition-icon">🧠</span>
-          <div class="condition-name">Enxaqueca Crônica</div>
-          <div class="condition-desc">Cefaleia recorrente que impacta qualidade de vida</div>
-        </div>
-        <div class="condition-card fade-up">
-          <span class="condition-icon">🌸</span>
-          <div class="condition-name">Endometriose</div>
-          <div class="condition-desc">Dor pélvica intensa e inflamação crônica</div>
-        </div>
-        <div class="condition-card fade-up">
-          <span class="condition-icon">⚡</span>
-          <div class="condition-name">Espasmos Musculares</div>
-          <div class="condition-desc">Contrações involuntárias associadas à Esclerose Múltipla</div>
-        </div>
-        <div class="condition-card fade-up">
-          <span class="condition-icon">🔥</span>
-          <div class="condition-name">Dor Neuropática</div>
-          <div class="condition-desc">Queimação, formigamento e choque causados por nervo</div>
-        </div>
-        <div class="condition-card fade-up">
-          <span class="condition-icon">🩹</span>
-          <div class="condition-name">Dores Pós-cirúrgicas</div>
-          <div class="condition-desc">Dor persistente após procedimentos cirúrgicos</div>
-        </div>
-      </div>
-
-      <div class="para-quem-cta">
-        <a href="#agendamento" class="btn btn-primary btn-lg">Quero Agendar Minha Avaliação</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       AUTORIDADE
-  ============================================================ -->
-  <section id="autoridade" class="section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-label">Especialista</span>
-        <h2 class="section-title">Conheça nosso especialista</h2>
-        <p class="section-sub" style="margin: 0 auto;">Médicos registrados, experientes e focados em medicina integrativa para dores crônicas.</p>
-      </div>
-
-      <div class="doctor-card">
-        <div class="doctor-photo">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
-        </div>
-        <div class="doctor-info">
-          <div class="doctor-specialty">Medicina da Dor · Medicina Integrativa</div>
-          <div class="doctor-name">Dr. [Nome Placeholder]</div>
-          <div class="doctor-crm">CRM-SP XXXXX &nbsp;|&nbsp; RQE XXXXX</div>
-          <div class="doctor-creds">
-            <span class="cred-badge">15+ anos de experiência</span>
-            <span class="cred-badge">Formação em medicina integrativa</span>
-            <span class="cred-badge">+500 pacientes atendidos</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       COMO FUNCIONA
-  ============================================================ -->
-  <section id="como-funciona" class="section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-label">Processo</span>
-        <h2 class="section-title">Como funciona sua consulta</h2>
-        <p class="section-sub" style="margin: 0 auto;">Simples, rápido e 100% online. Do formulário ao plano de tratamento em poucos passos.</p>
-      </div>
-
-      <div class="steps-wrapper">
-        <div class="step fade-up">
-          <div class="step-num">1</div>
-          <div class="step-title">Preencha o formulário</div>
-          <div class="step-desc">Informe seus dados e sua condição principal. Leva menos de 2 minutos.</div>
-        </div>
-        <div class="step fade-up">
-          <div class="step-num">2</div>
-          <div class="step-title">Receba a confirmação</div>
-          <div class="step-desc">Nossa equipe confirma seu horário por WhatsApp em até 2 horas.</div>
-        </div>
-        <div class="step fade-up">
-          <div class="step-num">3</div>
-          <div class="step-title">Consulta online</div>
-          <div class="step-desc">Atendimento por videochamada no horário marcado, de qualquer lugar.</div>
-        </div>
-        <div class="step fade-up">
-          <div class="step-num">4</div>
-          <div class="step-title">Plano de tratamento</div>
-          <div class="step-desc">Receba seu plano personalizado com orientações detalhadas do especialista.</div>
-        </div>
-      </div>
-
-      <div class="como-funciona-cta">
-        <a href="#agendamento" class="btn btn-primary btn-lg">Iniciar Agendamento</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       PROVA SOCIAL
-  ============================================================ -->
-  <section id="prova-social" class="section">
-    <div class="container">
-      <span class="section-label">Depoimentos</span>
-      <h2 class="section-title">O que nossos pacientes dizem</h2>
-
-      <div class="rating-bar mt-16">
-        <span class="stars">★★★★★</span>
-        <span class="rating-text">4.9/5</span>
-        <span class="rating-count">— Baseado em +200 avaliações</span>
-      </div>
-
-      <div class="videos-grid">
-        <!-- Card 1 -->
-        <div class="video-card">
-          <div class="video-thumb">
-            <div class="patient-initial">M.A.B</div>
-            <div class="play-btn-sm">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <span class="video-condition-tag">Fibromialgia</span>
-          </div>
-          <div>
-            <div class="video-patient-name">M.A.B. — Fibromialgia</div>
-            <div class="video-quote">"Depois de anos sofrendo, finalmente encontrei um tratamento que funciona de verdade."</div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="video-card">
-          <div class="video-thumb">
-            <div class="patient-initial">R.S.</div>
-            <div class="play-btn-sm">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <span class="video-condition-tag">Dor na Coluna</span>
-          </div>
-          <div>
-            <div class="video-patient-name">R.S. — Dor na Coluna</div>
-            <div class="video-quote">"A consulta foi rápida, o médico me explicou tudo com clareza e o resultado foi incrível."</div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="video-card">
-          <div class="video-thumb">
-            <div class="patient-initial">C.L.</div>
-            <div class="play-btn-sm">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <span class="video-condition-tag">Artrose</span>
-          </div>
-          <div>
-            <div class="video-patient-name">C.L. — Artrose</div>
-            <div class="video-quote">"Não precisei sair de casa. O atendimento foi profissional e o tratamento já está fazendo efeito."</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FORMULÁRIO
-  ============================================================ -->
-  <section id="agendamento">
-    <div class="container">
-      <div class="form-wrapper">
-        <div class="form-header">
-          <span class="section-label">Agendamento</span>
-          <h2 class="section-title" style="color:var(--white)">Agende sua Consulta Agora</h2>
-          <p class="section-sub" style="color:rgba(255,255,255,0.6); margin: 0 auto;">Preencha abaixo e nossa equipe entrará em contato em até 2 horas</p>
-        </div>
-
-        <form id="booking-form" action="/obrigado" method="GET" novalidate>
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="nome">Nome *</label>
-              <input class="form-control" type="text" id="nome" name="nome" placeholder="Seu nome" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="sobrenome">Sobrenome *</label>
-              <input class="form-control" type="text" id="sobrenome" name="sobrenome" placeholder="Seu sobrenome" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="email">E-mail *</label>
-              <input class="form-control" type="email" id="email" name="email" placeholder="seu@email.com" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="telefone">WhatsApp *</label>
-              <input class="form-control" type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
-            </div>
-            <div class="form-group form-full">
-              <label class="form-label" for="condicao">Condição principal *</label>
-              <select class="form-control" id="condicao" name="condicao" required>
-                <option value="" disabled selected>Selecione sua condição</option>
-                <option value="artrite-artrose">Artrite / Artrose</option>
-                <option value="fibromialgia">Fibromialgia</option>
-                <option value="dores-coluna">Dores na Coluna</option>
-                <option value="enxaqueca">Enxaqueca Crônica</option>
-                <option value="endometriose">Endometriose</option>
-                <option value="espasmos">Espasmos Musculares</option>
-                <option value="dor-neuropatica">Dor Neuropática</option>
-                <option value="outra">Outra condição</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-submit-wrap mt-24">
-            <button type="submit" class="btn btn-primary btn-full" style="font-size:1.05rem; padding:18px;">
-              Quero Agendar Minha Consulta &rarr;
-            </button>
-          </div>
-
-          <div class="form-disclaimer">
-            🔒 Seus dados estão seguros. Não compartilhamos suas informações.
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FAQ
-  ============================================================ -->
-  <section id="faq" class="section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-label">Dúvidas</span>
-        <h2 class="section-title">Perguntas Frequentes</h2>
-      </div>
-
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            A consulta é realmente online?
-            <div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          </div>
-          <div class="faq-answer">Sim, 100% online por videochamada. Você pode ser atendido de qualquer lugar do Brasil, no conforto da sua casa, sem precisar se deslocar.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Quanto custa a consulta?
-            <div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          </div>
-          <div class="faq-answer">A consulta custa R$ 200,00. Atendemos apenas de forma particular — não aceitamos convênios ou planos de saúde. O pagamento é feito antes da consulta de forma segura.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Preciso levar exames ou laudos?
-            <div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          </div>
-          <div class="faq-answer">Não é obrigatório, mas se tiver exames anteriores ou laudos médicos, traga-os para a consulta — isso ajuda o médico a ter um diagnóstico mais completo. O especialista faz uma avaliação completa mesmo sem exames prévios.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Em quanto tempo recebo a confirmação do agendamento?
-            <div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          </div>
-          <div class="faq-answer">Nossa equipe confirma seu horário em até 2 horas após o preenchimento do formulário, diretamente pelo WhatsApp que você informar.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            O tratamento é seguro e regulamentado?
-            <div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          </div>
-          <div class="faq-answer">Sim. Todos os nossos médicos são registrados no CRM e atuam dentro dos protocolos da medicina integrativa brasileira, regulamentados pelo Conselho Federal de Medicina (CFM). Sua segurança é nossa prioridade.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Como funciona a primeira consulta?
-            <div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-          </div>
-          <div class="faq-answer">O médico realiza uma anamnese completa, avalia seu histórico de saúde, a intensidade e os padrões da sua dor, e junto com você define o melhor plano de tratamento individualizado — com orientações detalhadas ao final da consulta.</div>
-        </div>
-      </div>
-
-      <div class="faq-cta">
-        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Ainda tem dúvidas? Fale conosco no WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-logo"><span>Cannabis</span> & Saúde</div>
-        <div class="footer-tagline">Tratamento natural com acompanhamento médico especializado</div>
-        <div class="footer-links">
-          <a href="#">Política de Privacidade</a>
-          <a href="#">Termos de Uso</a>
-          <a href="#agendamento">Agendar Consulta</a>
-        </div>
-        <div class="footer-divider"></div>
-        <p class="footer-disclaimer">
-          As informações desta página são de caráter educativo e não substituem consulta médica.
-          Os resultados podem variar de pessoa para pessoa. Consulte sempre um médico qualificado.
-          Todos os médicos anunciados possuem registro ativo no CRM.
+        <h1 class="hero-title">
+          Viver com dor não<br/>
+          deveria ser parte<br/>
+          <em>da sua rotina.</em>
+        </h1>
+        <p class="hero-sub">
+          Dores constantes, incômodos que tiram seu sono, afetam seu humor e te impedem de aproveitar o dia.
+          Com a abordagem médica certa, é possível aliviar a dor e resgatar seu bem-estar.
         </p>
-        <div class="footer-copy">© 2025 Cannabis & Saúde. Todos os direitos reservados.</div>
+        <ul class="hero-checks">
+          <li>
+            <span class="chk"><i data-lucide="check"></i></span>
+            Médicos especialistas em dor crônica com abordagem integrativa
+          </li>
+          <li>
+            <span class="chk"><i data-lucide="check"></i></span>
+            Agendamento rápido e 100% online
+          </li>
+          <li>
+            <span class="chk"><i data-lucide="check"></i></span>
+            Tratamentos individualizados com foco no seu bem-estar
+          </li>
+          <li>
+            <span class="chk"><i data-lucide="check"></i></span>
+            Abordagem médica humanizada — confirmação em até 2h
+          </li>
+        </ul>
+        <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Solicitar Consulta</a>
+        <div class="hero-trust">
+          <span class="trust-item"><i data-lucide="shield-check"></i> Consulta Segura</span>
+          <span class="trust-item"><i data-lucide="star"></i> Médicos Verificados</span>
+          <span class="trust-item"><i data-lucide="file-text"></i> CRM Registrado</span>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="hero-img-col">
+        <div class="hero-img-wrap" id="heroSlider">
+          <div class="hero-slide active">
+            <img src="../Assets/back-pain-hero.jpg" alt="Dor lombar crônica" style="object-position:center 55%;" loading="eager" />
+          </div>
+          <div class="hero-slide">
+            <img src="../Assets/headache-hero.jpg" alt="Enxaqueca e dor de cabeça" style="object-position:center 30%;" loading="lazy" />
+          </div>
+          <div class="hero-slide">
+            <img src="../Assets/knee-pain-hero.jpg" alt="Dor no joelho e articulações" style="object-position:center 35%;" loading="lazy" />
+          </div>
+          <div class="hero-dots">
+            <div class="hero-dot active" onclick="goSlide(0)"></div>
+            <div class="hero-dot" onclick="goSlide(1)"></div>
+            <div class="hero-dot" onclick="goSlide(2)"></div>
+          </div>
+        </div>
+        <!-- Badge R$200 — base esquerda, laranja -->
+        <div class="hero-img-badge hero-badge-price">
+          <div class="badge-icon" style="background:#fff3ea;">
+            <i data-lucide="circle-dollar-sign" style="color:var(--orange);"></i>
+          </div>
+          <div>
+            <div class="badge-text-top" style="color:var(--orange);">Apenas R$ 200</div>
+            <div class="badge-text-bot">por consulta · particular</div>
+          </div>
+        </div>
+        <!-- Badge pacientes — base direita -->
+        <div class="hero-img-badge hero-badge-patients" style="left:auto; right:-16px;">
+          <div class="badge-icon"><i data-lucide="users"></i></div>
+          <div>
+            <div class="badge-text-top">+10 mil pacientes</div>
+            <div class="badge-text-bot">atendidos com sucesso</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     TRUST BAR
+================================================================ -->
+<div id="trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <span class="tbar-item"><i data-lucide="monitor"></i> Telemedicina em todo o Brasil</span>
+      <span class="tbar-item"><i data-lucide="users"></i> +30 mil consultas agendadas</span>
+      <span class="tbar-item"><i data-lucide="credit-card"></i> A partir de R$ 200</span>
+      <span class="tbar-item"><i data-lucide="badge-check"></i> Médicos experientes e verificados</span>
+      <span class="tbar-item"><i data-lucide="clock"></i> Confirmação em até 2 horas</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     PARA QUEM É
+================================================================ -->
+<section id="para-quem" class="section section-alt">
+  <div class="container">
+    <span class="eyebrow">Indicações</span>
+    <h2 class="sec-title">Dores crônicas têm tratamento!</h2>
+    <p class="sec-sub">Nosso especialista atende as principais condições de dor crônica com abordagem integrativa e individualizada.</p>
+
+    <div class="conds-grid">
+
+      <!-- Artrite -->
+      <div class="cond-card rv">
+        <div class="cond-icon-wrap">
+          <img src="../Assets/icons/artrite.png" alt="Artrite" />
+        </div>
+        <div class="cond-name">Artrite</div>
+        <div class="cond-desc">Inflamação e dor persistente nas articulações que limita o movimento</div>
+      </div>
+
+      <!-- Artrose -->
+      <div class="cond-card rv rv-d1">
+        <div class="cond-icon-wrap">
+          <img src="../Assets/icons/artrose.png" alt="Artrose" />
+        </div>
+        <div class="cond-name">Artrose</div>
+        <div class="cond-desc">Desgaste da cartilagem com dor, rigidez e dificuldade de locomoção</div>
+      </div>
+
+      <!-- Dores na Coluna -->
+      <div class="cond-card rv rv-d2">
+        <div class="cond-icon-wrap">
+          <img src="../Assets/icons/dores-cronicas.png" alt="Dores na Coluna" />
+        </div>
+        <div class="cond-name">Dores na Coluna</div>
+        <div class="cond-desc">Lombalgia, hérnia de disco, dor cervical e ciática crônica</div>
+      </div>
+
+      <!-- Fibromialgia -->
+      <div class="cond-card rv rv-d3">
+        <div class="cond-icon-wrap">
+          <img src="../Assets/icons/fibromialgia.png" alt="Fibromialgia" />
+        </div>
+        <div class="cond-name">Fibromialgia</div>
+        <div class="cond-desc">Dor difusa pelo corpo com fadiga, sono ruim e sensibilidade aumentada</div>
+      </div>
+
+      <!-- Enxaqueca -->
+      <div class="cond-card rv">
+        <div class="cond-icon-wrap">
+          <img src="../Assets/icons/cefaleia.png" alt="Enxaqueca" />
+        </div>
+        <div class="cond-name">Enxaqueca Crônica</div>
+        <div class="cond-desc">Cefaleia recorrente e intensa que impacta a qualidade de vida</div>
+      </div>
+
+      <!-- Endometriose -->
+      <div class="cond-card rv rv-d1">
+        <div class="cond-icon-wrap">
+          <img src="../Assets/icons/tendinite.png" alt="Endometriose" />
+        </div>
+        <div class="cond-name">Endometriose</div>
+        <div class="cond-desc">Dor pélvica crônica e intensa associada ao ciclo menstrual</div>
+      </div>
+
+      <!-- Espasmos Musculares -->
+      <div class="cond-card rv rv-d2">
+        <div class="cond-icon-wrap">
+          <img src="../Assets/icons/osteoartrose.png" alt="Espasmos Musculares" />
+        </div>
+        <div class="cond-name">Espasmos Musculares</div>
+        <div class="cond-desc">Contrações involuntárias e rigidez muscular, inclusive na Esclerose Múltipla</div>
+      </div>
+
+      <!-- Dor Neuropática -->
+      <div class="cond-card rv rv-d3">
+        <div class="cond-icon-wrap">
+          <img src="../Assets/icons/fibromialgia.png" alt="Dor Neuropática" />
+        </div>
+        <div class="cond-name">Dor Neuropática</div>
+        <div class="cond-desc">Dor em queimação ou formigamento causada por lesão nos nervos</div>
+      </div>
+
+    </div>
+
+    <div class="tc">
+      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Quero Agendar Minha Avaliação</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     AUTORIDADE — 4 médicos
+================================================================ -->
+<section id="autoridade" class="section">
+  <div class="container tc">
+    <span class="eyebrow">Especialistas</span>
+    <h2 class="sec-title">Conheça nossos especialistas</h2>
+    <p class="sec-sub" style="margin:0 auto">Médicos registrados, com experiência em medicina integrativa e dor crônica, prontos para te atender online.</p>
+
+    <div class="doctors-grid">
+
+      <!-- Médico 1 -->
+      <div class="doc-card rv">
+        <div class="doc-card-photo">
+          <img src="../Assets/doctor-placeholder.png" alt="Médico especialista" />
+        </div>
+        <div class="doc-card-name">Dr. [Nome Placeholder]</div>
+        <div class="doc-card-spec">Medicina da Dor · Medicina Integrativa</div>
+        <div class="doc-card-crm">CRM-SP XXXXX | RQE: XXXXX</div>
+        <div class="doc-card-location"><i data-lucide="map-pin"></i> São Paulo, SP</div>
+      </div>
+
+      <!-- Médico 2 -->
+      <div class="doc-card rv rv-d1">
+        <div class="doc-card-photo">
+          <img src="../Assets/doctor-placeholder.png" alt="Médico especialista" />
+        </div>
+        <div class="doc-card-name">Dra. [Nome Placeholder]</div>
+        <div class="doc-card-spec">Reumatologia · Medicina Integrativa</div>
+        <div class="doc-card-crm">CRM-SP XXXXX | RQE: XXXXX</div>
+        <div class="doc-card-location"><i data-lucide="map-pin"></i> Rio de Janeiro, RJ</div>
+      </div>
+
+      <!-- Médico 3 -->
+      <div class="doc-card rv rv-d2">
+        <div class="doc-card-photo">
+          <img src="../Assets/doctor-placeholder.png" alt="Médico especialista" />
+        </div>
+        <div class="doc-card-name">Dr. [Nome Placeholder]</div>
+        <div class="doc-card-spec">Neurologia · Dor Crônica</div>
+        <div class="doc-card-crm">CRM-MG XXXXX | RQE: XXXXX</div>
+        <div class="doc-card-location"><i data-lucide="map-pin"></i> Belo Horizonte, MG</div>
+      </div>
+
+      <!-- Médico 4 -->
+      <div class="doc-card rv rv-d3">
+        <div class="doc-card-photo">
+          <img src="../Assets/doctor-placeholder.png" alt="Médico especialista" />
+        </div>
+        <div class="doc-card-name">Dra. [Nome Placeholder]</div>
+        <div class="doc-card-spec">Ortopedia · Medicina Integrativa</div>
+        <div class="doc-card-crm">CRM-RS XXXXX | RQE: XXXXX</div>
+        <div class="doc-card-location"><i data-lucide="map-pin"></i> Porto Alegre, RS</div>
+      </div>
+
+    </div>
+
+    <div class="autoridade-cta rv">
+      <p>Nós selecionamos o melhor médico conforme sua necessidade e disponibilidade. Estes e outros especialistas estão à disposição para te atender.</p>
+      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Agende sua Consulta</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     VÍDEO DO MÉDICO — Background
+================================================================ -->
+<section id="video-sec">
+  <!-- Vídeo como fundo -->
+  <video class="vid-bg" autoplay muted loop playsinline preload="auto">
+    <source src="https://www.cannabisesaude.com.br/wp-content/uploads/2025/12/CS-1.mp4" type="video/mp4" />
+  </video>
+  <div class="vid-overlay"></div>
+
+  <div class="container">
+    <div class="video-sec-inner">
+      <div class="video-copy">
+        <span class="eyebrow">Você não está sozinho</span>
+        <h2 class="sec-title">Você não precisa aceitar a dor como parte da sua vida</h2>
+        <p class="sec-sub">
+          Com a <strong>abordagem médica certa</strong>, é possível aliviar a dor, resgatar seu bem-estar e retomar o controle da sua rotina.
+        </p>
+        <a href="#form-sec" class="btn btn-primary mt16" style="display:inline-block;">Solicitar Consulta →</a>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- ============================================================
-       FLOATING WHATSAPP
-  ============================================================ -->
-  <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Falar no WhatsApp" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
+<!-- ================================================================
+     ABORDAGEM — copy + 4 cards verdes
+================================================================ -->
+<section id="abordagem" class="section section-alt">
+  <div class="container">
+    <div class="abord-grid">
 
-  <!-- Mobile sticky CTA -->
-  <div class="mobile-sticky-cta">
-    <a href="#agendamento" class="btn btn-primary btn-full" style="border-radius:8px; padding:14px;">
-      Agendar Consulta — R$ 200
+      <!-- Esquerda: copy -->
+      <div class="abord-copy rv">
+        <span class="eyebrow">Nossa abordagem</span>
+        <h2 class="abord-title">Médicos especialistas em dor crônica com abordagem integrativa</h2>
+        <p class="abord-text">
+          Com a abordagem médica certa, é possível aliviar a dor, resgatar seu bem-estar e voltar a ter controle sobre sua rotina.
+        </p>
+        <p class="abord-text">
+          Nossos especialistas utilizam <strong>terapias naturais regulamentadas</strong> e práticas de medicina integrativa, com foco em <strong>tratamentos com extratos de plantas medicinais</strong> reconhecidos pela Anvisa — seguros, individualizados e eficazes para dores crônicas.
+        </p>
+        <p class="abord-text">
+          Atendimento 100% online, humanizado e personalizado para o seu caso.
+        </p>
+        <div class="abord-photo rv">
+          <img src="../Assets/variety-of-herbs-and-dropper-on-blur-background-2026-01-06-10-58-24-utc.jpg"
+               alt="Óleo natural para tratamento de dor crônica" />
+          <div class="abord-photo-tag">
+            <i data-lucide="leaf"></i>
+            Terapia com óleo natural regulamentada pela Anvisa
+          </div>
+        </div>
+      </div>
+
+      <!-- Direita: 4 cards verdes -->
+      <div class="abord-cards">
+        <div class="abord-card rv rv-d1">
+          <div class="abord-card-icon"><i data-lucide="stethoscope"></i></div>
+          <div class="abord-card-label">Profissionais qualificados e comprometidos</div>
+        </div>
+        <div class="abord-card rv rv-d2">
+          <div class="abord-card-icon"><i data-lucide="heart-handshake"></i></div>
+          <div class="abord-card-label">Abordagem médica humanizada</div>
+        </div>
+        <div class="abord-card rv rv-d3">
+          <div class="abord-card-icon"><i data-lucide="calendar-check"></i></div>
+          <div class="abord-card-label">Agendamento rápido e 100% online</div>
+        </div>
+        <div class="abord-card rv rv-d4">
+          <div class="abord-card-icon"><i data-lucide="shield-check"></i></div>
+          <div class="abord-card-label">Tratamentos individualizados com foco no seu bem-estar</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     COMO FUNCIONA
+================================================================ -->
+<section id="como" class="section section-alt">
+  <div class="container tc">
+    <span class="eyebrow">Processo</span>
+    <h2 class="sec-title">Atendimento médico especializado em 3 passos simples</h2>
+    <p class="sec-sub" style="margin:0 auto">Cuidar da sua saúde ficou mais simples e acessível.</p>
+
+    <div class="steps steps-3col">
+      <div class="step rv">
+        <div class="step-num">1</div>
+        <div class="step-title">Solicite seu pré-agendamento</div>
+        <div class="step-desc"><strong>Preencha um formulário rápido com seus dados e sintomas.</strong> Nossa equipe vai entender seu caso e direcionar para o profissional ideal.</div>
+      </div>
+      <div class="step rv rv-d1">
+        <div class="step-num">2</div>
+        <div class="step-title">Encaminhamento personalizado</div>
+        <div class="step-desc"><strong>Selecionamos o médico mais qualificado para a sua condição,</strong> garantindo um atendimento seguro, empático e eficaz.</div>
+      </div>
+      <div class="step rv rv-d2">
+        <div class="step-num">3</div>
+        <div class="step-title">Consulta 100% online</div>
+        <div class="step-desc"><strong>Converse com um médico no conforto da sua casa, por videoconferência.</strong> O pagamento é feito diretamente ao consultório.</div>
+      </div>
+    </div>
+
+    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:20px;">Solicite agora sua consulta e cuide da sua saúde sem sair de casa!</p>
+    <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Iniciar Agendamento</a>
+  </div>
+</section>
+
+<!-- ================================================================
+     DEPOIMENTOS
+================================================================ -->
+<section id="depoimentos" class="section">
+  <div class="container">
+    <span class="eyebrow">Depoimentos</span>
+    <h2 class="sec-title">Veja o que nossos pacientes estão dizendo!</h2>
+    <div class="rating-row">
+      <span class="stars">★★★★★</span>
+      <span class="rating-num">4.9/5</span>
+      <span class="rating-label">— Baseado em +200 avaliações verificadas</span>
+    </div>
+
+    <div class="testi-stats rv">
+      <div class="testi-stat">
+        <strong>+10.000</strong>
+        <span>pacientes atendidos</span>
+      </div>
+      <div class="testi-stat testi-stat-accent">
+        <strong>94,2%</strong>
+        <span>muito satisfeitos</span>
+      </div>
+      <div class="testi-stat">
+        <strong>4.9★</strong>
+        <span>nota média</span>
+      </div>
+      <div class="testi-stat">
+        <strong>+200</strong>
+        <span>avaliações verificadas</span>
+      </div>
+    </div>
+
+    <div class="testi-grid">
+
+      <!-- Card 1 — imagem real -->
+      <div class="testi-card rv">
+        <div class="testi-vid">
+          <img src="../Assets/imgi_107_Angela-Maria-Teixeira-fibromialgia-e-artrose-2048x1367.jpg"
+               alt="Depoimento Neide dos Santos — Fibromialgia e Artrose"
+               style="object-position: center 20%;" />
+          <div class="testi-vid-overlay">
+            <div class="testi-play-btn"><i data-lucide="play"></i></div>
+          </div>
+          <span class="testi-tag">Fibromialgia · Artrose</span>
+        </div>
+        <div class="testi-name">Neide dos Santos</div>
+        <div class="testi-problem">Fibromialgia · 8 anos de dor</div>
+        <div class="testi-quote">"Mal conseguia trabalhar e dormir. Depois de 3 meses com o tratamento integrativo, a dor diminuiu muito e voltei a ter energia. Finalmente durmo e acordo bem."</div>
+      </div>
+
+      <!-- Card 2 — imagem real -->
+      <div class="testi-card rv rv-d1">
+        <div class="testi-vid">
+          <img src="../Assets/testi-placeholder.jpg"
+               alt="Depoimento M.A.B — Osteoartrite"
+               style="object-position: center 15%;" />
+          <div class="testi-vid-overlay">
+            <div class="testi-play-btn"><i data-lucide="play"></i></div>
+          </div>
+          <span class="testi-tag">Osteoartrite</span>
+        </div>
+        <div class="testi-name">M.A.B.</div>
+        <div class="testi-problem">Osteoartrite · mobilidade limitada</div>
+        <div class="testi-quote">"A osteoartrite me limitava a cada passo. O médico montou um plano personalizado e em poucas semanas minha mobilidade melhorou visivelmente. Existe um antes e um depois."</div>
+      </div>
+
+      <!-- Card 3 — placeholder com foto -->
+      <div class="testi-card rv rv-d2">
+        <div class="testi-vid">
+          <img src="../Assets/imgi_122_M.-A.-B-osteoartrite-2048x1080.jpg"
+               alt="Depoimento Loren Daniele — Dor Crônica"
+               style="object-position: center 15%;" />
+          <div class="testi-vid-overlay">
+            <div class="testi-play-btn"><i data-lucide="play"></i></div>
+          </div>
+          <span class="testi-tag">Dor Crônica</span>
+        </div>
+        <div class="testi-name">Loren Daniele</div>
+        <div class="testi-problem">Dor crônica · dependência de analgésicos</div>
+        <div class="testi-quote">"Vivia tomando analgésico todo dia e nada resolvia. Com o tratamento integrativo, reduzi os remédios e recuperei minha qualidade de vida. Hoje durmo, acordo bem e vivo de verdade."</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FORMULÁRIO
+================================================================ -->
+<section id="form-sec">
+  <div class="container">
+    <div class="form-card rv">
+      <div class="form-header">
+        <span class="eyebrow">Agendamento</span>
+        <h2 class="sec-title">Solicite seu Pré-Agendamento</h2>
+        <p class="sec-sub" style="margin:0 auto">Preencha o formulário rápido abaixo. Nossa equipe entrará em contato em até 2 horas para confirmar seu horário.</p>
+        <div class="form-horario">
+          <i data-lucide="clock"></i>
+          Atendemos seg a sex, 8h–18h · Confirmação em até 2h úteis
+        </div>
+      </div>
+
+      <form id="booking-form" action="/obrigado" method="GET" novalidate>
+        <div class="fgrid">
+          <div class="fgroup">
+            <label class="flabel" for="nome">Nome *</label>
+            <input class="finput" type="text" id="nome" name="nome" placeholder="Seu nome" required />
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="sobrenome">Sobrenome *</label>
+            <input class="finput" type="text" id="sobrenome" name="sobrenome" placeholder="Seu sobrenome" required />
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="email">E-mail *</label>
+            <input class="finput" type="email" id="email" name="email" placeholder="seu@email.com" required />
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="telefone">WhatsApp *</label>
+            <input class="finput" type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
+          </div>
+          <div class="fgroup fcol2">
+            <label class="flabel" for="condicao">Condição principal *</label>
+            <select class="finput" id="condicao" name="condicao" required>
+              <option value="" disabled selected>Selecione sua condição</option>
+              <option value="artrite">Artrite</option>
+              <option value="artrose">Artrose</option>
+              <option value="fibromialgia">Fibromialgia</option>
+              <option value="dores-coluna">Dores na Coluna</option>
+              <option value="enxaqueca">Enxaqueca Crônica</option>
+              <option value="endometriose">Endometriose</option>
+              <option value="espasmos">Espasmos Musculares</option>
+              <option value="outra">Outra condição</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-urgency">
+          <i data-lucide="alert-circle"></i>
+          Vagas limitadas esta semana — garanta seu horário agora
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary btn-full" style="border-radius:10px; padding:17px; font-size:1.02rem;">
+            Quero Agendar Minha Consulta →
+          </button>
+        </div>
+        <div class="form-secure mt16">
+          <i data-lucide="lock"></i>
+          Seus dados estão seguros. Não compartilhamos suas informações.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FAQ
+================================================================ -->
+<section id="faq" class="section section-alt">
+  <div class="container tc">
+    <span class="eyebrow">Dúvidas</span>
+    <h2 class="sec-title">Perguntas Frequentes</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          A consulta é realmente online?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Sim, 100% online por videochamada. Você pode ser atendido de qualquer lugar do Brasil, no conforto da sua casa, sem precisar se deslocar.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quanto custa a consulta?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">A consulta custa R$ 200,00. Atendemos apenas de forma particular — não aceitamos convênios ou planos de saúde. O pagamento é realizado antes da consulta de forma segura.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Preciso levar exames ou laudos?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Não é obrigatório, mas se tiver exames anteriores ou laudos médicos, traga-os — isso ajuda o médico a ter um diagnóstico mais preciso. O especialista faz uma avaliação completa mesmo sem exames prévios.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Em quanto tempo recebo a confirmação?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Nossa equipe confirma seu horário em até 2 horas após o preenchimento do formulário, diretamente pelo WhatsApp que você informar.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O tratamento é seguro e regulamentado?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Sim. Todos os nossos médicos são registrados no CRM e atuam dentro dos protocolos da medicina integrativa brasileira, regulamentados pelo Conselho Federal de Medicina (CFM).</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Como funciona a primeira consulta?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">O médico realiza uma anamnese completa, avalia seu histórico de saúde, a intensidade e os padrões da sua dor, e junto com você define o melhor plano de tratamento individualizado — com orientações detalhadas ao final.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quais condições de dor crônica vocês tratam?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Nossos especialistas atendem as principais condições de dor crônica, incluindo: artrite, artrose, fibromialgia, dores na coluna (lombalgia, hérnia de disco, ciática), enxaqueca crônica, endometriose, espasmos musculares, dor neuropática e osteoartrose. Se a sua condição não está na lista, entre em contato — nossos médicos avaliam cada caso individualmente.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O plano de tratamento é personalizado para meu caso?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Sim. Cada pessoa tem uma história, sintomas e estilo de vida únicos. Por isso, o plano terapêutico é construído de forma individualizada, levando em conta seu histórico, a intensidade da dor e suas necessidades específicas. Não existe receita pronta — o tratamento é feito para você.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Como é feito o encaminhamento para o médico certo?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Após o preenchimento do formulário, nossa equipe analisa seu caso e seleciona o especialista mais qualificado para a sua condição, garantindo um atendimento direcionado, empático e eficaz. Você receberá a confirmação com os dados do médico e o horário pelo WhatsApp em até 2 horas.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          É possível recuperar a qualidade de vida com o tratamento?
+          <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
+        </div>
+        <div class="faq-a">Sim. Viver com dor não precisa ser a sua rotina. Com a abordagem médica certa — combinando medicina integrativa e terapias naturais regulamentadas — muitos pacientes relatam redução significativa da dor, melhora do sono, do humor e da disposição. Os resultados variam de pessoa para pessoa, mas o objetivo sempre é resgatar seu bem-estar e autonomia.</div>
+      </div>
+
+    </div>
+
+    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+      <i data-lucide="message-circle"></i>
+      Ainda tem dúvidas? Fale conosco no WhatsApp
     </a>
   </div>
+</section>
 
-  <!-- ============================================================
-       JAVASCRIPT
-  ============================================================ -->
-  <script>
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
+<!-- ================================================================
+     FOOTER
+================================================================ -->
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-logo">
+        <img src="../Assets/logo-consulta-cs.webp" alt="Cannabis & Saúde" />
+      </div>
+      <div class="foot-tagline">Tratamento natural com acompanhamento médico especializado</div>
+      <div class="foot-links">
+        <a href="https://www.cannabisesaude.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>
+        <a href="https://www.cannabisesaude.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Termos de Uso</a>
+        <a href="#form-sec">Agendar Consulta</a>
+      </div>
+      <div class="foot-line"></div>
+      <p class="foot-disclaimer">
+        As informações desta página são de caráter educativo e não substituem consulta médica.
+        Os resultados podem variar de pessoa para pessoa. Consulte sempre um médico qualificado.
+        Todos os médicos anunciados possuem registro ativo no CRM.
+      </p>
+      <div class="foot-copy">© 2025 Cannabis & Saúde. Todos os direitos reservados.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Social proof toast -->
+<div class="sp-toast" id="spToast" onclick="document.getElementById('spToast').classList.remove('show')" role="status" aria-live="polite">
+  <div class="sp-toast-icon"><i data-lucide="users"></i></div>
+  <div class="sp-toast-text">
+    <div class="sp-toast-main">17 pacientes agendaram</div>
+    <div class="sp-toast-sub">na última hora · vagas limitadas</div>
+  </div>
+  <div class="sp-toast-pulse"></div>
+</div>
+
+<!-- Balão de atendimento único -->
+<div class="chat-balloon" id="chatBalloon" onclick="window.open('https://wa.me/5511999999999','_blank')" role="link" aria-label="Falar no WhatsApp">
+  <div class="chat-bubble">
+    <button class="chat-close" onclick="event.stopPropagation();document.getElementById('chatBalloon').classList.add('hidden')" aria-label="Fechar">×</button>
+    Olá! Está com <strong>dores crônicas</strong>? Posso te ajudar a agendar sua consulta. 😊
+  </div>
+  <div class="chat-avatar">
+    <img src="../Assets/avatar-atendente.webp" alt="Atendente" />
+    <div class="chat-dot"></div>
+  </div>
+</div>
+
+<!-- Mobile sticky -->
+<div class="mob-bar">
+  <a href="#form-sec" class="btn btn-primary btn-full" style="border-radius:8px; padding:13px; font-size:0.9rem;">
+    Agendar Consulta — R$ 200
+  </a>
+</div>
+
+<!-- ================================================================
+     JS
+================================================================ -->
+<script>
+  // Init Lucide icons
+  lucide.createIcons();
+
+  // Navbar shadow
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('up', window.scrollY > 20);
+  });
+
+  // FAQ
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+  // Phone mask
+  document.getElementById('telefone').addEventListener('input', e => {
+    let v = e.target.value.replace(/\D/g, '').substring(0, 11);
+    v = v.length <= 10
+      ? v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3')
+      : v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    e.target.value = v;
+  });
+
+  // Form validation
+  document.getElementById('booking-form').addEventListener('submit', e => {
+    let ok = true;
+    document.querySelectorAll('[required]').forEach(f => {
+      f.style.borderColor = '';
+      if (!f.value.trim()) { f.style.borderColor = '#e74c3c'; ok = false; }
     });
+    if (!ok) e.preventDefault();
+  });
 
-    // FAQ accordion
-    function toggleFaq(questionEl) {
-      const item = questionEl.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-      // Toggle current
-      if (!isOpen) item.classList.add('open');
-    }
+  // Social proof toast — aparece após 5s, some após 7s
+  setTimeout(() => {
+    const toast = document.getElementById('spToast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 7000);
+  }, 5000);
 
-    // Scroll animations
-    const fadeEls = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    fadeEls.forEach(el => observer.observe(el));
-
-    // Phone mask
-    const phoneInput = document.getElementById('telefone');
-    if (phoneInput) {
-      phoneInput.addEventListener('input', (e) => {
-        let v = e.target.value.replace(/\D/g, '');
-        if (v.length <= 10) {
-          v = v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
-        } else {
-          v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
-        }
-        e.target.value = v.substring(0, 15);
-      });
-    }
-
-    // Form validation
-    const form = document.getElementById('booking-form');
-    form.addEventListener('submit', (e) => {
-      const required = form.querySelectorAll('[required]');
-      let valid = true;
-      required.forEach(field => {
-        field.style.borderColor = '';
-        if (!field.value.trim()) {
-          field.style.borderColor = '#cf2e2e';
-          valid = false;
-        }
-      });
-      if (!valid) {
-        e.preventDefault();
-        const first = form.querySelector('[required]:not([value])');
-        if (first) first.focus();
-      }
-    });
-  </script>
+  // Hero slideshow
+  let slideIdx = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
+  function goSlide(n) {
+    slides[slideIdx].classList.remove('active');
+    dots[slideIdx].classList.remove('active');
+    slideIdx = (n + slides.length) % slides.length;
+    slides[slideIdx].classList.add('active');
+    dots[slideIdx].classList.add('active');
+  }
+  setInterval(() => goSlide(slideIdx + 1), 4000);
+</script>
 </body>
 </html>
