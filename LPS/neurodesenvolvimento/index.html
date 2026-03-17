@@ -476,7 +476,7 @@
     .step-num {
       width: 44px; height: 44px;
       border-radius: 50%;
-      background: repeating-linear-gradient(90deg, var(--green) 0, var(--green) 8px, transparent 8px, transparent 14px);
+      background: var(--green);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Gabarito', sans-serif;
       font-weight: 900; font-size: 1.2rem;
@@ -839,9 +839,9 @@
           Consulta Online Disponível
         </div>
         <h1 class="hero-title">
-          Um acompanhamento feito<br/>
-          para o jeito único do<br/>
-          <em>seu filho ser.</em>
+          Neurodesenvolvimento<br/>
+          tem acompanhamento<br/>
+          <em>qualquer fase da vida.</em>
         </h1>
         <p class="hero-sub">
           Autismo (TEA) e TDAH impactam a rotina, a aprendizagem e o bem-estar da família inteira.
@@ -877,18 +877,22 @@
       <div class="hero-img-col">
         <div class="hero-img-wrap" id="heroSlider">
           <div class="hero-slide active">
-            <img src="/LPS/Assets/happy-black-pediatrician-in-her-office-looking-at-2026-03-16-03-29-26-utc.jpg" alt="Médica pediatra em consulta" style="object-position:center 20%;" loading="eager" />
+            <img src="/LPS/Assets/crianca-autismo-hero.png" alt="Criança com autismo e mãe" style="object-position:center 20%;" loading="eager" />
+          </div>
+          <div class="hero-slide">
+            <img src="/LPS/Assets/autismo-foto.png" alt="Criança com autismo e mãe" style="object-position:center 20%;" loading="lazy" />
+          </div>
+          <div class="hero-slide">
+            <img src="/LPS/Assets/happy-black-pediatrician-in-her-office-looking-at-2026-03-16-03-29-26-utc.jpg" alt="Médica pediatra em consulta" style="object-position:center 20%;" loading="lazy" />
           </div>
           <div class="hero-slide">
             <img src="/LPS/Assets/advice-doctor-and-patient-holding-hands-in-office-2026-01-09-11-46-12-utc.jpg" alt="Médico prescritor com paciente" style="object-position:center 30%;" loading="lazy" />
-          </div>
-          <div class="hero-slide">
-            <img src="/LPS/Assets/patient-with-a-doctor-in-medical-office-2026-01-07-05-59-49-utc.jpg" alt="Consulta médica online" style="object-position:center 20%;" loading="lazy" />
           </div>
           <div class="hero-dots">
             <div class="hero-dot active" onclick="goSlide(0)"></div>
             <div class="hero-dot" onclick="goSlide(1)"></div>
             <div class="hero-dot" onclick="goSlide(2)"></div>
+            <div class="hero-dot" onclick="goSlide(3)"></div>
           </div>
         </div>
         <div class="hero-img-badge hero-badge-price">
@@ -941,8 +945,8 @@
 
       <!-- Autismo TEA -->
       <div class="cond-card rv">
-        <div class="cond-icon-wrap">
-          <i data-lucide="puzzle"></i>
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/tea-mae-filho.png" alt="Autismo TEA" />
         </div>
         <div class="cond-name">Autismo (TEA)</div>
         <div class="cond-desc">Transtorno do Espectro Autista: dificuldades de comunicação, interação social e comportamentos repetitivos que impactam o desenvolvimento e a rotina familiar</div>
@@ -950,8 +954,8 @@
 
       <!-- TDAH -->
       <div class="cond-card rv rv-d1">
-        <div class="cond-icon-wrap">
-          <i data-lucide="zap"></i>
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/tdah-foco.png" alt="TDAH" />
         </div>
         <div class="cond-name">TDAH</div>
         <div class="cond-desc">Transtorno do Déficit de Atenção com Hiperatividade: desatenção, impulsividade e dificuldade de concentração que afetam o aprendizado, trabalho e relacionamentos</div>
@@ -959,8 +963,8 @@
 
       <!-- Hiperatividade & Irritabilidade -->
       <div class="cond-card rv rv-d2">
-        <div class="cond-icon-wrap">
-          <i data-lucide="activity"></i>
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/irritabilidade-foto.png" alt="Hiperatividade e Irritabilidade" />
         </div>
         <div class="cond-name">Hiperatividade & Irritabilidade</div>
         <div class="cond-desc">Agitação excessiva, crises de raiva, baixa tolerância à frustração e comportamentos desafiadores associados ao TEA e TDAH</div>
@@ -968,8 +972,8 @@
 
       <!-- Sono & Ansiedade -->
       <div class="cond-card rv rv-d3">
-        <div class="cond-icon-wrap">
-          <i data-lucide="moon"></i>
+        <div class="cond-icon-wrap photo">
+          <img src="/LPS/Assets/sono-ansiedade-foto.png" alt="Sono e Ansiedade" />
         </div>
         <div class="cond-name">Sono & Ansiedade</div>
         <div class="cond-desc">Distúrbios de sono, dificuldade para adormecer, ansiedade e hipersensibilidade sensorial frequentemente associadas ao autismo e ao TDAH</div>
