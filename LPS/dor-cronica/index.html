@@ -145,27 +145,39 @@
 
     /* ===== HERO ===== */
     #hero {
-      background: var(--white);
-      padding: 68px 0 60px;
-      overflow: hidden;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
+      position: relative;
+      min-height: 640px;
+      display: flex;
       align-items: center;
+      overflow: hidden;
+      padding: 0;
     }
-    @media (max-width: 860px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-      .hero-img-col { order: -1; }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
     }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to right, rgba(20,20,20,0.80) 0%, rgba(20,20,20,0.55) 55%, rgba(20,20,20,0.18) 100%);
+    }
+    .hero-content-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 110px 0 72px;
+    }
+    .hero-content { max-width: 560px; }
 
     .hero-tag {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: var(--green-light);
-      color: var(--green-dark);
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
       padding: 5px 14px;
       border-radius: var(--pill);
       font-family: 'Gabarito', sans-serif;
@@ -186,14 +198,14 @@
     .hero-title {
       font-size: clamp(2rem, 4.2vw, 3.1rem);
       font-weight: 900;
-      color: var(--dark);
+      color: #fff;
       margin-bottom: 18px;
     }
-    .hero-title em { font-style: normal; color: var(--green-dark); }
+    .hero-title em { font-style: normal; color: var(--green); }
 
     .hero-sub {
       font-size: 0.96rem;
-      color: var(--gray);
+      color: rgba(255,255,255,0.82);
       line-height: 1.8;
       margin-bottom: 28px;
       max-width: 460px;
@@ -211,18 +223,18 @@
       align-items: center;
       gap: 10px;
       font-size: 0.9rem;
-      color: var(--dark);
+      color: rgba(255,255,255,0.92);
     }
     .chk {
       flex-shrink: 0;
       width: 22px; height: 22px;
       border-radius: 50%;
-      background: var(--green-light);
-      border: 1.5px solid var(--green);
+      background: rgba(255,255,255,0.15);
+      border: 1.5px solid rgba(255,255,255,0.45);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--green-dark);
+      color: #fff;
     }
     .chk i { width: 12px; height: 12px; }
 
@@ -237,20 +249,11 @@
       align-items: center;
       gap: 6px;
       font-size: 0.78rem;
-      color: var(--gray);
+      color: rgba(255,255,255,0.72);
     }
-    .trust-item i { width: 15px; height: 15px; color: var(--green-dark); }
+    .trust-item i { width: 15px; height: 15px; color: var(--green); }
 
-    /* Hero image / slideshow */
-    .hero-img-col { position: relative; }
-    .hero-img-wrap {
-      border-radius: var(--r-lg);
-      overflow: hidden;
-      aspect-ratio: 3/4;
-      max-height: 520px;
-      box-shadow: 0 16px 48px rgba(70,176,112,.15);
-      position: relative;
-    }
+    /* Hero slides como background */
     .hero-slide {
       position: absolute;
       inset: 0;
@@ -265,7 +268,7 @@
     /* dots */
     .hero-dots {
       position: absolute;
-      bottom: 10px;
+      bottom: 24px;
       left: 50%; transform: translateX(-50%);
       display: flex; gap: 6px; z-index: 5;
     }
@@ -277,31 +280,36 @@
       cursor: pointer;
     }
     .hero-dot.active { background: #fff; }
+    /* badges inline no conteúdo do hero */
+    .hero-badges-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
     .hero-img-badge {
-      position: absolute;
-      bottom: -16px; left: -16px;
-      background: var(--white);
-      border: 1.5px solid var(--border);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border-radius: var(--r);
-      padding: 14px 18px;
-      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+      padding: 10px 14px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
     .badge-icon {
-      width: 40px; height: 40px;
-      background: var(--green-light);
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,0.15);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--green-dark);
       flex-shrink: 0;
     }
-    .badge-icon i { width: 20px; height: 20px; }
-    .badge-text-top { font-family: 'Gabarito', sans-serif; font-weight: 800; font-size: 1rem; color: var(--dark); }
-    .badge-text-bot { font-size: 0.72rem; color: var(--gray); }
+    .badge-icon i { width: 17px; height: 17px; color: #fff; }
+    .badge-text-top { font-family: 'Gabarito', sans-serif; font-weight: 800; font-size: 0.88rem; color: #fff; }
+    .badge-text-bot { font-size: 0.68rem; color: rgba(255,255,255,0.7); }
 
     /* ===== TRUST BAR ===== */
     #trust-bar {
@@ -1383,71 +1391,68 @@
      HERO
 ================================================================ -->
 <section id="hero">
-  <div class="container">
-    <div class="hero-grid">
 
-      <!-- Copy -->
-      <div>
-        <div class="hero-tag">
-          <span class="pulse"></span>
-          Consulta Online Disponível
-        </div>
-        <h1 class="hero-title">
-          Viver com dor não<br/>
-          deveria ser parte<br/>
-          <em>da sua rotina.</em>
-        </h1>
-        <p class="hero-sub">
-          Dores constantes, incômodos que tiram seu sono, afetam seu humor e te impedem de aproveitar o dia.
-          Com a abordagem médica certa, é possível aliviar a dor e resgatar seu bem-estar.
-        </p>
-        <ul class="hero-checks">
-          <li>
-            <span class="chk"><i data-lucide="check"></i></span>
-            Médicos prescritores em dor crônica com abordagem integrativa
-          </li>
-          <li>
-            <span class="chk"><i data-lucide="check"></i></span>
-            Agendamento rápido e 100% online
-          </li>
-          <li>
-            <span class="chk"><i data-lucide="check"></i></span>
-            Tratamentos individualizados com foco no seu bem-estar
-          </li>
-          <li>
-            <span class="chk"><i data-lucide="check"></i></span>
-            Abordagem médica humanizada — confirmação em até 2h
-          </li>
-        </ul>
-        <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Solicitar Consulta</a>
-        <div class="hero-trust">
-          <span class="trust-item"><i data-lucide="shield-check"></i> Consulta Segura</span>
-          <span class="trust-item"><i data-lucide="star"></i> Médicos Verificados</span>
-          <span class="trust-item"><i data-lucide="file-text"></i> CRM Registrado</span>
-        </div>
+  <!-- Slides de fundo -->
+  <div class="hero-bg" id="heroSlider">
+    <div class="hero-slide active">
+      <img src="/LPS/Assets/back-pain-hero.jpg" alt="Dor lombar crônica" style="object-position:center 55%;" loading="eager" />
+    </div>
+    <div class="hero-slide">
+      <img src="/LPS/Assets/headache-hero.jpg" alt="Enxaqueca e dor de cabeça" style="object-position:center 30%;" loading="lazy" />
+    </div>
+    <div class="hero-slide">
+      <img src="/LPS/Assets/knee-pain-hero.jpg" alt="Dor no joelho e articulações" style="object-position:center 35%;" loading="lazy" />
+    </div>
+  </div>
+
+  <!-- Overlay gradiente -->
+  <div class="hero-overlay"></div>
+
+  <!-- Conteúdo -->
+  <div class="container hero-content-wrap">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="pulse"></span>
+        Consulta Online Disponível
+      </div>
+      <h1 class="hero-title">
+        Viver com dor não<br/>
+        deveria ser parte<br/>
+        <em>da sua rotina.</em>
+      </h1>
+      <p class="hero-sub">
+        Dores constantes, incômodos que tiram seu sono, afetam seu humor e te impedem de aproveitar o dia.
+        Com a abordagem médica certa, é possível aliviar a dor e resgatar seu bem-estar.
+      </p>
+      <ul class="hero-checks">
+        <li>
+          <span class="chk"><i data-lucide="check"></i></span>
+          Médicos prescritores em dor crônica com abordagem integrativa
+        </li>
+        <li>
+          <span class="chk"><i data-lucide="check"></i></span>
+          Agendamento rápido e 100% online
+        </li>
+        <li>
+          <span class="chk"><i data-lucide="check"></i></span>
+          Tratamentos individualizados com foco no seu bem-estar
+        </li>
+        <li>
+          <span class="chk"><i data-lucide="check"></i></span>
+          Abordagem médica humanizada — confirmação em até 2h
+        </li>
+      </ul>
+      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Solicitar Consulta</a>
+      <div class="hero-trust">
+        <span class="trust-item"><i data-lucide="shield-check"></i> Consulta Segura</span>
+        <span class="trust-item"><i data-lucide="star"></i> Médicos Verificados</span>
+        <span class="trust-item"><i data-lucide="file-text"></i> CRM Registrado</span>
       </div>
 
-      <!-- Image -->
-      <div class="hero-img-col">
-        <div class="hero-img-wrap" id="heroSlider">
-          <div class="hero-slide active">
-            <img src="/LPS/Assets/back-pain-hero.jpg" alt="Dor lombar crônica" style="object-position:center 55%;" loading="eager" />
-          </div>
-          <div class="hero-slide">
-            <img src="/LPS/Assets/headache-hero.jpg" alt="Enxaqueca e dor de cabeça" style="object-position:center 30%;" loading="lazy" />
-          </div>
-          <div class="hero-slide">
-            <img src="/LPS/Assets/knee-pain-hero.jpg" alt="Dor no joelho e articulações" style="object-position:center 35%;" loading="lazy" />
-          </div>
-          <div class="hero-dots">
-            <div class="hero-dot active" onclick="goSlide(0)"></div>
-            <div class="hero-dot" onclick="goSlide(1)"></div>
-            <div class="hero-dot" onclick="goSlide(2)"></div>
-          </div>
-        </div>
-        <!-- Badge R$200 — base esquerda, laranja -->
-        <div class="hero-img-badge hero-badge-price">
-          <div class="badge-icon" style="background:#fff3ea;">
+      <!-- Badges ancorados ao conteúdo -->
+      <div class="hero-badges-row">
+        <div class="hero-img-badge">
+          <div class="badge-icon">
             <i data-lucide="circle-dollar-sign" style="color:var(--orange);"></i>
           </div>
           <div>
@@ -1455,18 +1460,26 @@
             <div class="badge-text-bot">por consulta · particular</div>
           </div>
         </div>
-        <!-- Badge pacientes — base direita -->
-        <div class="hero-img-badge hero-badge-patients" style="left:auto; right:-16px;">
-          <div class="badge-icon"><i data-lucide="users"></i></div>
+        <div class="hero-img-badge">
+          <div class="badge-icon">
+            <i data-lucide="users"></i>
+          </div>
           <div>
             <div class="badge-text-top">+10 mil pacientes</div>
             <div class="badge-text-bot">atendidos com sucesso</div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
+
+  <!-- Dots -->
+  <div class="hero-dots">
+    <div class="hero-dot active" onclick="goSlide(0)"></div>
+    <div class="hero-dot" onclick="goSlide(1)"></div>
+    <div class="hero-dot" onclick="goSlide(2)"></div>
+  </div>
+
 </section>
 
 <!-- ================================================================
@@ -1565,7 +1578,7 @@
       <div class="cred-split-content">
         <span class="eyebrow">Quem vai te atender</span>
         <h2 class="sec-title" style="text-align:left;">Médicos reais.<br>Credenciais verificadas.</h2>
-        <p style="font-size:0.9rem;color:var(--gray);line-height:1.7;margin-bottom:28px;">Todos os médicos da Cannabis &amp; Saúde são registrados no CFM, possuem CRM ativo e RQE específico em medicina integrativa e uso terapêutico de canabinoides.</p>
+        <p style="font-size:0.9rem;color:var(--gray);line-height:1.7;margin-bottom:28px;">Os médicos disponíveis para agendamento são registrados no CFM, possuem CRM ativo e RQE específico em medicina integrativa e uso terapêutico de plantas medicinais.</p>
 
         <div class="cred-list">
           <div class="cred-item">
@@ -1897,7 +1910,7 @@
           O tratamento é seguro e regulamentado?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Sim. Todos os nossos médicos são registrados no CRM e atuam dentro dos protocolos da medicina integrativa brasileira, regulamentados pelo Conselho Federal de Medicina (CFM).</div>
+        <div class="faq-a">Sim. Todos os médicos disponíveis para agendamento são registrados no CRM e atuam dentro dos protocolos da medicina integrativa brasileira, regulamentados pelo Conselho Federal de Medicina (CFM).</div>
       </div>
 
       <div class="faq-item">
@@ -1913,7 +1926,7 @@
           Quais condições de dor crônica vocês tratam?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Nossos médicos prescritores atendem as principais condições de dor crônica, incluindo: artrite, artrose, fibromialgia, dores na coluna (lombalgia, hérnia de disco, ciática), enxaqueca crônica, endometriose, espasmos musculares, dor neuropática e osteoartrose. Se a sua condição não está na lista, entre em contato — nossos médicos avaliam cada caso individualmente.</div>
+        <div class="faq-a">Os médicos prescritores disponíveis atendem as principais condições de dor crônica, incluindo: artrite, artrose, fibromialgia, dores na coluna (lombalgia, hérnia de disco, ciática), enxaqueca crônica, endometriose, espasmos musculares, dor neuropática e osteoartrose. Se a sua condição não está na lista, entre em contato — cada caso é avaliado individualmente.</div>
       </div>
 
       <div class="faq-item">
