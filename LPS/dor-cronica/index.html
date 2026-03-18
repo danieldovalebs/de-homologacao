@@ -338,55 +338,49 @@
 
     /* ===== PARA QUEM É ===== */
     #para-quem { background: var(--gray-light); }
-    .conds-grid {
+    .mosaic-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 14px;
       margin: 36px 0 40px;
     }
-    @media (max-width: 900px) { .conds-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .conds-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
-    .cond-card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 0 0 14px;
-      transition: var(--ease);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
-      overflow: hidden;
-    }
-    .cond-card:hover {
-      border-color: var(--green);
-      background: var(--green-xlight);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(70,176,112,.12);
-    }
-    .cond-card .cond-name,
-    .cond-card .cond-desc { padding: 0 14px; }
-    .cond-card .cond-name { margin-top: 12px; }
-    .cond-icon-wrap {
-      width: 56px; height: 56px;
-      background: var(--green);
+    .mosaic-item {
+      position: relative;
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 14px 14px 6px;
-    }
-    .cond-icon-wrap img { width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1); }
-    .cond-icon-wrap.photo {
-      width: 100%; height: 140px;
-      background: none;
-      border-radius: 0;
       overflow: hidden;
-      margin: 0;
+      height: 220px;
+      cursor: default;
     }
-    .cond-icon-wrap.photo img { width: 100%; height: 140px; object-fit: cover; filter: none; border-radius: 0; }
-    .cond-name { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--dark); }
-    .cond-desc { font-size: 0.76rem; color: var(--gray); line-height: 1.55; }
+    .mosaic-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .mosaic-item:hover img { transform: scale(1.04); }
+    .mosaic-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 55%);
+    }
+    .mosaic-label {
+      position: absolute;
+      bottom: 14px; left: 14px; right: 14px;
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #fff;
+      line-height: 1.25;
+    }
+    @media (max-width: 900px) {
+      .mosaic-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .mosaic-item { height: 160px; }
+    }
+    @media (max-width: 480px) {
+      .mosaic-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .mosaic-item { height: 140px; }
+      .mosaic-label { font-size: 0.82rem; bottom: 10px; left: 10px; }
+    }
 
     /* ===== CREDENCIAIS ===== */
     .cred-split {
@@ -1247,14 +1241,6 @@
       .trust-bar-inner { gap: 10px 12px; }
       .tbar-item { font-size: 0.78rem; }
 
-      /* Conditions grid card padding */
-      .cond-card { padding: 0 0 12px; }
-      .cond-icon-wrap { width: 48px; height: 48px; margin: 12px 12px 6px; }
-      .cond-icon-wrap img { width: 26px; height: 26px; }
-      .cond-icon-wrap.photo { width: 100%; height: 110px; margin: 0; }
-      .cond-icon-wrap.photo img { height: 110px; }
-      .cond-name { font-size: 0.85rem; }
-      .cond-desc { font-size: 0.73rem; }
 
       /* Doctor cards: reduce padding on mobile */
       .doc-card { padding: 18px 14px 16px; }
@@ -1314,12 +1300,6 @@
         display: none;
       }
 
-      /* Conditions grid: keep 2-col but tighter */
-      .cond-card { padding: 13px 10px 12px; gap: 6px; }
-      .cond-icon-wrap { width: 42px; height: 42px; border-radius: 9px; }
-      .cond-icon-wrap img { width: 22px; height: 22px; }
-      .cond-name { font-size: 0.82rem; }
-      .cond-desc { font-size: 0.7rem; }
 
       /* Abordagem cards: on small mobile stack to 1-col */
       .abord-cards { grid-template-columns: 1fr; }
@@ -1513,78 +1493,54 @@
     <h2 class="sec-title">Dores crônicas têm tratamento!</h2>
     <p class="sec-sub">Nosso médico prescritor atende as principais condições de dor crônica com abordagem integrativa e individualizada.</p>
 
-    <div class="conds-grid">
+    <div class="mosaic-grid">
 
-      <!-- Artrite -->
-      <div class="cond-card rv">
-        <div class="cond-icon-wrap photo">
-          <img src="/LPS/Assets/artrite-foto.jpg" alt="Artrite" />
-        </div>
-        <div class="cond-name">Artrite</div>
-        <div class="cond-desc">Inflamação e dor persistente nas articulações que limita o movimento</div>
+      <div class="mosaic-item rv">
+        <img src="/LPS/Assets/artrite-foto.jpg" alt="Artrite" />
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-label">Artrite</div>
       </div>
 
-      <!-- Artrose -->
-      <div class="cond-card rv rv-d1">
-        <div class="cond-icon-wrap photo">
-          <img src="/LPS/Assets/artrose-foto.png" alt="Artrose" />
-        </div>
-        <div class="cond-name">Artrose</div>
-        <div class="cond-desc">Desgaste da cartilagem com dor, rigidez e dificuldade de locomoção</div>
+      <div class="mosaic-item rv rv-d1">
+        <img src="/LPS/Assets/artrose-foto.png" alt="Artrose" />
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-label">Artrose</div>
       </div>
 
-      <!-- Dores na Coluna -->
-      <div class="cond-card rv rv-d2">
-        <div class="cond-icon-wrap photo">
-          <img src="/LPS/Assets/dor-coluna-foto.jpg" alt="Dores na Coluna" />
-        </div>
-        <div class="cond-name">Dores na Coluna</div>
-        <div class="cond-desc">Lombalgia, hérnia de disco, dor cervical e ciática crônica</div>
+      <div class="mosaic-item rv rv-d2">
+        <img src="/LPS/Assets/dor-coluna-foto.jpg" alt="Dores na Coluna" />
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-label">Dores na Coluna</div>
       </div>
 
-      <!-- Fibromialgia -->
-      <div class="cond-card rv rv-d3">
-        <div class="cond-icon-wrap photo">
-          <img src="/LPS/Assets/fibromialgia-foto.jpg" alt="Fibromialgia" />
-        </div>
-        <div class="cond-name">Fibromialgia</div>
-        <div class="cond-desc">Dor difusa pelo corpo com fadiga, sono ruim e sensibilidade aumentada</div>
+      <div class="mosaic-item rv rv-d3">
+        <img src="/LPS/Assets/fibromialgia-foto.jpg" alt="Fibromialgia" />
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-label">Fibromialgia</div>
       </div>
 
-      <!-- Enxaqueca -->
-      <div class="cond-card rv">
-        <div class="cond-icon-wrap photo">
-          <img src="/LPS/Assets/enxaqueca.png" alt="Enxaqueca" />
-        </div>
-        <div class="cond-name">Enxaqueca Crônica</div>
-        <div class="cond-desc">Cefaleia recorrente e intensa que impacta a qualidade de vida</div>
+      <div class="mosaic-item rv">
+        <img src="/LPS/Assets/enxaqueca.png" alt="Enxaqueca" />
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-label">Enxaqueca Crônica</div>
       </div>
 
-      <!-- Endometriose -->
-      <div class="cond-card rv rv-d1">
-        <div class="cond-icon-wrap photo">
-          <img src="/LPS/Assets/endometriose-foto.jpg" alt="Endometriose" />
-        </div>
-        <div class="cond-name">Endometriose</div>
-        <div class="cond-desc">Dor pélvica crônica e intensa associada ao ciclo menstrual</div>
+      <div class="mosaic-item rv rv-d1">
+        <img src="/LPS/Assets/endometriose-foto.jpg" alt="Endometriose" />
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-label">Endometriose</div>
       </div>
 
-      <!-- Espasmos Musculares -->
-      <div class="cond-card rv rv-d2">
-        <div class="cond-icon-wrap photo">
-          <img src="/LPS/Assets/espasmos-foto.png" alt="Espasmos Musculares" />
-        </div>
-        <div class="cond-name">Espasmos Musculares</div>
-        <div class="cond-desc">Contrações involuntárias e rigidez muscular, inclusive na Esclerose Múltipla</div>
+      <div class="mosaic-item rv rv-d2">
+        <img src="/LPS/Assets/espasmos-foto.png" alt="Espasmos Musculares" />
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-label">Espasmos Musculares</div>
       </div>
 
-      <!-- Dor Neuropática -->
-      <div class="cond-card rv rv-d3">
-        <div class="cond-icon-wrap photo">
-          <img src="/LPS/Assets/neuropatica-foto.png" alt="Dor Neuropática" />
-        </div>
-        <div class="cond-name">Dor Neuropática</div>
-        <div class="cond-desc">Dor em queimação ou formigamento causada por lesão nos nervos</div>
+      <div class="mosaic-item rv rv-d3">
+        <img src="/LPS/Assets/neuropatica-foto.png" alt="Dor Neuropática" />
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-label">Dor Neuropática</div>
       </div>
 
     </div>
