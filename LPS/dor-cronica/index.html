@@ -415,7 +415,7 @@
       position: relative;
       border-radius: 12px;
       overflow: hidden;
-      height: 220px;
+      height: 260px;
       cursor: default;
     }
     .mosaic-item img {
@@ -428,25 +428,33 @@
     .mosaic-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 55%);
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0) 100%);
     }
     .mosaic-label {
       position: absolute;
-      bottom: 14px; left: 14px; right: 14px;
+      bottom: 44px; left: 14px; right: 14px;
       font-family: 'Gabarito', sans-serif;
       font-weight: 700;
       font-size: 0.92rem;
       color: #fff;
       line-height: 1.25;
     }
+    .mosaic-desc {
+      position: absolute;
+      bottom: 14px; left: 14px; right: 14px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.4;
+    }
     @media (max-width: 900px) {
       .mosaic-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .mosaic-item { height: 160px; }
+      .mosaic-item { height: 200px; }
     }
     @media (max-width: 480px) {
       .mosaic-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-      .mosaic-item { height: 140px; }
-      .mosaic-label { font-size: 0.82rem; bottom: 10px; left: 10px; }
+      .mosaic-item { height: 180px; }
+      .mosaic-label { font-size: 0.82rem; bottom: 40px; left: 10px; }
+      .mosaic-desc { font-size: 0.7rem; bottom: 10px; left: 10px; right: 10px; }
     }
 
     /* ===== CREDENCIAIS ===== */
@@ -1682,51 +1690,59 @@
     <div class="mosaic-grid">
 
       <div class="mosaic-item rv">
-        <img src="/LPS/Assets/dor-coluna-foto.png" alt="Dores na Coluna" />
+        <img src="/LPS/Assets/dor-coluna-foto.png" alt="Dor na Coluna" />
         <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Dores na Coluna</div>
+        <div class="mosaic-label">Dor na Coluna</div>
+        <div class="mosaic-desc">Alivie a dor na coluna e retome atividades simples sem limitações.</div>
       </div>
 
       <div class="mosaic-item rv rv-d1">
-        <img src="/LPS/Assets/artrose-foto.png" alt="Artrose" />
+        <img src="/LPS/Assets/artrose-foto.png" alt="Dor Cervical" />
         <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Artrose</div>
+        <div class="mosaic-label">Dor Cervical</div>
+        <div class="mosaic-desc">Reduza a tensão no pescoço e sinta mais leveza ao longo do dia.</div>
       </div>
 
       <div class="mosaic-item rv rv-d2">
-        <img src="/LPS/Assets/enxaqueca.png" alt="Enxaqueca" />
+        <img src="/LPS/Assets/enxaqueca.png" alt="Enxaqueca Crônica" />
         <div class="mosaic-overlay"></div>
         <div class="mosaic-label">Enxaqueca Crônica</div>
+        <div class="mosaic-desc">Diminua a frequência das crises e volte a ter dias produtivos.</div>
       </div>
 
       <div class="mosaic-item rv rv-d3">
         <img src="/LPS/Assets/artrite-foto.png" alt="Artrite" />
         <div class="mosaic-overlay"></div>
         <div class="mosaic-label">Artrite</div>
+        <div class="mosaic-desc">Reduza a dor nas articulações e volte a se movimentar com mais conforto.</div>
       </div>
 
       <div class="mosaic-item rv">
         <img src="/LPS/Assets/fibromialgia-foto.png" alt="Fibromialgia" />
         <div class="mosaic-overlay"></div>
         <div class="mosaic-label">Fibromialgia</div>
+        <div class="mosaic-desc">Diminua dores constantes e recupere sua disposição e qualidade de vida.</div>
       </div>
 
       <div class="mosaic-item rv rv-d1">
-        <img src="/LPS/Assets/endometriose-foto.png" alt="Endometriose" />
+        <img src="/LPS/Assets/endometriose-foto.png" alt="Insônia relacionada à dor" />
         <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Endometriose</div>
+        <div class="mosaic-label">Insônia relacionada à dor</div>
+        <div class="mosaic-desc">Melhore a qualidade do sono e acorde com mais energia e menos desconforto.</div>
       </div>
 
       <div class="mosaic-item rv rv-d2">
         <img src="/LPS/Assets/espasmos-foto.png" alt="Espasmos Musculares" />
         <div class="mosaic-overlay"></div>
         <div class="mosaic-label">Espasmos Musculares</div>
+        <div class="mosaic-desc">Controle as crises musculares e tenha mais estabilidade nos movimentos.</div>
       </div>
 
       <div class="mosaic-item rv rv-d3">
         <img src="/LPS/Assets/neuropatica-foto.png" alt="Dor Neuropática" />
         <div class="mosaic-overlay"></div>
         <div class="mosaic-label">Dor Neuropática</div>
+        <div class="mosaic-desc">Reduza a intensidade da dor e recupere o bem-estar no dia a dia.</div>
       </div>
 
     </div>
@@ -1751,7 +1767,7 @@
       <!-- Copy -->
       <div class="rv">
         <span class="endo-eyebrow">Medicina Endocanabinoide</span>
-        <h2 class="endo-title">Consulta médica para dor crônica com indicação de <em>tratamentos avançados</em> e personalizados</h2>
+        <h2 class="endo-title">Quando tratamentos comuns não funcionam, existe uma <em>abordagem médica diferente</em></h2>
         <p class="endo-text">
           O sistema endocanabinoide é uma rede de receptores presente em todo o corpo, responsável por regular a percepção da dor, inflamação, sono e humor. Os <strong style="color:#fff;">fitocannabinoides</strong> — compostos de origem vegetal — atuam diretamente nesse sistema, apresentando <strong style="color:#fff;">potencial terapêutico</strong> significativo para condições de dor crônica que não respondem bem a tratamentos convencionais.
         </p>
