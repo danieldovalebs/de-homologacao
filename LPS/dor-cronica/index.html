@@ -147,7 +147,7 @@
     /* ===== HERO ===== */
     #hero {
       position: relative;
-      min-height: 640px;
+      min-height: 460px;
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -168,7 +168,7 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      padding: 110px 0 72px;
+      padding: 52px 0 40px;
     }
     .hero-content { max-width: 560px; }
 
@@ -197,27 +197,28 @@
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
 
     .hero-title {
-      font-size: clamp(2rem, 4.2vw, 3.1rem);
+      font-size: clamp(1.6rem, 3.2vw, 2.4rem);
       font-weight: 900;
       color: #fff;
-      margin-bottom: 18px;
+      line-height: 1.1;
+      margin-bottom: 12px;
     }
     .hero-title em { font-style: normal; color: var(--green); }
 
     .hero-sub {
-      font-size: 0.96rem;
+      font-size: 0.92rem;
       color: rgba(255,255,255,0.82);
-      line-height: 1.8;
-      margin-bottom: 28px;
+      line-height: 1.65;
+      margin-bottom: 14px;
       max-width: 460px;
     }
 
     .hero-checks {
       list-style: none;
-      margin-bottom: 34px;
+      margin-bottom: 20px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 7px;
     }
     .hero-checks li {
       display: flex;
@@ -281,12 +282,12 @@
       cursor: pointer;
     }
     .hero-dot.active { background: #fff; }
-    /* badges inline no conteúdo do hero */
-    .hero-badges-row {
+    /* badges flutuando à direita do hero */
+    .hero-right-badges {
       display: flex;
+      flex-direction: column;
       gap: 12px;
-      margin-top: 20px;
-      flex-wrap: wrap;
+      flex-shrink: 0;
     }
     .hero-img-badge {
       background: rgba(255,255,255,0.12);
@@ -311,6 +312,63 @@
     .badge-icon i { width: 17px; height: 17px; color: #fff; }
     .badge-text-top { font-family: 'Gabarito', sans-serif; font-weight: 800; font-size: 0.88rem; color: #fff; }
     .badge-text-bot { font-size: 0.68rem; color: rgba(255,255,255,0.7); }
+    /* Pills compactas abaixo do CTA */
+    .hero-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-family: 'Gabarito', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .hero-pill i { width: 13px; height: 13px; flex-shrink: 0; color: rgba(255,255,255,0.7); }
+    .hero-pill-green { background: rgba(0,0,0,0.55); border-color: rgba(70,176,112,0.6); color: #fff; }
+    .hero-pill-green i { color: var(--green); }
+    .hero-pill-orange { background: rgba(0,0,0,0.55); border-color: rgba(240,122,40,0.6); color: var(--orange); }
+    .hero-pill-orange i { color: var(--orange); }
+
+    /* Badge com os 3 termos */
+    .hero-terms-badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(70,176,112,0.45);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .hero-terms-badge-title {
+      font-family: 'Gabarito', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 2px;
+    }
+    .hero-terms-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fff;
+      font-family: 'Gabarito', sans-serif;
+    }
+    .hero-terms-badge-item i { width: 13px; height: 13px; color: var(--green); flex-shrink: 0; }
 
     /* ===== TRUST BAR ===== */
     #trust-bar {
@@ -532,64 +590,237 @@
       padding: 0 20px;
     }
 
+    /* ===== ENDOCANABINOIDE ===== */
+    #endo {
+      background: #000f2e url('/LPS/Assets/CS-medico.jpg') center center / cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0;
+    }
+    #endo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,15,46,0.88) 0%, rgba(0,15,46,0.72) 55%, rgba(0,15,46,0.40) 100%);
+      z-index: 1;
+    }
+    .endo-inner {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .endo-serum { display: none; }
+    .endo-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .endo-title {
+      font-family: 'Gabarito', sans-serif;
+      font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .endo-title em { font-style: normal; color: var(--green); }
+    .endo-text {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,.72);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .endo-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .endo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(70,176,112,.15);
+      border: 1px solid rgba(70,176,112,.35);
+      color: var(--green);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-family: 'Gabarito', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .endo-pill i { width: 14px; height: 14px; flex-shrink: 0; }
+    .endo-anvisa {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,.45);
+      line-height: 1.6;
+    }
+    .endo-anvisa strong { color: rgba(255,255,255,.7); }
+    .endo-img-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .endo-bottle-card {
+      background: linear-gradient(145deg, rgba(39,174,96,0.22) 0%, rgba(0,15,46,0.55) 100%);
+      border: 1px solid rgba(70,176,112,0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      width: 100%;
+      max-width: 320px;
+    }
+    .endo-bottle-card img {
+      width: 180px;
+      filter: drop-shadow(0 16px 32px rgba(0,0,0,0.5));
+    }
+    .endo-bottle-label {
+      text-align: center;
+      font-family: 'Gabarito', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      line-height: 1.5;
+    }
+    .endo-bottle-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+    .endo-bottle-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 7px 12px;
+    }
+    .endo-bottle-tag i { width: 13px; height: 13px; color: var(--green); flex-shrink: 0; }
+    @media (max-width: 860px) {
+      .endo-inner { grid-template-columns: 1fr; }
+      .endo-img-wrap { display: none; }
+    }
+
     /* ===== ABORDAGEM ===== */
     #abordagem { background: var(--gray-light); }
-    .abord-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
+    .abord-header {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 48px;
     }
-    @media (max-width: 860px) { .abord-grid { grid-template-columns: 1fr; gap: 36px; } }
-
-    .abord-copy .eyebrow { color: var(--green-dark); }
+    .abord-header .eyebrow { color: var(--green-dark); }
     .abord-title {
       font-family: 'Gabarito', sans-serif;
       font-size: clamp(1.5rem, 2.5vw, 2rem);
       font-weight: 800;
       color: var(--green-dark);
       line-height: 1.2;
-      margin: 10px 0 20px;
+      margin: 10px 0 16px;
     }
-    .abord-text { font-size: 0.92rem; color: var(--gray); line-height: 1.75; margin-bottom: 14px; }
+    .abord-text { font-size: 0.92rem; color: var(--gray); line-height: 1.75; margin-bottom: 0; }
     .abord-text strong { color: var(--dark); }
 
-    .abord-photo {
+    /* Video placeholder na seção abordagem */
+    .abord-video-wrap {
+      max-width: 720px;
+      margin: 0 auto 40px;
+    }
+    .abord-video-placeholder {
       position: relative;
-      margin-top: 24px;
-      border-radius: var(--r-lg);
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #1a2e1a 0%, #0f1f0f 100%);
+      border-radius: 16px;
       overflow: hidden;
-      max-height: 220px;
+      cursor: pointer;
+      border: 2px solid rgba(70,176,112,0.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
     }
-    .abord-photo img {
-      width: 100%; height: 220px;
-      object-fit: cover;
-      object-position: center 40%;
-      display: block;
-      border-radius: var(--r-lg);
-    }
-    .abord-photo-tag {
+    .abord-video-placeholder::before {
+      content: '';
       position: absolute;
-      bottom: 12px; left: 12px;
-      background: rgba(255,255,255,.92);
-      border-radius: 8px;
-      padding: 6px 12px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--green-dark);
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(70,176,112,0.08) 0%, transparent 70%);
+    }
+    .abord-video-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .abord-play-btn {
+      width: 72px; height: 72px;
+      background: var(--green-dark);
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      box-shadow: 0 0 0 12px rgba(70,176,112,0.15), 0 0 0 24px rgba(70,176,112,0.07);
+      transition: transform 0.2s;
     }
-    .abord-photo-tag i { width: 13px; height: 13px; }
+    .abord-video-placeholder:hover .abord-play-btn { transform: scale(1.08); }
+    .abord-play-btn i { width: 32px; height: 32px; color: #fff; margin-left: 4px; }
+    .abord-video-label {
+      text-align: center;
+    }
+    .abord-video-label strong {
+      display: block;
+      font-family: 'Gabarito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .abord-video-label span {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .abord-video-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(70,176,112,0.4);
+      border-radius: 100px;
+      padding: 5px 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--green);
+      font-family: 'Gabarito', sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
 
     .abord-cards {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
     .abord-card {
-      background: var(--green-dark);
+      background: var(--white);
       border-radius: 14px;
       padding: 28px 20px 24px;
       display: flex;
@@ -598,20 +829,22 @@
       gap: 16px;
       text-align: center;
       transition: var(--ease);
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 10px rgba(0,0,0,.05);
     }
-    .abord-card:hover { background: var(--green-deeper); transform: translateY(-3px); }
+    .abord-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.10); }
     .abord-card-icon {
       width: 64px; height: 64px;
-      background: rgba(255,255,255,.15);
+      background: var(--green-light);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
     }
-    .abord-card-icon i { width: 30px; height: 30px; color: #fff; }
+    .abord-card-icon i { width: 30px; height: 30px; color: var(--green-dark); }
     .abord-card-label {
       font-family: 'Gabarito', sans-serif;
       font-size: 0.9rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--dark);
       line-height: 1.35;
     }
 
@@ -1185,14 +1418,15 @@
       /* Hero */
       #hero { min-height: auto; }
       .hero-overlay { background: linear-gradient(to bottom, rgba(15,15,15,0.55) 0%, rgba(15,15,15,0.80) 100%); }
-      .hero-content-wrap { padding: 88px 0 56px; }
+      .hero-content-wrap { padding: 88px 0 56px; flex-direction: column; align-items: flex-start; gap: 24px; }
       .hero-content { max-width: 100%; }
+      .hero-right-badges { flex-direction: row; flex-wrap: wrap; gap: 10px; }
 
       /* Hero badges: reposition inside/on-edge of image instead of outside */
       .hero-img-badge {
-        position: absolute;
-        bottom: 10px !important;
-        left: 10px !important;
+        position: static !important;
+        bottom: auto !important;
+        left: auto !important;
         right: auto !important;
         padding: 10px 12px;
         gap: 8px;
@@ -1219,7 +1453,8 @@
       /* Btn-lg full width on mobile */
       .btn-lg { width: 100%; justify-content: center; }
 
-      /* Abordagem cards: keep 2-col but reduce padding */
+      /* Abordagem cards: 2-col em tablet */
+      .abord-cards { grid-template-columns: 1fr 1fr; }
       .abord-card { padding: 22px 14px 18px; gap: 12px; }
     }
 
@@ -1376,20 +1611,9 @@
 ================================================================ -->
 <section id="hero">
 
-  <!-- Slides de fundo -->
-  <div class="hero-bg" id="heroSlider">
-    <div class="hero-slide active">
-      <img src="/LPS/Assets/back-pain-hero.jpg" alt="Dor lombar crônica" style="object-position:center 55%;" loading="eager" />
-    </div>
-    <div class="hero-slide">
-      <img src="/LPS/Assets/headache-hero.jpg" alt="Enxaqueca e dor de cabeça" style="object-position:center 30%;" loading="lazy" />
-    </div>
-    <div class="hero-slide">
-      <img src="/LPS/Assets/knee-pain-hero.jpg" alt="Dor no joelho e articulações" style="object-position:center 35%;" loading="lazy" />
-    </div>
-    <div class="hero-slide">
-      <img src="/LPS/Assets/pesquisadora-cannabis.jpg" alt="Pesquisadora em estudo de tratamentos regulamentados" style="object-position:center 40%;" loading="lazy" />
-    </div>
+  <!-- Fundo estático -->
+  <div class="hero-bg">
+    <img src="/LPS/Assets/hero-dor-cronica.jpg" alt="Mulher com dor crônica nas costas" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;" loading="eager" />
   </div>
 
   <!-- Overlay gradiente -->
@@ -1403,69 +1627,30 @@
         Telemedicina · Disponível Agora
       </div>
       <h1 class="hero-title">
-        Viver com dor não<br/>
-        deveria ser parte<br/>
-        <em>da sua rotina.</em>
+        Consulta médica para dor crônica com indicação de <em>tratamentos avançados</em> e personalizados
       </h1>
       <p class="hero-sub">
-        Dores constantes que tiram seu sono, afetam seu humor e te impedem de aproveitar o dia.
-        Avaliação médica especializada para indicação de <strong style="color:#fff;">tratamentos alternativos regulamentados pela Anvisa</strong> — quando o convencional não foi suficiente.
+        Após uma avaliação individual, o médico pode indicar <strong style="color:#fff;">tratamentos autorizados pela Anvisa</strong>, de acordo com o seu caso e histórico clínico.
       </p>
+      <div class="hero-pills-row">
+        <span class="hero-pill hero-pill-orange"><i data-lucide="circle-dollar-sign"></i> R$ 200 · particular</span>
+        <span class="hero-pill"><i data-lucide="users"></i> +10 mil pacientes atendidos</span>
+        <span class="hero-pill hero-pill-green"><i data-lucide="activity"></i> Medicina Endocanabinoide</span>
+        <span class="hero-pill hero-pill-green"><i data-lucide="flask-conical"></i> Potencial Terapêutico</span>
+      </div>
+
       <ul class="hero-checks">
-        <li>
-          <span class="chk"><i data-lucide="check"></i></span>
-          Profissionais experientes com formação em medicina da dor
-        </li>
-        <li>
-          <span class="chk"><i data-lucide="check"></i></span>
-          Avaliação para indicação de tratamentos específicos regulamentados
-        </li>
-        <li>
-          <span class="chk"><i data-lucide="check"></i></span>
-          100% por telemedicina — atenda de qualquer lugar do Brasil
-        </li>
-        <li>
-          <span class="chk"><i data-lucide="check"></i></span>
-          Abordagem humanizada — confirmação em até 2h
-        </li>
+        <li><span class="chk"><i data-lucide="check"></i></span>Atendimento médico individualizado</li>
+        <li><span class="chk"><i data-lucide="check"></i></span>Avaliação completa do seu histórico de dor</li>
+        <li><span class="chk"><i data-lucide="check"></i></span>Indicação de tratamentos regulamentados</li>
       </ul>
-      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Solicitar Consulta</a>
-      <div class="hero-trust">
-        <span class="trust-item"><i data-lucide="shield-check"></i> Consulta Segura</span>
-        <span class="trust-item"><i data-lucide="star"></i> Profissionais Qualificados</span>
-        <span class="trust-item"><i data-lucide="file-text"></i> Registro Médico Ativo</span>
-      </div>
 
-      <!-- Badges ancorados ao conteúdo -->
-      <div class="hero-badges-row">
-        <div class="hero-img-badge">
-          <div class="badge-icon">
-            <i data-lucide="circle-dollar-sign" style="color:var(--orange);"></i>
-          </div>
-          <div>
-            <div class="badge-text-top" style="color:var(--orange);">Apenas R$ 200</div>
-            <div class="badge-text-bot">por consulta · particular</div>
-          </div>
-        </div>
-        <div class="hero-img-badge">
-          <div class="badge-icon">
-            <i data-lucide="users"></i>
-          </div>
-          <div>
-            <div class="badge-text-top">+10 mil pacientes</div>
-            <div class="badge-text-bot">atendidos com sucesso</div>
-          </div>
-        </div>
-      </div>
+      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Solicitar Pré-Agendamento</a>
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:10px;max-width:420px;line-height:1.5;">
+        Após avaliação médica, o tratamento só é indicado quando houver pertinência clínica.
+      </p>
+
     </div>
-  </div>
-
-  <!-- Dots -->
-  <div class="hero-dots">
-    <div class="hero-dot active" onclick="goSlide(0)"></div>
-    <div class="hero-dot" onclick="goSlide(1)"></div>
-    <div class="hero-dot" onclick="goSlide(2)"></div>
-    <div class="hero-dot" onclick="goSlide(3)"></div>
   </div>
 
 </section>
@@ -1489,17 +1674,17 @@
      PARA QUEM É
 ================================================================ -->
 <section id="para-quem" class="section section-alt">
-  <div class="container">
+  <div class="container tc">
     <span class="eyebrow">Indicações</span>
-    <h2 class="sec-title">Dores crônicas têm tratamento!</h2>
-    <p class="sec-sub">Avaliação médica especializada para quem convive com dor crônica — especialmente para quem não obteve alívio suficiente com os tratamentos convencionais e busca alternativas regulamentadas.</p>
+    <h2 class="sec-title">Condições em que a avaliação médica pode considerar novas abordagens terapêuticas</h2>
+    <p class="sec-sub" style="margin: 0 auto;">Avaliação médica especializada para quem convive com dor crônica — especialmente para quem não obteve alívio suficiente com os tratamentos convencionais e busca alternativas regulamentadas.</p>
 
     <div class="mosaic-grid">
 
       <div class="mosaic-item rv">
-        <img src="/LPS/Assets/artrite-foto.jpg" alt="Artrite" />
+        <img src="/LPS/Assets/dor-coluna-foto.png" alt="Dores na Coluna" />
         <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Artrite</div>
+        <div class="mosaic-label">Dores na Coluna</div>
       </div>
 
       <div class="mosaic-item rv rv-d1">
@@ -1509,25 +1694,25 @@
       </div>
 
       <div class="mosaic-item rv rv-d2">
-        <img src="/LPS/Assets/dor-coluna-foto.jpg" alt="Dores na Coluna" />
-        <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Dores na Coluna</div>
-      </div>
-
-      <div class="mosaic-item rv rv-d3">
-        <img src="/LPS/Assets/fibromialgia-foto.jpg" alt="Fibromialgia" />
-        <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Fibromialgia</div>
-      </div>
-
-      <div class="mosaic-item rv">
         <img src="/LPS/Assets/enxaqueca.png" alt="Enxaqueca" />
         <div class="mosaic-overlay"></div>
         <div class="mosaic-label">Enxaqueca Crônica</div>
       </div>
 
+      <div class="mosaic-item rv rv-d3">
+        <img src="/LPS/Assets/artrite-foto.png" alt="Artrite" />
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-label">Artrite</div>
+      </div>
+
+      <div class="mosaic-item rv">
+        <img src="/LPS/Assets/fibromialgia-foto.png" alt="Fibromialgia" />
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-label">Fibromialgia</div>
+      </div>
+
       <div class="mosaic-item rv rv-d1">
-        <img src="/LPS/Assets/endometriose-foto.jpg" alt="Endometriose" />
+        <img src="/LPS/Assets/endometriose-foto.png" alt="Endometriose" />
         <div class="mosaic-overlay"></div>
         <div class="mosaic-label">Endometriose</div>
       </div>
@@ -1547,7 +1732,53 @@
     </div>
 
     <div class="tc">
-      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Quero Agendar Minha Avaliação</a>
+      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Solicitar Pré-Agendamento</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     MEDICINA ENDOCANABINOIDE
+================================================================ -->
+<section id="endo">
+
+  <!-- Frasco decorativo de fundo -->
+  <img class="endo-serum" src="/LPS/Assets/serum-hemp-oil.png" alt="" aria-hidden="true" />
+
+  <div class="container">
+    <div class="endo-inner">
+
+      <!-- Copy -->
+      <div class="rv">
+        <span class="endo-eyebrow">Medicina Endocanabinoide</span>
+        <h2 class="endo-title">Consulta médica para dor crônica com indicação de <em>tratamentos avançados</em> e personalizados</h2>
+        <p class="endo-text">
+          O sistema endocanabinoide é uma rede de receptores presente em todo o corpo, responsável por regular a percepção da dor, inflamação, sono e humor. Os <strong style="color:#fff;">fitocannabinoides</strong> — compostos de origem vegetal — atuam diretamente nesse sistema, apresentando <strong style="color:#fff;">potencial terapêutico</strong> significativo para condições de dor crônica que não respondem bem a tratamentos convencionais.
+        </p>
+        <div class="endo-pills">
+          <span class="endo-pill"><i data-lucide="leaf"></i> Fitocannabinoides</span>
+          <span class="endo-pill"><i data-lucide="activity"></i> Medicina Endocanabinoide</span>
+          <span class="endo-pill"><i data-lucide="flask-conical"></i> Potencial Terapêutico</span>
+        </div>
+        <p class="endo-anvisa">
+          <strong>Regulamentado pela ANVISA · RDC 660/2022</strong><br>
+          Tratamentos prescritos por profissionais qualificados, dentro dos protocolos reconhecidos pelo Conselho Federal de Medicina.
+        </p>
+      </div>
+
+      <!-- Card frasco CBD -->
+      <div class="endo-img-wrap rv rv-d1">
+        <div class="endo-bottle-card">
+          <img src="/LPS/Assets/serum-hemp-oil.png" alt="Medicamento à base de fitocanabinoides" />
+          <div class="endo-bottle-label">Fitocannabinoides<br>Regulamentados pela ANVISA</div>
+          <div class="endo-bottle-tags">
+            <span class="endo-bottle-tag"><i data-lucide="leaf"></i> Origem vegetal certificada</span>
+            <span class="endo-bottle-tag"><i data-lucide="shield-check"></i> Prescrição médica obrigatória</span>
+            <span class="endo-bottle-tag"><i data-lucide="flask-conical"></i> RDC 660/2022 — ANVISA</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1560,7 +1791,7 @@
     <div class="cred-split rv">
 
       <div class="cred-split-img">
-        <img src="/LPS/Assets/advice-doctor-and-patient-holding-hands-in-office-2026-01-09-11-46-12-utc.jpg" alt="Médico prescritor em consulta com paciente" />
+        <img src="/LPS/Assets/advice-doctor-and-patient-holding-hands-in-office-2026-01-09-11-46-12-utc.jpg" alt="Médico em consulta com paciente por telemedicina" />
       </div>
 
       <div class="cred-split-content">
@@ -1637,48 +1868,50 @@
 ================================================================ -->
 <section id="abordagem" class="section section-alt">
   <div class="container">
-    <div class="abord-grid">
 
-      <!-- Esquerda: copy -->
-      <div class="abord-copy rv">
-        <span class="eyebrow">Como funciona</span>
-        <h2 class="abord-title">Profissionais experientes com foco em dor crônica</h2>
-        <p class="abord-text">
-          Com o acompanhamento médico adequado, é possível avaliar a causa da dor, definir um plano individual e retomar o controle da sua rotina.
-        </p>
-        <p class="abord-text">
-          Profissionais experientes realizam uma <strong>avaliação completa do seu quadro</strong>, identificando a origem da dor e indicando o tratamento mais adequado para cada caso — de forma segura, individualizada e baseada em evidências.
-        </p>
-        <p class="abord-text">
-          Atendimento 100% por telemedicina — humanizado, personalizado e sem sair de casa.
-        </p>
-        <div class="abord-photo rv">
-          <img src="/LPS/Assets/medico-frasco-cbd.jpg"
-               alt="Tratamento regulamentado pela Anvisa para dor crônica" />
-        </div>
-      </div>
-
-      <!-- Direita: 4 cards verdes -->
-      <div class="abord-cards">
-        <div class="abord-card rv rv-d1">
-          <div class="abord-card-icon"><i data-lucide="stethoscope"></i></div>
-          <div class="abord-card-label">Profissionais qualificados e comprometidos</div>
-        </div>
-        <div class="abord-card rv rv-d2">
-          <div class="abord-card-icon"><i data-lucide="heart-handshake"></i></div>
-          <div class="abord-card-label">Abordagem médica humanizada</div>
-        </div>
-        <div class="abord-card rv rv-d3">
-          <div class="abord-card-icon"><i data-lucide="calendar-check"></i></div>
-          <div class="abord-card-label">Agendamento rápido e 100% online</div>
-        </div>
-        <div class="abord-card rv rv-d4">
-          <div class="abord-card-icon"><i data-lucide="shield-check"></i></div>
-          <div class="abord-card-label">Tratamentos individualizados com foco no seu bem-estar</div>
-        </div>
-      </div>
-
+    <!-- Cabeçalho centralizado -->
+    <div class="abord-header rv">
+      <span class="eyebrow">Como funciona</span>
+      <h2 class="abord-title">Profissionais experientes com foco em dor crônica</h2>
+      <p class="abord-text">
+        Avaliação completa do seu quadro, identificando a origem da dor e indicando o tratamento mais adequado — de forma segura, individualizada e baseada em evidências.
+      </p>
     </div>
+
+    <!-- Placeholder de vídeo -->
+    <div class="abord-video-wrap rv">
+      <div class="abord-video-placeholder">
+        <div class="abord-video-badge">📽 Em breve</div>
+        <div class="abord-video-inner">
+          <div class="abord-play-btn"><i data-lucide="play"></i></div>
+          <div class="abord-video-label">
+            <strong>Médico fala sobre o potencial terapêutico no tratamento da dor crônica</strong>
+            <span>Vídeo de depoimento — conteúdo a ser inserido</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 cards em linha horizontal -->
+    <div class="abord-cards">
+      <div class="abord-card rv rv-d1">
+        <div class="abord-card-icon"><i data-lucide="stethoscope"></i></div>
+        <div class="abord-card-label">Profissionais qualificados e comprometidos</div>
+      </div>
+      <div class="abord-card rv rv-d2">
+        <div class="abord-card-icon"><i data-lucide="heart-handshake"></i></div>
+        <div class="abord-card-label">Abordagem médica humanizada</div>
+      </div>
+      <div class="abord-card rv rv-d3">
+        <div class="abord-card-icon"><i data-lucide="calendar-check"></i></div>
+        <div class="abord-card-label">Agendamento rápido e 100% online</div>
+      </div>
+      <div class="abord-card rv rv-d4">
+        <div class="abord-card-icon"><i data-lucide="shield-check"></i></div>
+        <div class="abord-card-label">Tratamentos individualizados com foco no seu bem-estar</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1750,7 +1983,7 @@
 
       <!-- Card 1 -->
       <div class="testi-card rv">
-        <div class="testi-quote">"Mal conseguia trabalhar e dormir. Depois de 3 meses com o tratamento integrativo, a dor diminuiu muito e voltei a ter energia. Finalmente durmo e acordo bem."</div>
+        <div class="testi-quote">"Mal conseguia trabalhar e dormir. Depois de 3 meses de acompanhamento, a dor diminuiu muito e voltei a ter energia. Finalmente durmo e acordo bem."</div>
         <div class="testi-footer">
           <div class="testi-name">Neide dos Santos</div>
           <div class="testi-problem">Fibromialgia · 8 anos de dor</div>
@@ -1768,7 +2001,7 @@
 
       <!-- Card 3 -->
       <div class="testi-card rv rv-d2">
-        <div class="testi-quote">"Vivia tomando analgésico todo dia e nada resolvia. Com o tratamento integrativo, reduzi os remédios e recuperei minha qualidade de vida. Hoje durmo, acordo bem e vivo de verdade."</div>
+        <div class="testi-quote">"Vivia tomando analgésico todo dia e nada resolvia. Com o acompanhamento certo, reduzi os remédios e recuperei minha qualidade de vida. Hoje durmo, acordo bem e vivo de verdade."</div>
         <div class="testi-footer">
           <div class="testi-name">Loren Daniele</div>
           <div class="testi-problem">Dor crônica · dependência de analgésicos</div>
@@ -1835,13 +2068,16 @@
         </div>
         <div class="form-submit">
           <button type="submit" class="btn btn-primary btn-full" style="border-radius:10px; padding:17px; font-size:1.02rem;">
-            Quero Agendar Minha Consulta →
+            Quero Iniciar Minha Avaliação →
           </button>
         </div>
         <div class="form-secure mt16">
           <i data-lucide="lock"></i>
           Seus dados estão seguros. Não compartilhamos suas informações.
         </div>
+        <p style="font-size:0.74rem;color:var(--gray);text-align:center;margin-top:10px;line-height:1.5;">
+          A avaliação médica é necessária para determinar a indicação de qualquer tratamento, conforme regulamentação vigente.
+        </p>
       </form>
     </div>
   </div>
@@ -1878,7 +2114,7 @@
           Preciso levar exames ou laudos?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Não é obrigatório, mas se tiver exames anteriores ou laudos médicos, traga-os — isso ajuda o médico a ter um diagnóstico mais preciso. O médico prescritor faz uma avaliação completa mesmo sem exames prévios.</div>
+        <div class="faq-a">Não é obrigatório, mas se tiver exames anteriores ou laudos médicos, traga-os — isso ajuda o profissional a ter uma avaliação mais precisa. O profissional realiza uma anamnese completa mesmo sem exames prévios.</div>
       </div>
 
       <div class="faq-item">
@@ -1910,7 +2146,7 @@
           Quais condições de dor crônica vocês tratam?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Os médicos prescritores disponíveis atendem as principais condições de dor crônica, incluindo: artrite, artrose, fibromialgia, dores na coluna (lombalgia, hérnia de disco, ciática), enxaqueca crônica, endometriose, espasmos musculares, dor neuropática e osteoartrose. Se a sua condição não está na lista, entre em contato — cada caso é avaliado individualmente.</div>
+        <div class="faq-a">Os profissionais disponíveis atendem as principais condições de dor crônica, incluindo: artrite, artrose, fibromialgia, dores na coluna (lombalgia, hérnia de disco, ciática), enxaqueca crônica, endometriose, espasmos musculares, dor neuropática e osteoartrose. Se a sua condição não está na lista, entre em contato — cada caso é avaliado individualmente.</div>
       </div>
 
       <div class="faq-item">
@@ -1942,7 +2178,7 @@
           Que tipo de tratamento pode ser indicado na consulta?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">O profissional realiza uma avaliação completa do seu histórico e sintomas. Com base nessa avaliação, pode indicar, quando pertinente, tratamentos específicos regulamentados pela Anvisa (conforme a RDC 660/2022) — uma alternativa para pacientes que não obtiveram resultado suficiente com abordagens convencionais. A indicação é sempre individualizada e responsável.</div>
+        <div class="faq-a">O profissional realiza uma avaliação completa do seu histórico e sintomas. Com base nessa avaliação, pode indicar, quando pertinente, medicamentos à base de fitocannabinoides regulamentados pela Anvisa (conforme a RDC 660/2022) — que atuam no sistema endocanabinoide e representam uma alternativa para pacientes que não obtiveram resultado suficiente com abordagens convencionais. A indicação é sempre individualizada e responsável.</div>
       </div>
 
     </div>
@@ -1963,11 +2199,11 @@
       <div class="foot-logo">
         <img src="/LPS/Assets/logo-consulta-cs.webp" alt="Cannabis & Saúde" />
       </div>
-      <div class="foot-tagline">Tratamento natural com acompanhamento médico especializado</div>
+      <div class="foot-tagline">Acompanhamento médico especializado por telemedicina</div>
       <div class="foot-links">
         <a href="https://www.cannabisesaude.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>
         <a href="https://www.cannabisesaude.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Termos de Uso</a>
-        <a href="#form-sec">Agendar Consulta</a>
+        <a href="#form-sec">Solicitar Pré-Agendamento</a>
       </div>
       <div class="foot-line"></div>
       <p class="foot-disclaimer">
@@ -2005,7 +2241,7 @@
 <!-- Mobile sticky -->
 <div class="mob-bar">
   <a href="#form-sec" class="btn btn-primary btn-full" style="border-radius:8px; padding:13px; font-size:0.9rem;">
-    Agendar Consulta — R$ 200
+    Solicitar Pré-Agendamento — R$ 200
   </a>
 </div>
 
@@ -2061,18 +2297,6 @@
     setTimeout(() => toast.classList.remove('show'), 7000);
   }, 5000);
 
-  // Hero slideshow
-  let slideIdx = 0;
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots   = document.querySelectorAll('.hero-dot');
-  function goSlide(n) {
-    slides[slideIdx].classList.remove('active');
-    dots[slideIdx].classList.remove('active');
-    slideIdx = (n + slides.length) % slides.length;
-    slides[slideIdx].classList.add('active');
-    dots[slideIdx].classList.add('active');
-  }
-  setInterval(() => goSlide(slideIdx + 1), 4000);
 </script>
 </body>
 </html>
