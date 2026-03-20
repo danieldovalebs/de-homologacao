@@ -425,50 +425,49 @@
       margin: 36px 0 40px;
     }
     .mosaic-item {
-      position: relative;
       border-radius: 12px;
       overflow: hidden;
-      height: 160px;
+      background: #fff;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
       cursor: default;
     }
-    .mosaic-item img {
+    .mosaic-item-img {
+      height: 130px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .mosaic-item-img img {
       width: 100%; height: 100%;
       object-fit: cover;
       display: block;
       transition: transform 0.4s ease;
     }
-    .mosaic-item:hover img { transform: scale(1.04); }
-    .mosaic-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0) 100%);
+    .mosaic-item:hover .mosaic-item-img img { transform: scale(1.04); }
+    .mosaic-text {
+      padding: 12px 14px 14px;
     }
     .mosaic-label {
-      position: absolute;
-      bottom: 58px; left: 14px; right: 14px;
       font-family: 'Gabarito', sans-serif;
       font-weight: 700;
-      font-size: 0.92rem;
-      color: #fff;
+      font-size: 0.88rem;
+      color: var(--dark);
       line-height: 1.25;
+      margin-bottom: 4px;
     }
     .mosaic-desc {
-      position: absolute;
-      bottom: 14px; left: 14px; right: 14px;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.78);
-      line-height: 1.4;
+      font-size: 0.76rem;
+      color: var(--gray);
+      line-height: 1.5;
     }
     @media (max-width: 900px) {
       .mosaic-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .mosaic-item { height: 140px; }
-      .mosaic-label { bottom: 52px; }
-      .mosaic-desc { font-size: 0.72rem; }
+      .mosaic-item-img { height: 110px; }
     }
     @media (max-width: 600px) {
-      .mosaic-item { height: 120px; }
-      .mosaic-desc { display: none; }
-      .mosaic-label { bottom: 12px; font-size: 0.85rem; }
+      .mosaic-item-img { height: 90px; }
+      .mosaic-desc { font-size: 0.72rem; }
     }
 
     /* ===== CREDENCIAIS ===== */
@@ -614,49 +613,96 @@
 
     /* ===== ENDOCANABINOIDE ===== */
     #endo {
-      background: #000f2e url('/LPS/Assets/CS-medico.jpg') center center / cover no-repeat;
+      background: #d2e1e6;
       position: relative;
       overflow: hidden;
-      padding: 80px 0;
-    }
-    #endo::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(0,15,46,0.88) 0%, rgba(0,15,46,0.72) 55%, rgba(0,15,46,0.40) 100%);
-      z-index: 1;
+      padding: 64px 0;
     }
     .endo-inner {
-      display: block;
-      max-width: 640px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
       position: relative;
       z-index: 2;
     }
+    .endo-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .endo-stat-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(70,176,112,0.25);
+      border-radius: var(--r);
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .endo-stat-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(70,176,112,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .endo-stat-icon i { width: 16px; height: 16px; color: var(--green); }
+    .endo-stat-title { font-family: 'Gabarito', sans-serif; font-weight: 700; font-size: 0.88rem; color: #fff; margin-bottom: 3px; }
+    .endo-stat-desc { font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+    .endo-infographic {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      outline: none;
+    }
+    .endo-infographic img {
+      width: 100%;
+      max-width: 520px;
+      display: block;
+    }
+    @media (max-width: 860px) {
+      .endo-inner { grid-template-columns: 1fr; gap: 36px; }
+      .endo-infographic img { max-width: 360px; }
+    }
     .endo-serum { display: none; }
     .endo-eyebrow {
-      display: inline-block;
-      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 12px;
+      color: var(--green-deeper);
+      margin-bottom: 16px;
+    }
+    .endo-eyebrow::before {
+      content: '';
+      width: 24px; height: 2px;
+      background: var(--green-deeper);
+      display: inline-block;
     }
     .endo-title {
       font-family: 'Gabarito', sans-serif;
-      font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+      font-size: clamp(1.35rem, 2.2vw, 1.75rem);
       font-weight: 800;
-      color: #fff;
-      line-height: 1.2;
+      color: var(--dark);
+      line-height: 1.25;
       margin-bottom: 20px;
     }
-    .endo-title em { font-style: normal; color: var(--green); }
+    .endo-title em { font-style: normal; color: var(--green-deeper); }
     .endo-text {
-      font-size: 0.92rem;
-      color: rgba(255,255,255,.72);
-      line-height: 1.8;
-      margin-bottom: 32px;
+      font-size: 0.9rem;
+      color: #3a4a52;
+      line-height: 1.85;
+      margin-bottom: 16px;
     }
+    .endo-text strong { color: var(--dark); font-weight: 700; }
     .endo-pills {
       display: flex;
       flex-wrap: wrap;
@@ -756,6 +802,8 @@
       color: var(--green-dark);
       line-height: 1.2;
       margin: 10px 0 16px;
+      text-align: center;
+      width: 100%;
     }
     .abord-text { font-size: 0.92rem; color: var(--gray); line-height: 1.75; margin-bottom: 0; }
     .abord-text strong { color: var(--dark); }
@@ -1709,66 +1757,73 @@
 <section id="para-quem" class="section section-alt">
   <div class="container tc">
     <span class="eyebrow">Indicações</span>
-    <h2 class="sec-title">Conheça Novas Estratégias Terapêuticas<br>para o Manejo de Dores Crônicas</h2>
-    <p class="sec-sub" style="margin: 0 auto;">A medicina endocanabinoide é uma área de estudo que avalia como os fitocanabinoides podem influenciar na modulação da dor, sono, humor e inflamação em nosso corpo.</p>
-    <p class="sec-sub" style="margin: 12px auto 0;">Pesquisas apontam que essa abordagem terapêutica pode:</p>
+    <h2 class="sec-title" style="max-width: 720px; margin-left: auto; margin-right: auto;">Avaliação Clínica com Médicos Experientes em Medicina Endocanabinoide</h2>
+    <p class="sec-sub" style="margin: 0 auto; max-width: 720px;">Solicite uma avaliação com médicos capacitados para analisar seu quadro clínico e orientar sobre estratégias seguras de manejo da dor. A terapia com fitocanabinoides pode:</p>
 
     <div class="mosaic-grid">
 
       <div class="mosaic-item rv">
-        <img src="/LPS/Assets/dor-coluna-foto.png" alt="Dor na Coluna" />
-        <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Dor na Coluna</div>
-        <div class="mosaic-desc">Apoiar o manejo da dor crônica e melhorar a mobilidade.</div>
+        <div class="mosaic-item-img"><img src="/LPS/Assets/dor-coluna-foto.png" alt="Dor na Coluna" /></div>
+        <div class="mosaic-text">
+          <div class="mosaic-label">Dor na Coluna</div>
+          <div class="mosaic-desc">Apoiar o manejo da dor crônica e melhorar a mobilidade.</div>
+        </div>
       </div>
 
       <div class="mosaic-item rv rv-d1">
-        <img src="/LPS/Assets/artrose-foto.png" alt="Dor Cervical" />
-        <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Dor Cervical</div>
-        <div class="mosaic-desc">Auxiliar na redução de tensão e desconforto no pescoço.</div>
+        <div class="mosaic-item-img"><img src="/LPS/Assets/artrose-foto.png" alt="Dor Cervical" /></div>
+        <div class="mosaic-text">
+          <div class="mosaic-label">Dor Cervical</div>
+          <div class="mosaic-desc">Auxiliar na redução de tensão e desconforto no pescoço.</div>
+        </div>
       </div>
 
       <div class="mosaic-item rv rv-d2">
-        <img src="/LPS/Assets/enxaqueca.png" alt="Enxaqueca Crônica" />
-        <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Enxaqueca Crônica</div>
-        <div class="mosaic-desc">Contribuir para o manejo de sintomas e da frequência das crises.</div>
+        <div class="mosaic-item-img"><img src="/LPS/Assets/enxaqueca.png" alt="Enxaqueca Crônica" /></div>
+        <div class="mosaic-text">
+          <div class="mosaic-label">Enxaqueca Crônica</div>
+          <div class="mosaic-desc">Contribuir para o manejo de sintomas e da frequência das crises.</div>
+        </div>
       </div>
 
       <div class="mosaic-item rv rv-d3">
-        <img src="/LPS/Assets/artrite-foto.png" alt="Artrite" />
-        <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Artrite</div>
-        <div class="mosaic-desc">Reduzir inflamação e aliviar a dor articular e rigidez.</div>
+        <div class="mosaic-item-img"><img src="/LPS/Assets/artrite-foto.png" alt="Artrite" /></div>
+        <div class="mosaic-text">
+          <div class="mosaic-label">Artrite</div>
+          <div class="mosaic-desc">Reduzir inflamação e aliviar a dor articular e rigidez.</div>
+        </div>
       </div>
 
       <div class="mosaic-item rv">
-        <img src="/LPS/Assets/espasmos-foto.png" alt="Espasmos Musculares" />
-        <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Espasmos Musculares</div>
-        <div class="mosaic-desc">Ajudar a reduzir espasmos e tensão muscular.</div>
+        <div class="mosaic-item-img"><img src="/LPS/Assets/espasmos-foto.png" alt="Espasmos Musculares" /></div>
+        <div class="mosaic-text">
+          <div class="mosaic-label">Espasmos Musculares</div>
+          <div class="mosaic-desc">Ajudar a reduzir espasmos e tensão muscular.</div>
+        </div>
       </div>
 
       <div class="mosaic-item rv rv-d1">
-        <img src="/LPS/Assets/neuropatica-foto.png" alt="Dor Neuropática" />
-        <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Dor Neuropática</div>
-        <div class="mosaic-desc">Auxiliar no manejo da dor crônica neuropática.</div>
+        <div class="mosaic-item-img"><img src="/LPS/Assets/neuropatica-foto.png" alt="Dor Neuropática" /></div>
+        <div class="mosaic-text">
+          <div class="mosaic-label">Dor Neuropática</div>
+          <div class="mosaic-desc">Auxiliar no manejo da dor crônica neuropática.</div>
+        </div>
       </div>
 
       <div class="mosaic-item rv rv-d2">
-        <img src="/LPS/Assets/endometriose-foto.png" alt="Endometriose" />
-        <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Endometriose</div>
-        <div class="mosaic-desc">Contribuir para o manejo da dor associada à condição.</div>
+        <div class="mosaic-item-img"><img src="/LPS/Assets/endometriose-foto.png" alt="Endometriose" /></div>
+        <div class="mosaic-text">
+          <div class="mosaic-label">Endometriose</div>
+          <div class="mosaic-desc">Contribuir para o manejo da dor associada à condição.</div>
+        </div>
       </div>
 
       <div class="mosaic-item rv rv-d3">
-        <img src="/LPS/Assets/fibromialgia-foto.png" alt="Fibromialgia" />
-        <div class="mosaic-overlay"></div>
-        <div class="mosaic-label">Fibromialgia</div>
-        <div class="mosaic-desc">Modular dores generalizadas e fadiga.</div>
+        <div class="mosaic-item-img"><img src="/LPS/Assets/fibromialgia-foto.png" alt="Fibromialgia" /></div>
+        <div class="mosaic-text">
+          <div class="mosaic-label">Fibromialgia</div>
+          <div class="mosaic-desc">Modular dores generalizadas e fadiga.</div>
+        </div>
       </div>
 
     </div>
@@ -1793,22 +1848,19 @@
       <!-- Copy -->
       <div class="rv">
         <span class="endo-eyebrow">Medicina Endocanabinoide</span>
-        <h2 class="endo-title">Quando tratamentos comuns não funcionam, existe uma <em>abordagem médica diferente</em></h2>
+        <h2 class="endo-title">Novas Estratégias para o Manejo de Dores Crônicas —<br><em>menos dor, mais qualidade de vida</em></h2>
         <p class="endo-text">
-          O sistema endocanabinoide é uma rede de receptores presente em todo o corpo, responsável por regular a percepção da dor, inflamação, sono e humor. Os <strong style="color:#fff;">fitocannabinoides</strong> — compostos de origem vegetal — atuam diretamente nesse sistema, apresentando <strong style="color:#fff;">potencial terapêutico</strong> significativo para condições de dor crônica que não respondem bem a tratamentos convencionais.
+          A dor crônica afeta não apenas o corpo, mas também o bem-estar emocional e a qualidade de vida. A medicina endocanabinoide estuda como os <strong>fitocanabinoides</strong> interagem com o organismo, contribuindo para a modulação da dor, sono, humor e inflamação.
         </p>
-        <div class="endo-pills">
-          <span class="endo-pill"><i data-lucide="leaf"></i> Fitocannabinoides</span>
-          <span class="endo-pill"><i data-lucide="activity"></i> Medicina Endocanabinoide</span>
-          <span class="endo-pill"><i data-lucide="flask-conical"></i> Potencial Terapêutico</span>
-        </div>
-        <p class="endo-anvisa">
-          <strong>Regulamentado pela ANVISA · RDC 660/2022</strong><br>
-          Tratamentos prescritos por profissionais qualificados, dentro dos protocolos reconhecidos pelo Conselho Federal de Medicina.
+        <p class="endo-text">
+          Essa abordagem moderna permite que médicos capacitados realizem uma avaliação individualizada, adotando uma visão integrativa que considera todo o histórico clínico do paciente. O objetivo é propor <strong>estratégias terapêuticas personalizadas</strong> que, além de auxiliar no manejo da dor, possam promover conforto, bem-estar e melhora da qualidade de vida.
         </p>
       </div>
 
-      <!-- Card frasco CBD -->
+      <!-- Infográfico sistema endocanabinoide -->
+      <div class="endo-infographic rv rv-d1">
+        <img src="/LPS/Assets/cbd-corpo-humano.png" alt="Infográfico do Sistema Endocanabinoide e seus efeitos no corpo humano" />
+      </div>
 
     </div>
   </div>
@@ -1826,43 +1878,45 @@
       </div>
 
       <div class="cred-split-content">
-        <span class="eyebrow">Quem vai te atender</span>
-        <h2 class="sec-title" style="text-align:left;">Profissionais qualificados.<br>Atendimento responsável.</h2>
-        <p style="font-size:0.9rem;color:var(--gray);line-height:1.7;margin-bottom:28px;">Os profissionais disponíveis para agendamento possuem formação especializada e atuam dentro dos protocolos reconhecidos pelo Conselho Federal de Medicina.</p>
+        <span class="eyebrow">Diferenciais do atendimento</span>
+        <h2 class="sec-title" style="text-align:left;">Profissionais Responsáveis e Prescrição Segura</h2>
+        <p style="font-size:0.9rem;color:var(--gray);line-height:1.7;margin-bottom:28px;">Nosso foco é proporcionar uma experiência de atendimento segura, ética e regulamentada, conectando você a médicos experientes e capacitados.</p>
 
         <div class="cred-list">
           <div class="cred-item">
-            <div class="cred-icon"><i data-lucide="shield-check"></i></div>
+            <div class="cred-icon"><i data-lucide="user-check"></i></div>
             <div>
-              <div class="cred-stat">Registro médico ativo</div>
-              <div class="cred-label">Profissionais com registro ativo nos órgãos reguladores da medicina brasileira</div>
+              <div class="cred-stat">Consulta individualizada</div>
+              <div class="cred-label">Avaliação completa do seu histórico clínico, com orientação ética e personalizada.</div>
             </div>
           </div>
           <div class="cred-item">
-            <div class="cred-icon"><i data-lucide="stethoscope"></i></div>
+            <div class="cred-icon"><i data-lucide="activity"></i></div>
             <div>
-              <div class="cred-stat">Profissionais com foco em dor</div>
-              <div class="cred-label">Formação em medicina da dor, neurologia e reumatologia</div>
-            </div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-icon"><i data-lucide="video"></i></div>
-            <div>
-              <div class="cred-stat">Telemedicina regulamentada</div>
-              <div class="cred-label">Autorizado pela resolução CFM nº 2.314/2022, com validade jurídica plena</div>
+              <div class="cred-stat">Acompanhamento clínico seguro</div>
+              <div class="cred-label">Estratégias de manejo da dor discutidas de forma individualizada e responsável.</div>
             </div>
           </div>
           <div class="cred-item">
             <div class="cred-icon"><i data-lucide="file-check-2"></i></div>
             <div>
-              <div class="cred-stat">Atendimento online regulamentado</div>
-              <div class="cred-label">Telemedicina autorizada pela resolução CFM nº 2.314/2022, com validade em todo o território nacional</div>
+              <div class="cred-stat">Prescrição regulamentada</div>
+              <div class="cred-label">Quando indicada, é realizada de acordo com protocolos éticos e legais.</div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon"><i data-lucide="video"></i></div>
+            <div>
+              <div class="cred-stat">Telemedicina confiável</div>
+              <div class="cred-label">Atendimentos por videoconferência seguindo a legislação vigente, garantindo segurança, confidencialidade e confiabilidade.</div>
             </div>
           </div>
         </div>
 
-        <div style="margin-top:32px;">
-          <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Agende sua Consulta</a>
+        <p style="font-size:0.82rem;color:var(--gray);line-height:1.7;margin-top:20px;margin-bottom:28px;">Com acompanhamento médico especializado, você recebe orientação segura e individualizada, com total responsabilidade.</p>
+
+        <div style="margin-top:8px;">
+          <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Iniciar Pré-Agendamento</a>
         </div>
       </div>
 
@@ -1903,7 +1957,7 @@
     <!-- Cabeçalho centralizado -->
     <div class="abord-header rv">
       <span class="eyebrow">Como funciona</span>
-      <h2 class="abord-title">Profissionais experientes com foco em dor crônica</h2>
+      <h2 class="abord-title" style="white-space: nowrap; text-align: center;">Profissionais experientes com foco em dor crônica</h2>
       <p class="abord-text">
         Avaliação completa do seu quadro, identificando a origem da dor e indicando o tratamento mais adequado — de forma segura, individualizada e baseada em evidências.
       </p>
@@ -1923,25 +1977,6 @@
       </div>
     </div>
 
-    <!-- 4 cards em linha horizontal -->
-    <div class="abord-cards">
-      <div class="abord-card rv rv-d1">
-        <div class="abord-card-icon"><i data-lucide="stethoscope"></i></div>
-        <div class="abord-card-label">Profissionais qualificados e comprometidos</div>
-      </div>
-      <div class="abord-card rv rv-d2">
-        <div class="abord-card-icon"><i data-lucide="heart-handshake"></i></div>
-        <div class="abord-card-label">Abordagem médica humanizada</div>
-      </div>
-      <div class="abord-card rv rv-d3">
-        <div class="abord-card-icon"><i data-lucide="calendar-check"></i></div>
-        <div class="abord-card-label">Agendamento rápido e 100% online</div>
-      </div>
-      <div class="abord-card rv rv-d4">
-        <div class="abord-card-icon"><i data-lucide="shield-check"></i></div>
-        <div class="abord-card-label">Tratamentos individualizados com foco no seu bem-estar</div>
-      </div>
-    </div>
 
   </div>
 </section>
@@ -1951,28 +1986,29 @@
 ================================================================ -->
 <section id="como" class="section section-alt">
   <div class="container tc">
-    <span class="eyebrow">Processo</span>
+    <span class="eyebrow">Como funciona</span>
     <h2 class="sec-title">Atendimento médico especializado em 3 passos simples</h2>
-    <p class="sec-sub" style="margin:0 auto">Cuidar da sua saúde ficou mais simples e acessível.</p>
 
     <div class="steps steps-3col">
       <div class="step rv">
         <div class="step-num">1</div>
         <div class="step-title">Solicite seu pré-agendamento</div>
-        <div class="step-desc"><strong>Preencha um formulário rápido com seus dados e sintomas.</strong> Nossa equipe vai entender seu caso e direcionar para o profissional ideal.</div>
+        <div class="step-desc">Preencha um formulário rápido com seus dados e sintomas.</div>
       </div>
       <div class="step rv rv-d1">
         <div class="step-num">2</div>
         <div class="step-title">Encaminhamento personalizado</div>
-        <div class="step-desc"><strong>Selecionamos o médico mais qualificado para a sua condição,</strong> garantindo um atendimento seguro, empático e eficaz.</div>
+        <div class="step-desc">Entraremos em contato para apresentar os médicos disponíveis.</div>
       </div>
       <div class="step rv rv-d2">
         <div class="step-num">3</div>
         <div class="step-title">Consulta por telemedicina</div>
-        <div class="step-desc"><strong>Videochamada no conforto da sua casa — sem precisar sair nem se deslocar.</strong> O pagamento é feito diretamente ao consultório.</div>
+        <div class="step-desc">Videochamada no conforto da sua casa.</div>
+        <div class="step-desc" style="margin-top:6px;font-size:0.73rem;color:var(--gray);">Pagamento realizado diretamente ao médico/consultório.</div>
       </div>
     </div>
 
+    <p style="color:var(--gray);font-size:0.85rem;margin-bottom:8px;text-align:center;">Pagamento realizado diretamente ao médico/consultório.</p>
     <p style="color:var(--gray);font-size:0.9rem;margin-bottom:20px;">Solicite agora sua consulta e cuide da sua saúde sem sair de casa!</p>
     <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Iniciar Agendamento</a>
   </div>
@@ -1984,7 +2020,7 @@
 <section id="depoimentos" class="section">
   <div class="container">
     <span class="eyebrow">Depoimentos</span>
-    <h2 class="sec-title">Veja o que nossos pacientes estão dizendo!</h2>
+    <h2 class="sec-title">Confira depoimentos de pacientes</h2>
     <div class="rating-row">
       <span class="stars">★★★★★</span>
       <span class="rating-num">4.9/5</span>
@@ -2014,28 +2050,25 @@
 
       <!-- Card 1 -->
       <div class="testi-card rv">
-        <div class="testi-quote">"Mal conseguia trabalhar e dormir. Depois de 3 meses de acompanhamento, a dor diminuiu muito e voltei a ter energia. Finalmente durmo e acordo bem."</div>
+        <div class="testi-quote">"Mal conseguia trabalhar e dormir. Depois de 3 meses de acompanhamento, a dor diminuiu muito e voltei a ter energia."</div>
         <div class="testi-footer">
           <div class="testi-name">Neide dos Santos</div>
-          <div class="testi-problem">Fibromialgia · 8 anos de dor</div>
         </div>
       </div>
 
       <!-- Card 2 -->
       <div class="testi-card rv rv-d1">
-        <div class="testi-quote">"A osteoartrite me limitava a cada passo. O médico montou um plano personalizado e em poucas semanas minha mobilidade melhorou visivelmente. Existe um antes e um depois."</div>
+        <div class="testi-quote">"A osteoartrite me limitava a cada passo. O médico montou um plano personalizado e em poucas semanas minha mobilidade melhorou visivelmente."</div>
         <div class="testi-footer">
           <div class="testi-name">M.A.B.</div>
-          <div class="testi-problem">Osteoartrite · mobilidade limitada</div>
         </div>
       </div>
 
       <!-- Card 3 -->
       <div class="testi-card rv rv-d2">
-        <div class="testi-quote">"Vivia tomando analgésico todo dia e nada resolvia. Com o acompanhamento certo, reduzi os remédios e recuperei minha qualidade de vida. Hoje durmo, acordo bem e vivo de verdade."</div>
+        <div class="testi-quote">"Vivia tomando analgésico todo dia e nada resolvia. Com o acompanhamento certo, reduzi os remédios e recuperei minha qualidade de vida."</div>
         <div class="testi-footer">
           <div class="testi-name">Loren Daniele</div>
-          <div class="testi-problem">Dor crônica · dependência de analgésicos</div>
         </div>
       </div>
 
