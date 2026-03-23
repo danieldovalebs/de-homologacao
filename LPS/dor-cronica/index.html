@@ -812,78 +812,88 @@
     .abord-text { font-size: 0.92rem; color: var(--gray); line-height: 1.75; margin-bottom: 0; }
     .abord-text strong { color: var(--dark); }
 
-    /* Video placeholder na seção abordagem */
-    .abord-video-wrap {
-      max-width: 720px;
-      margin: 0 auto 40px;
+    /* Depoimentos de médicos */
+    .med-dep-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
     }
-    .abord-video-placeholder {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: linear-gradient(135deg, #1a2e1a 0%, #0f1f0f 100%);
+    .med-dep-card {
+      background: #fff;
+      border: 1px solid #e8f0e9;
       border-radius: 16px;
       overflow: hidden;
-      cursor: pointer;
-      border: 2px solid rgba(70,176,112,0.25);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-    }
-    .abord-video-placeholder::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at center, rgba(70,176,112,0.08) 0%, transparent 70%);
-    }
-    .abord-video-inner {
-      position: absolute;
-      inset: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .abord-play-btn {
-      width: 72px; height: 72px;
-      background: var(--green-dark);
-      border-radius: 50%;
+    .med-dep-card:hover {
+      box-shadow: 0 8px 32px rgba(30,120,60,0.12);
+      transform: translateY(-3px);
+    }
+    .med-dep-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: #e8f0e9;
+    }
+    .med-dep-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .med-dep-body {
+      padding: 24px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 0 12px rgba(70,176,112,0.15), 0 0 0 24px rgba(70,176,112,0.07);
-      transition: transform 0.2s;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
     }
-    .abord-video-placeholder:hover .abord-play-btn { transform: scale(1.08); }
-    .abord-play-btn i { width: 32px; height: 32px; color: #fff; margin-left: 4px; }
-    .abord-video-label {
-      text-align: center;
+    .med-dep-quote {
+      position: relative;
+      flex: 1;
     }
-    .abord-video-label strong {
-      display: block;
-      font-family: 'Gabarito', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .abord-video-label span {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.5);
-    }
-    .abord-video-badge {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      background: rgba(0,0,0,0.55);
-      border: 1px solid rgba(70,176,112,0.4);
-      border-radius: 100px;
-      padding: 5px 12px;
-      font-size: 0.72rem;
-      font-weight: 700;
+    .med-quote-icon {
+      width: 24px;
+      height: 24px;
       color: var(--green);
+      opacity: 0.5;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .med-dep-quote p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin: 0;
+      font-style: italic;
+    }
+    .med-dep-info {
+      border-top: 1px solid #e8f0e9;
+      padding-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .med-dep-name {
       font-family: 'Gabarito', sans-serif;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .med-dep-spec {
+      font-size: 0.78rem;
+      color: var(--green-dark);
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .med-dep-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .med-dep-grid { grid-template-columns: 1fr; }
     }
 
     .abord-cards {
@@ -1972,26 +1982,116 @@
 
     <!-- Cabeçalho centralizado -->
     <div class="abord-header rv">
-      <span class="eyebrow">Como funciona</span>
-      <h2 class="abord-title" style="white-space: nowrap; text-align: center;">Profissionais experientes com foco em dor crônica</h2>
-      <p class="abord-text">
-        Avaliação completa do seu quadro, identificando a origem da dor e indicando o tratamento mais adequado — de forma segura, individualizada e baseada em evidências.
-      </p>
+      <span class="eyebrow">O que dizem os médicos</span>
+      <h2 class="abord-title" style="text-align: center;">Profissionais experientes com foco em dor crônica</h2>
     </div>
 
-    <!-- Placeholder de vídeo -->
-    <div class="abord-video-wrap rv">
-      <div class="abord-video-placeholder">
-        <div class="abord-video-badge">📽 Em breve</div>
-        <div class="abord-video-inner">
-          <div class="abord-play-btn"><i data-lucide="play"></i></div>
-          <div class="abord-video-label">
-            <strong>Médico fala sobre o potencial terapêutico no tratamento da dor crônica</strong>
-            <span>Vídeo de depoimento — conteúdo a ser inserido</span>
+    <!-- Depoimentos de médicos -->
+    <div class="med-dep-grid">
+
+      <!-- Depoimento 1 -->
+      <div class="med-dep-card rv">
+        <div class="med-dep-photo">
+          <img src="/LPS/Assets/med-dep-1.jpg" alt="Foto do médico 1" />
+        </div>
+        <div class="med-dep-body">
+          <div class="med-dep-quote">
+            <i data-lucide="quote" class="med-quote-icon"></i>
+            <p><!-- TEXTO DO DEPOIMENTO 1 --></p>
+          </div>
+          <div class="med-dep-info">
+            <strong class="med-dep-name"><!-- NOME DO MÉDICO 1 --></strong>
+            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
           </div>
         </div>
       </div>
-    </div>
+
+      <!-- Depoimento 2 -->
+      <div class="med-dep-card rv rv-d1">
+        <div class="med-dep-photo">
+          <img src="/LPS/Assets/med-dep-2.jpg" alt="Foto do médico 2" />
+        </div>
+        <div class="med-dep-body">
+          <div class="med-dep-quote">
+            <i data-lucide="quote" class="med-quote-icon"></i>
+            <p><!-- TEXTO DO DEPOIMENTO 2 --></p>
+          </div>
+          <div class="med-dep-info">
+            <strong class="med-dep-name"><!-- NOME DO MÉDICO 2 --></strong>
+            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 3 -->
+      <div class="med-dep-card rv rv-d2">
+        <div class="med-dep-photo">
+          <img src="/LPS/Assets/med-dep-3.jpg" alt="Foto do médico 3" />
+        </div>
+        <div class="med-dep-body">
+          <div class="med-dep-quote">
+            <i data-lucide="quote" class="med-quote-icon"></i>
+            <p><!-- TEXTO DO DEPOIMENTO 3 --></p>
+          </div>
+          <div class="med-dep-info">
+            <strong class="med-dep-name"><!-- NOME DO MÉDICO 3 --></strong>
+            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 4 -->
+      <div class="med-dep-card rv rv-d1">
+        <div class="med-dep-photo">
+          <img src="/LPS/Assets/med-dep-4.jpg" alt="Foto do médico 4" />
+        </div>
+        <div class="med-dep-body">
+          <div class="med-dep-quote">
+            <i data-lucide="quote" class="med-quote-icon"></i>
+            <p><!-- TEXTO DO DEPOIMENTO 4 --></p>
+          </div>
+          <div class="med-dep-info">
+            <strong class="med-dep-name"><!-- NOME DO MÉDICO 4 --></strong>
+            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 5 -->
+      <div class="med-dep-card rv rv-d2">
+        <div class="med-dep-photo">
+          <img src="/LPS/Assets/med-dep-5.jpg" alt="Foto do médico 5" />
+        </div>
+        <div class="med-dep-body">
+          <div class="med-dep-quote">
+            <i data-lucide="quote" class="med-quote-icon"></i>
+            <p><!-- TEXTO DO DEPOIMENTO 5 --></p>
+          </div>
+          <div class="med-dep-info">
+            <strong class="med-dep-name"><!-- NOME DO MÉDICO 5 --></strong>
+            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 6 -->
+      <div class="med-dep-card rv rv-d1">
+        <div class="med-dep-photo">
+          <img src="/LPS/Assets/med-dep-6.jpg" alt="Foto do médico 6" />
+        </div>
+        <div class="med-dep-body">
+          <div class="med-dep-quote">
+            <i data-lucide="quote" class="med-quote-icon"></i>
+            <p><!-- TEXTO DO DEPOIMENTO 6 --></p>
+          </div>
+          <div class="med-dep-info">
+            <strong class="med-dep-name"><!-- NOME DO MÉDICO 6 --></strong>
+            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /med-dep-grid -->
 
 
   </div>
