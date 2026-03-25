@@ -1059,13 +1059,13 @@
     #como { background: var(--gray-light); }
     .steps {
       display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 0;
-      margin: 48px 0 44px;
-      position: relative;
+      grid-template-columns: repeat(3,1fr);
     }
     .steps.steps-3col {
       grid-template-columns: repeat(3,1fr);
+      gap: 0;
+      margin: 48px 0 44px;
+      position: relative;
     }
     .steps::before {
       content: '';
@@ -1325,6 +1325,14 @@
     .foot-links a { font-size: 0.78rem; color: rgba(255,255,255,.35); transition: color .2s; }
     .foot-links a:hover { color: var(--green); }
     .foot-line { width: 100%; height: 1px; background: rgba(255,255,255,.07); }
+    .foot-aviso-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.45);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
     .foot-disclaimer {
       max-width: 640px;
       font-size: 0.7rem; line-height: 1.75;
@@ -1567,9 +1575,6 @@
       .doc-card { padding: 18px 14px 16px; }
       .doc-card-name { font-size: 0.9rem; }
 
-      /* Steps: ensure the inline override is handled at 640 too */
-      .steps { grid-template-columns: 1fr !important; gap: 24px; }
-      .steps::before { display: none; }
 
       /* Testimonials grid: already 1-col at 660px; center properly */
       .testi-grid { max-width: 300px; }
@@ -1627,9 +1632,6 @@
       /* Abordagem cards: on small mobile stack to 1-col */
       .abord-cards { grid-template-columns: 1fr; }
 
-      /* Steps */
-      .steps { gap: 20px; }
-      .step { padding: 0 6px; }
 
       /* Testi stats: fix 2x2 grid gaps */
       .testi-stat { padding: 14px 10px; }
@@ -1997,10 +1999,10 @@
         <div class="med-dep-body">
           <div class="med-dep-quote">
             <i data-lucide="quote" class="med-quote-icon"></i>
-            <p><!-- TEXTO DO DEPOIMENTO 1 --></p>
+            <p>"Eu tinha muito paciente com fibromialgia e queria alguma coisa para passar essa dor que é um misto de ansiedade, geralmente com distúrbio de sono. Foi aí que tive a ideia de utilizar o CBD."</p>
           </div>
           <div class="med-dep-info">
-            <strong class="med-dep-name"><!-- NOME DO MÉDICO 1 --></strong>
+            <strong class="med-dep-name">Dr. Mario Antônio Sallenave Filho</strong>
             <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
           </div>
         </div>
@@ -2014,10 +2016,10 @@
         <div class="med-dep-body">
           <div class="med-dep-quote">
             <i data-lucide="quote" class="med-quote-icon"></i>
-            <p><!-- TEXTO DO DEPOIMENTO 2 --></p>
+            <p>"A Cannabis tem propriedades que vão além do alívio da dor. Em muitos casos, observei melhorias significativas, não apenas na parte física, mas também no bem-estar mental dos pacientes, que adotam essa abordagem para tratar quadros difíceis e dolorosos e suas comorbidades, como insônia, ansiedade e a catastrofização."</p>
           </div>
           <div class="med-dep-info">
-            <strong class="med-dep-name"><!-- NOME DO MÉDICO 2 --></strong>
+            <strong class="med-dep-name">Dra. Tainá de Freitas</strong>
             <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
           </div>
         </div>
@@ -2031,10 +2033,10 @@
         <div class="med-dep-body">
           <div class="med-dep-quote">
             <i data-lucide="quote" class="med-quote-icon"></i>
-            <p><!-- TEXTO DO DEPOIMENTO 3 --></p>
+            <p>"Eu faço o uso compassivo da Cannabis. Por mais que não haja estudos completamente sólidos para sustentar essa terapia como primeira opção, a gente vê resultados muito positivos em diversas patologias e em diversos sintomas."</p>
           </div>
           <div class="med-dep-info">
-            <strong class="med-dep-name"><!-- NOME DO MÉDICO 3 --></strong>
+            <strong class="med-dep-name">Dr. Alexandre Assuane</strong>
             <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
           </div>
         </div>
@@ -2048,10 +2050,10 @@
         <div class="med-dep-body">
           <div class="med-dep-quote">
             <i data-lucide="quote" class="med-quote-icon"></i>
-            <p><!-- TEXTO DO DEPOIMENTO 4 --></p>
+            <p>"A gente vive numa sociedade que produz estresse crônico. A gente vive rodeado de adoecimento relacionado a esse estresse, como as demências, dores crônicas, ansiedade, insônia."</p>
           </div>
           <div class="med-dep-info">
-            <strong class="med-dep-name"><!-- NOME DO MÉDICO 4 --></strong>
+            <strong class="med-dep-name">Dr. Rodrigo Pacheco</strong>
             <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
           </div>
         </div>
@@ -2065,10 +2067,10 @@
         <div class="med-dep-body">
           <div class="med-dep-quote">
             <i data-lucide="quote" class="med-quote-icon"></i>
-            <p><!-- TEXTO DO DEPOIMENTO 5 --></p>
+            <p>"Considero o passo número um controlar a dor mais aguda, pois ela pode ser o gatilho do quadro psicológico, como a ansiedade, a depressão e, consequentemente, a perda da qualidade do sono."</p>
           </div>
           <div class="med-dep-info">
-            <strong class="med-dep-name"><!-- NOME DO MÉDICO 5 --></strong>
+            <strong class="med-dep-name">Dr. Marcos Pereira Dias</strong>
             <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
           </div>
         </div>
@@ -2082,10 +2084,10 @@
         <div class="med-dep-body">
           <div class="med-dep-quote">
             <i data-lucide="quote" class="med-quote-icon"></i>
-            <p><!-- TEXTO DO DEPOIMENTO 6 --></p>
+            <p>"Os fitocanabinoides entram como uma possibilidade de melhorar o tratamento. Pode ser para potencializar os efeitos dessa resposta parcial, ou até para permitir a diminuição de dosagem da alopatia, aliviando os efeitos colaterais adversos."</p>
           </div>
           <div class="med-dep-info">
-            <strong class="med-dep-name"><!-- NOME DO MÉDICO 6 --></strong>
+            <strong class="med-dep-name">Dra. Thais Oliveira Ferreira</strong>
             <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
           </div>
         </div>
@@ -2109,24 +2111,23 @@
       <div class="step rv">
         <div class="step-num">1</div>
         <div class="step-title">Solicite seu pré-agendamento</div>
-        <div class="step-desc">Preencha um formulário rápido com seus dados e sintomas.</div>
+        <div class="step-desc">Preencha um formulário rápido com seus dados de contato.</div>
       </div>
       <div class="step rv rv-d1">
         <div class="step-num">2</div>
         <div class="step-title">Encaminhamento personalizado</div>
-        <div class="step-desc">Entraremos em contato para apresentar os médicos disponíveis.</div>
+        <div class="step-desc">Nossa equipe entra em contato para apresentar as opções de médicos disponíveis, de acordo com o seu perfil.</div>
       </div>
       <div class="step rv rv-d2">
         <div class="step-num">3</div>
         <div class="step-title">Consulta por telemedicina</div>
-        <div class="step-desc">Videochamada no conforto da sua casa.</div>
-        <div class="step-desc" style="margin-top:6px;font-size:0.73rem;color:var(--gray);">Pagamento realizado diretamente ao médico/consultório.</div>
+        <div class="step-desc">Realize sua consulta por videochamada, com praticidade e segurança, no conforto da sua casa.</div>
       </div>
     </div>
 
-    <p style="color:var(--gray);font-size:0.85rem;margin-bottom:8px;text-align:center;">Pagamento realizado diretamente ao médico/consultório.</p>
-    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:20px;">Solicite agora sua consulta e cuide da sua saúde sem sair de casa!</p>
-    <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Iniciar Agendamento</a>
+    <p style="color:var(--green-dark);font-size:0.88rem;font-weight:700;margin-bottom:6px;">Sem pagamento antecipado</p>
+    <p style="color:var(--gray);font-size:0.85rem;margin-bottom:24px;">Você só realiza o pagamento após a confirmação da consulta, diretamente ao médico ou consultório.</p>
+    <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Solicite agora o seu pré-agendamento</a>
   </div>
 </section>
 
@@ -2205,10 +2206,6 @@
         <div class="form-horario">
           <i data-lucide="clock"></i>
           Atendimento de segunda a sexta, das 8h às 18h
-        </div>
-        <div class="form-horario" style="margin-top:6px;">
-          <i data-lucide="check-circle"></i>
-          Confirmação em até 2 horas úteis
         </div>
       </div>
 
@@ -2356,12 +2353,13 @@
         <a href="#form-sec">Solicitar Pré-Agendamento</a>
       </div>
       <div class="foot-line"></div>
+      <p class="foot-aviso-title">Aviso Legal</p>
       <p class="foot-disclaimer">
-        As informações desta página são de caráter educativo e não substituem consulta médica.
-        Os resultados podem variar de pessoa para pessoa. Consulte sempre um médico qualificado.
-        Todos os profissionais anunciados possuem registro médico ativo.
+        As informações desta página têm caráter exclusivamente educativo e não substituem a avaliação médica individualizada.
+        Os atendimentos são realizados por médicos com registro profissional ativo, que atuam em conformidade com o Código de Ética Médica do Conselho Federal de Medicina (CFM) e demais normas vigentes da prática médica no Brasil.
+        Os resultados de qualquer abordagem terapêutica podem variar de acordo com as características de cada paciente.
       </p>
-      <div class="foot-copy">© 2026 Consulta C&S. Todos os direitos reservados.</div>
+      <div class="foot-copy">© 2026 Cannabis & Saúde. Todos os direitos reservados.</div>
     </div>
   </div>
 </footer>
