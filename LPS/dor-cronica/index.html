@@ -1392,9 +1392,9 @@
       max-height: 0; overflow: hidden;
       transition: max-height .35s cubic-bezier(.4,0,.2,1);
       padding: 0 22px;
-      font-size: 0.88rem; color: var(--gray); line-height: 1.8;
+      font-size: 0.88rem; color: var(--gray); line-height: 1.8; text-align: left;
     }
-    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 20px; }
+    .faq-item.open .faq-a { max-height: 600px; padding-bottom: 20px; }
 
     /* ===== FOOTER ===== */
     footer {
@@ -1594,39 +1594,10 @@
 
       /* Hero */
       #hero { min-height: auto; }
-      .hero-overlay { background: linear-gradient(to bottom, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.88) 100%); }
-      .hero-content-wrap { padding: 52px 0 48px; flex-direction: column; align-items: flex-start; gap: 24px; }
+      .hero-overlay { background: linear-gradient(to bottom, rgba(4,12,28,0.72) 0%, rgba(4,12,28,0.94) 100%); }
+      .hero-content-wrap { padding: 52px 0 48px; }
       .hero-content { max-width: 100%; }
-      .hero-pill { white-space: normal; }
-      .hero-right-badges { flex-direction: row; flex-wrap: wrap; gap: 10px; }
-
-      /* Hero badges: reposition inside/on-edge of image instead of outside */
-      .hero-img-badge {
-        position: static !important;
-        bottom: auto !important;
-        left: auto !important;
-        right: auto !important;
-        padding: 10px 12px;
-        gap: 8px;
-      }
-      .hero-img-badge.hero-badge-price {
-        left: 10px !important;
-        right: auto !important;
-        bottom: 10px !important;
-      }
-      /* second badge (patients) — anchor to bottom-right inside image */
-      .hero-badge-patients {
-        left: auto !important;
-        right: 10px !important;
-        bottom: 10px !important;
-      }
-      .badge-icon { width: 34px; height: 34px; }
-      .badge-icon i { width: 17px; height: 17px; }
-      .badge-text-top { font-size: 0.88rem; }
-      .badge-text-bot { font-size: 0.68rem; }
-
-      /* Hero image: remove overflow cut so badges stay visible */
-      .hero-img-col { overflow: visible; }
+      .hero-cta-group { width: 100%; }
 
       /* Btn-lg full width on mobile */
       .btn-lg { width: 100%; justify-content: center; }
@@ -1634,50 +1605,70 @@
       /* Abordagem cards: 2-col em tablet */
       .abord-cards { grid-template-columns: 1fr 1fr; }
       .abord-card { padding: 22px 14px 18px; gap: 12px; }
+
+      /* Seção endo: stack */
+      .endo-inner { grid-template-columns: 1fr; gap: 32px; }
+      .endo-infographic img { max-width: 360px; margin: 0 auto; }
+    }
+
+    /* --- 760px: testimonials break --- */
+    @media (max-width: 760px) {
+      .testi-card { padding: 32px 26px; gap: 20px; }
+      .testi-quote { font-size: 1rem; }
     }
 
     /* --- 640px: mobile --- */
     @media (max-width: 640px) {
       /* Container */
-      .container { padding: 0 20px; }
+      .container { padding: 0 18px; }
 
       /* Section padding */
-      .section { padding: 52px 0; }
-      #form-sec { padding: 52px 0; }
+      .section { padding: 48px 0; }
+      #form-sec { padding: 48px 0; }
 
       /* Hero */
-      .hero-content-wrap { padding: 92px 0 64px; }
-      .hero-title { font-size: clamp(1.75rem, 7.5vw, 2.2rem); }
-      .hero-sub { font-size: 0.92rem; }
-      .hero-trust { gap: 12px; }
+      .hero-content-wrap { padding: 40px 0 44px; }
+      .hero-title { font-size: clamp(1.6rem, 7vw, 2rem); }
+      .hero-title em { white-space: normal; }
+      .hero-micro { font-size: 0.78rem; }
+      .hero-sub { font-size: 0.88rem; margin-bottom: 14px; }
+      .hero-cta-group { width: 100%; }
+      .hero-stats { width: 100%; }
+      .hero-stat { padding: 10px 14px; flex: 1; }
+      .hero-stat-val { font-size: 1rem; }
+      .hero-stat-label { font-size: 0.62rem; }
+      .hero-rating { flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+      .hero-rating-label { font-size: 0.72rem; }
 
-      /* Trust bar: ensure last item in 2-col doesn't look orphaned */
-      .trust-bar-inner { gap: 10px 12px; }
-      .tbar-item { font-size: 0.78rem; }
+      /* Trust bar */
+      .tbar-item { font-size: 0.75rem; }
 
-
-      /* Doctor cards: reduce padding on mobile */
-      .doc-card { padding: 18px 14px 16px; }
-      .doc-card-name { font-size: 0.9rem; }
-
-
-      /* Testimonials grid: already 1-col at 660px; center properly */
-      .testi-grid { max-width: 300px; }
+      /* Testimonials: full width, reduce card */
+      .testi-grid { max-width: 100%; }
+      .testi-card { padding: 26px 20px; gap: 16px; }
+      .testi-quote { font-size: 0.95rem; }
 
       /* Testi stats: fix bottom border on last 2-cell row */
       .testi-stat:nth-child(3),
       .testi-stat:nth-child(4) { border-bottom: none; }
 
-      /* Form urgency: allow wrap */
+      /* Doctor cards */
+      .doc-card { padding: 16px 12px 14px; }
+      .doc-card-name { font-size: 0.88rem; }
+
+      /* Steps: textos centralizados */
+      .step { padding: 0 8px; }
+
+      /* Form urgency */
       .form-urgency { font-size: 0.78rem; flex-wrap: wrap; gap: 6px; }
 
       /* Video section */
-      .video-sec-inner { padding: 56px 0; }
-      .video-copy .sec-title { font-size: clamp(1.4rem, 5.5vw, 1.8rem); }
+      .video-sec-inner { padding: 48px 0; }
+      .video-copy .sec-title { font-size: clamp(1.35rem, 5.5vw, 1.75rem); }
 
-      /* FAQ questions */
-      .faq-q { font-size: 0.86rem; padding: 15px 16px; }
-      .faq-a { padding: 0 16px; font-size: 0.84rem; }
+      /* FAQ */
+      .faq-q { font-size: 0.86rem; padding: 14px 16px; }
+      .faq-a { padding: 0 16px; font-size: 0.83rem; }
       .faq-item.open .faq-a { padding-bottom: 16px; }
 
       /* Footer */
@@ -1687,10 +1678,10 @@
     /* --- 480px: small mobile --- */
     @media (max-width: 480px) {
       /* Section padding */
-      .section { padding: 44px 0; }
-      #form-sec { padding: 44px 0; }
+      .section { padding: 40px 0; }
+      #form-sec { padding: 40px 0; }
 
-      /* Navbar: compacto no mobile */
+      /* Navbar */
       #nav { padding: 9px 0; }
       .nav-logo img { height: 30px; }
       #nav .btn { font-size: 0.74rem; padding: 9px 14px; border-radius: 8px; }
@@ -1698,75 +1689,80 @@
       .nav-btn-short { display: inline; }
 
       /* Hero */
-      .hero-content-wrap { padding: 28px 0 36px; }
-      .hero-title { font-size: clamp(1.45rem, 6.5vw, 1.85rem); margin-bottom: 8px; }
-      .hero-sub { font-size: 0.82rem; margin-bottom: 18px; }
+      .hero-content-wrap { padding: 32px 0 40px; }
+      .hero-title { font-size: clamp(1.4rem, 6.5vw, 1.75rem); margin-bottom: 8px; }
+      .hero-sub { font-size: 0.82rem; margin-bottom: 14px; }
+      .hero-stats { flex-wrap: wrap; }
+      .hero-stat { flex: 1 1 45%; }
+      .hero-stat-sep { display: none; }
 
-      .hero-pills-row { margin-top: 10px; }
-      .badge-text-top { font-size: 0.76rem; }
-      .badge-text-bot { font-size: 0.62rem; }
+      /* Mosaic: smaller images */
+      .mosaic-item-img { height: 90px; }
+      .mosaic-desc { font-size: 0.72rem; }
 
-      /* Only show the price badge on very small screens to avoid overlap */
-      .hero-badge-patients {
-        display: none;
-      }
-
-
-      /* Abordagem cards: on small mobile stack to 1-col */
+      /* Abordagem cards: 1-col */
       .abord-cards { grid-template-columns: 1fr; }
 
+      /* Med dep: 1-col */
+      .med-dep-grid { grid-template-columns: 1fr; }
 
-      /* Testi stats: fix 2x2 grid gaps */
+      /* Testi card */
+      .testi-card { padding: 22px 16px; gap: 14px; }
+      .testi-quote { font-size: 0.9rem; }
+
+      /* Testi stats */
       .testi-stat { padding: 14px 10px; }
       .testi-stat strong { font-size: 1.1rem; }
-      .testi-stat span { font-size: 0.66rem; }
+      .testi-stat span { font-size: 0.65rem; }
 
       /* Form card */
       .form-card { border-radius: 14px; }
-      .form-header .sec-title { font-size: 1.45rem; }
+      .form-header .sec-title { font-size: 1.4rem; }
 
       /* FAQ */
-      .faq-list { margin: 28px auto 36px; }
-      .faq-q { font-size: 0.84rem; padding: 14px 14px; gap: 10px; }
+      .faq-list { margin: 24px auto 32px; }
+      .faq-q { font-size: 0.84rem; padding: 13px 14px; gap: 10px; }
 
       /* Section titles */
-      .sec-title { font-size: clamp(1.45rem, 5.5vw, 2rem); }
+      .sec-title { font-size: clamp(1.4rem, 5.5vw, 1.9rem); }
     }
 
     /* --- 375px: very small (iPhone SE) --- */
     @media (max-width: 375px) {
       /* Container */
-      .container { padding: 0 16px; }
+      .container { padding: 0 14px; }
 
       /* Section padding */
-      .section { padding: 36px 0; }
+      .section { padding: 32px 0; }
 
       /* Hero */
-      .hero-title { font-size: 1.7rem; }
-      .hero-sub { font-size: 0.88rem; }
-      .hero-img-wrap { max-height: 280px; }
+      .hero-title { font-size: 1.45rem; }
+      .hero-sub { font-size: 0.8rem; }
+      .hero-stat { padding: 9px 10px; }
+      .hero-stat-val { font-size: 0.92rem; }
+      .hero-stat-label { font-size: 0.58rem; }
 
-      /* Doctor cards: 1 column on iPhone SE */
+      /* Doctor cards: 1 column */
       .doctors-grid { grid-template-columns: 1fr !important; }
 
-      /* Testi stats: 2x2 already via flex-wrap */
+      /* Testi stats */
       .testi-stat { padding: 12px 8px; }
 
       /* Form */
-      .form-card { padding: 22px 12px !important; }
-      .form-header .sec-title { font-size: 1.35rem; }
+      .form-card { padding: 20px 12px !important; }
+      .form-header .sec-title { font-size: 1.3rem; }
 
       /* Buttons */
-      .btn-lg { font-size: 0.95rem; padding: 15px 20px; }
+      .btn-lg { font-size: 0.92rem; padding: 15px 18px; }
 
       /* FAQ */
-      .faq-q { font-size: 0.82rem; padding: 13px 12px; }
+      .faq-q { font-size: 0.81rem; padding: 12px 12px; }
       .faq-a { padding: 0 12px; }
       .faq-item.open .faq-a { padding-bottom: 14px; }
 
-      /* Chat balloon: keep above mob-bar */
+      /* Chat balloon */
       .chat-balloon { bottom: 76px; right: 10px; }
-      .chat-bubble { max-width: 160px; font-size: 0.74rem; }
+      .chat-bubble { max-width: 156px; font-size: 0.74rem; }
     }
   </style>
 </head>
@@ -2214,7 +2210,6 @@
       <div class="testi-card rv">
         <div class="testi-quote">"Eu mal conseguia trabalhar ou dormir. Após alguns meses de acompanhamento, a dor diminuiu muito, recuperei minha energia e hoje voltei a ter uma rotina ativa."</div>
         <div class="testi-footer">
-          <img src="/LPS/Assets/testi-neide.jpg" alt="Neide dos Santos" class="testi-avatar" />
           <div>
             <div class="testi-name">Neide dos Santos</div>
             <div class="testi-problem">Dor crônica · fibromialgia</div>
@@ -2339,47 +2334,47 @@
           Qual o valor da consulta?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">A consulta custa apenas R$ 200,00. O pagamento é realizado antes da consulta de forma 100% segura.</div>
+        <div class="faq-a">As consultas pré-agendadas por meio desta página têm o valor de R$ 200.<br><br>Esse valor foi pensado para facilitar o acesso a médicos experientes, capacitados no manejo da dor e em medicina endocanabinoide, com atendimento individualizado e responsável.<br><br>O pagamento é realizado diretamente ao médico ou consultório, após a confirmação da consulta.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          O uso de cannabis medicinal é regulamentado no Brasil?
+          O uso de Cannabis é regulamentado no Brasil?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Sim. O uso de cannabis para fins medicinais é regulamentado no Brasil. A prescrição deve ser feita por um médico habilitado, conforme as normas da Anvisa. A partir dessa avaliação, o paciente pode ter acesso ao tratamento seguindo os critérios estabelecidos pela regulamentação vigente.</div>
+        <div class="faq-a">Sim! O uso de produtos à base de Cannabis para fins medicinais é regulamentado pela Anvisa (RDC 327/2019 e RDC 660/2022), mediante a prescrição de um profissional habilitado.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          Como funciona a consulta online?
+          Como é a consulta online?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Você pode ser atendido de qualquer lugar do Brasil, no conforto da sua casa, sem precisar se deslocar.</div>
+        <div class="faq-a">A consulta online é realizada por médicos capacitados, por meio de videochamada segura, permitindo atendimento individualizado no conforto da sua casa.<br><br>O médico avalia seu histórico clínico, orienta sobre estratégias seguras de manejo da dor e, quando necessário, pode realizar prescrição online dentro da legislação vigente.<br><br>Todo o atendimento segue as normas da Lei nº 14.510/2022 e do Conselho Federal de Medicina, garantindo segurança, sigilo e validade legal.<br><br>Você só realiza o pagamento após a confirmação da consulta.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          Posso receber prescrição após a consulta?
+          Como faço para obter a prescrição do produto?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Caso o médico avalie que o tratamento é indicado para o seu caso, a prescrição será emitida durante a própria consulta, seguindo as normas da Anvisa.</div>
+        <div class="faq-a">A prescrição de produtos à base de Cannabis medicinal só pode ser feita por profissionais habilitados, após uma consulta individualizada.<br><br>Durante a consulta, o médico avalia seu caso e, se considerar clinicamente indicado, poderá emitir a prescrição dentro da lei, com segurança e responsabilidade.<br><br>A consulta é essencial para garantir que a terapia seja apropriada e segura para você.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          Esse tipo de tratamento é seguro?
+          Essa abordagem terapêutica é segura?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Sim, quando há indicação médica, o tratamento é conduzido com segurança. Tudo começa com uma avaliação individual, onde o médico analisa o seu caso e define a melhor abordagem, seguindo as normas da Anvisa.</div>
+        <div class="faq-a">Sim. A terapia com fitocanabinoides, realizada por médicos capacitados e com produtos certificados, é segura.<br><br>Todo o tratamento é individualizado, ético e conduzido dentro da legislação brasileira, garantindo segurança e responsabilidade.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          Como posso iniciar o atendimento?
+          Como solicitar uma consulta médica?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Basta preencher o formulário nesta página para solicitar o pré-agendamento. Nossa equipe entrará em contato para confirmar a data e os próximos passos.</div>
+        <div class="faq-a">Preencha o formulário e nossa equipe entrará em contato para apresentar os médicos capacitados disponíveis para o seu caso. Você só paga após a confirmação da consulta.<br><br>Solicite agora o seu pré-agendamento sem sair de casa.</div>
       </div>
 
     </div>
