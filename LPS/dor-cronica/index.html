@@ -148,7 +148,7 @@
     /* ===== HERO ===== */
     #hero {
       position: relative;
-      min-height: 460px;
+      min-height: 560px;
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -158,12 +158,16 @@
       position: absolute;
       inset: 0;
       z-index: 0;
+      background-repeat: no-repeat;
+      background-position: 65% center;
+      background-size: cover;
     }
+    .hero-bg img { display: none; }
     .hero-overlay {
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(to right, rgba(20,20,20,0.80) 0%, rgba(20,20,20,0.55) 55%, rgba(20,20,20,0.18) 100%);
+      background: linear-gradient(to right, rgba(4,12,28,0.97) 0%, rgba(6,16,32,0.88) 48%, rgba(4,10,20,0.55) 72%, rgba(2,6,14,0.18) 100%);
     }
     .hero-content-wrap {
       position: relative;
@@ -199,12 +203,21 @@
 
     .hero-title {
       font-size: clamp(1.6rem, 3.2vw, 2.4rem);
-      font-weight: 900;
+      font-weight: 700;
       color: #fff;
       line-height: 1.1;
       margin-bottom: 12px;
     }
-    .hero-title em { font-style: normal; color: var(--green); }
+    .hero-title em { font-style: normal; color: var(--green); white-space: nowrap; }
+
+    .hero-micro {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.55;
+      margin-bottom: 10px;
+      max-width: 420px;
+      font-style: italic;
+    }
 
     .hero-sub {
       font-size: 0.92rem;
@@ -214,32 +227,6 @@
       max-width: 460px;
     }
 
-    .hero-checks {
-      list-style: none;
-      margin-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-    .hero-checks li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.92);
-    }
-    .chk {
-      flex-shrink: 0;
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.15);
-      border: 1.5px solid rgba(255,255,255,0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-    }
-    .chk i { width: 12px; height: 12px; }
 
     .hero-trust {
       display: flex;
@@ -313,33 +300,81 @@
     .badge-icon i { width: 17px; height: 17px; color: #fff; }
     .badge-text-top { font-family: 'Gabarito', sans-serif; font-weight: 800; font-size: 0.88rem; color: #fff; }
     .badge-text-bot { font-size: 0.68rem; color: rgba(255,255,255,0.7); }
-    /* Pills compactas abaixo do CTA */
-    .hero-pills-row {
-      display: grid;
-      grid-template-columns: repeat(2, auto);
-      justify-content: start;
-      gap: 7px;
-      margin-bottom: 14px;
-    }
-    .hero-pill {
+    /* Wrapper botão + stats — alinhamento perfeito */
+    .hero-cta-group {
       display: inline-flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .hero-cta-group .btn { width: 100%; }
+
+    /* Stats unificados abaixo do CTA */
+    .hero-stats {
+      display: flex;
+      align-items: stretch;
+      background: rgba(0,0,0,0.42);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 6px;
-      background: rgba(0,0,0,0.55);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
-      border-radius: 100px;
-      padding: 6px 14px;
+      justify-content: center;
+      gap: 2px;
+      padding: 12px 22px;
+    }
+    .hero-stat-val {
       font-family: 'Gabarito', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 600;
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
       white-space: nowrap;
     }
-    .hero-pill i { width: 13px; height: 13px; flex-shrink: 0; color: rgba(255,255,255,0.7); }
-    .hero-pill-green { background: rgba(0,0,0,0.55); border-color: rgba(70,176,112,0.6); color: #fff; }
-    .hero-pill-green i { color: var(--green); }
-    .hero-pill-orange { background: var(--orange); border-color: var(--orange); color: #fff; font-size: 0.85rem; font-weight: 700; padding: 6px 14px; }
-    .hero-pill-orange i { color: #fff; }
+    .hero-stat-val.green { color: var(--green); }
+    .hero-stat-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.62);
+      white-space: nowrap;
+      text-align: center;
+    }
+    .hero-stat-sep {
+      width: 1px;
+      background: rgba(255,255,255,0.12);
+      flex-shrink: 0;
+      margin: 10px 0;
+    }
+
+    /* Rating row no hero */
+    .hero-rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .hero-rating-stars {
+      color: #F59E0B;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+    .hero-rating-score {
+      font-family: 'Gabarito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .hero-rating-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.62);
+    }
 
     /* Badge com os 3 termos */
     .hero-terms-badge {
@@ -815,27 +850,27 @@
     /* Depoimentos de médicos */
     .med-dep-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 48px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 40px;
     }
     .med-dep-card {
       background: #fff;
       border: 1px solid #e8f0e9;
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
       transition: box-shadow 0.2s, transform 0.2s;
     }
     .med-dep-card:hover {
-      box-shadow: 0 8px 32px rgba(30,120,60,0.12);
+      box-shadow: 0 6px 24px rgba(30,120,60,0.11);
       transform: translateY(-3px);
     }
     .med-dep-photo {
       width: 100%;
-      aspect-ratio: 4/3;
+      aspect-ratio: 1/1;
       overflow: hidden;
       background: #e8f0e9;
     }
@@ -846,10 +881,10 @@
       object-position: top center;
     }
     .med-dep-body {
-      padding: 24px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
       flex: 1;
     }
     .med-dep-quote {
@@ -857,37 +892,42 @@
       flex: 1;
     }
     .med-quote-icon {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       color: var(--green);
       opacity: 0.5;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       display: block;
     }
     .med-dep-quote p {
-      font-size: 0.88rem;
-      color: var(--gray);
-      line-height: 1.7;
+      font-size: 0.85rem;
+      color: #3d4a42;
+      line-height: 1.75;
       margin: 0;
       font-style: italic;
     }
     .med-dep-info {
       border-top: 1px solid #e8f0e9;
-      padding-top: 14px;
+      padding-top: 12px;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
     }
     .med-dep-name {
       font-family: 'Gabarito', sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--dark);
     }
     .med-dep-spec {
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       color: var(--green-dark);
       font-weight: 600;
+    }
+    .med-dep-crm {
+      font-size: 0.7rem;
+      color: var(--gray);
+      font-weight: 400;
     }
     @media (max-width: 900px) {
       .med-dep-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1108,46 +1148,92 @@
     .rating-num { font-family: 'Gabarito', sans-serif; font-weight: 800; font-size: 1.05rem; }
     .rating-label { font-size: 0.8rem; color: var(--gray); }
 
+    /* Grid: hero 2/3 + coluna secundária 1/3 */
     .testi-grid {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: 2fr 1fr;
       gap: 20px;
       margin-bottom: 20px;
+      align-items: stretch;
     }
-    @media (max-width: 660px) {
-      .testi-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
+    .testi-secondary-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    @media (max-width: 760px) {
+      .testi-grid { grid-template-columns: 1fr; }
+      .testi-secondary-col { flex-direction: column; }
     }
 
+    /* Card hero — destaque principal */
     .testi-card {
-      display: flex; flex-direction: column; gap: 16px;
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 28px 24px;
+      display: flex; flex-direction: column; gap: 28px;
+      background: var(--dark);
+      border-radius: var(--r-lg);
+      padding: 52px 48px;
       position: relative;
-      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      overflow: hidden;
+      align-self: start;
     }
     .testi-card::before {
       content: '\201C';
       font-family: 'Gabarito', sans-serif;
-      font-size: 5rem; line-height: 1;
-      color: var(--green-light);
-      position: absolute; top: 12px; left: 20px;
+      font-size: 12rem; line-height: 0.8;
+      color: rgba(255,255,255,0.05);
+      position: absolute; top: 16px; left: 24px;
       pointer-events: none;
     }
     .testi-quote {
-      font-size: 0.95rem; color: #444;
-      line-height: 1.75; font-style: italic;
-      padding-top: 28px;
-      flex: 1;
+      font-size: 1.18rem; color: rgba(255,255,255,0.92);
+      line-height: 1.85; font-style: italic;
+      position: relative; z-index: 1;
     }
     .testi-footer {
-      display: flex; flex-direction: column; gap: 3px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
+      display: flex; flex-direction: row; align-items: center; gap: 14px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.12);
     }
-    .testi-name { font-family: 'Gabarito', sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--dark); }
-    .testi-problem { font-size: 0.75rem; color: var(--green-dark); font-weight: 600; }
+    .testi-avatar {
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      flex-shrink: 0;
+      border: 2px solid rgba(255,255,255,0.25);
+    }
+    .testi-name { font-family: 'Gabarito', sans-serif; font-size: 0.9rem; font-weight: 700; color: #fff; }
+    .testi-problem { font-size: 0.75rem; color: var(--green); font-weight: 600; }
+
+    /* Cards secundários — suporte */
+    .testi-card-secondary {
+      display: flex; flex-direction: column; gap: 12px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 22px 20px;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0,0,0,.04);
+      flex: 1;
+    }
+    .testi-card-secondary::before {
+      content: '\201C';
+      font-family: 'Gabarito', sans-serif;
+      font-size: 4rem; line-height: 1;
+      color: var(--green-light);
+      position: absolute; top: 8px; left: 16px;
+      pointer-events: none;
+    }
+    .testi-card-secondary .testi-quote {
+      font-size: 0.85rem; color: #444;
+      line-height: 1.7; font-style: italic;
+      padding-top: 20px; flex: 1;
+    }
+    .testi-card-secondary .testi-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+    }
+    .testi-card-secondary .testi-name { color: var(--dark); }
 
     /* Testimonial stats bar */
     .testi-stats {
@@ -1215,6 +1301,7 @@
       box-shadow: 0 8px 40px rgba(70,176,112,.12);
     }
     @media (max-width: 560px) { .form-card { padding: 28px 18px; } }
+
 
     .form-header { text-align: center; margin-bottom: 32px; }
     .form-header .sec-title { font-size: 1.65rem; }
@@ -1510,8 +1597,7 @@
       .hero-overlay { background: linear-gradient(to bottom, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.88) 100%); }
       .hero-content-wrap { padding: 52px 0 48px; flex-direction: column; align-items: flex-start; gap: 24px; }
       .hero-content { max-width: 100%; }
-      .hero-pills-row { grid-template-columns: 1fr 1fr; }
-      .hero-pill { white-space: normal; justify-content: center; }
+      .hero-pill { white-space: normal; }
       .hero-right-badges { flex-direction: row; flex-wrap: wrap; gap: 10px; }
 
       /* Hero badges: reposition inside/on-edge of image instead of outside */
@@ -1563,7 +1649,6 @@
       .hero-content-wrap { padding: 92px 0 64px; }
       .hero-title { font-size: clamp(1.75rem, 7.5vw, 2.2rem); }
       .hero-sub { font-size: 0.92rem; }
-      .hero-checks li { font-size: 0.87rem; }
       .hero-trust { gap: 12px; }
 
       /* Trust bar: ensure last item in 2-col doesn't look orphaned */
@@ -1615,11 +1700,9 @@
       /* Hero */
       .hero-content-wrap { padding: 28px 0 36px; }
       .hero-title { font-size: clamp(1.45rem, 6.5vw, 1.85rem); margin-bottom: 8px; }
-      .hero-sub { font-size: 0.82rem; margin-bottom: 10px; }
-      .hero-checks { margin-bottom: 14px; gap: 5px; }
-      .hero-checks li { font-size: 0.82rem; }
-      .hero-pill:nth-child(3), .hero-pill:nth-child(4) { display: none; }
-      .hero-pills-row { margin-bottom: 12px; }
+      .hero-sub { font-size: 0.82rem; margin-bottom: 18px; }
+
+      .hero-pills-row { margin-top: 10px; }
       .badge-text-top { font-size: 0.76rem; }
       .badge-text-bot { font-size: 0.62rem; }
 
@@ -1661,7 +1744,6 @@
       /* Hero */
       .hero-title { font-size: 1.7rem; }
       .hero-sub { font-size: 0.88rem; }
-      .hero-checks li { font-size: 0.83rem; gap: 8px; }
       .hero-img-wrap { max-height: 280px; }
 
       /* Doctor cards: 1 column on iPhone SE */
@@ -1710,8 +1792,8 @@
 <section id="hero">
 
   <!-- Fundo estático -->
-  <div class="hero-bg">
-    <img src="/LPS/Assets/hero-dor-cronica.jpg" alt="Mulher com dor crônica nas costas" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;" loading="eager" />
+  <div class="hero-bg" style="background-image: url('/LPS/Assets/hero-dor-cronica.jpg')">
+    <img src="/LPS/Assets/hero-dor-cronica.jpg" alt="Mulher com dor crônica nas costas" style="display:none" />
   </div>
 
   <!-- Overlay gradiente -->
@@ -1720,28 +1802,42 @@
   <!-- Conteúdo -->
   <div class="container hero-content-wrap">
     <div class="hero-content">
+      <p class="hero-micro">Se você convive com dor crônica, uma avaliação médica pode ajudar a entender o seu caso e os próximos passos.</p>
       <h1 class="hero-title">
-        Consulta médica para dor crônica com indicação de tratamentos personalizados
+        Avaliação médica para <em>dor crônica</em>
       </h1>
       <p class="hero-sub">
-        Conectamos você a médicos experientes, especializados no manejo da dor e com formação em medicina endocanabinoide. A consulta é feita de forma simples, segura e 100% online.
+        Conectamos você a médicos experientes para avaliar seu caso e orientar os próximos passos com segurança, em consulta online.
       </p>
-      <div class="hero-pills-row">
-        <span class="hero-pill hero-pill-orange"><i data-lucide="circle-dollar-sign"></i> R$ 200</span>
-        <span class="hero-pill"><i data-lucide="users"></i> +30 mil pacientes atendidos</span>
-        <span class="hero-pill hero-pill-green"><i data-lucide="leaf"></i> Fitocanabinoides</span>
-        <span class="hero-pill hero-pill-green"><i data-lucide="activity"></i> Medicina Endocanabinoide</span>
+      <div class="hero-cta-group">
+      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Iniciar Pré-Agendamento</a>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-val green">R$ 200</span>
+          <span class="hero-stat-label">por consulta</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-val">+30 mil</span>
+          <span class="hero-stat-label">pacientes atendidos</span>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-val" style="color:#48c5de;">Medicina</span>
+          <span class="hero-stat-label">endocanabinoide</span>
+        </div>
+      </div>
+      </div><!-- /hero-cta-group -->
+
+      <div class="hero-rating">
+        <span class="hero-rating-stars">★★★★★</span>
+        <span class="hero-rating-score">4.9/5</span>
+        <span class="hero-rating-label">— Baseado em +200 avaliações verificadas</span>
       </div>
 
-      <ul class="hero-checks">
-        <li><span class="chk"><i data-lucide="check"></i></span>Atendimento médico individualizado</li>
-        <li><span class="chk"><i data-lucide="check"></i></span>Avaliação completa do histórico de dor</li>
-        <li><span class="chk"><i data-lucide="check"></i></span>Estratégias terapêuticas para o manejo da dor*</li>
-      </ul>
-
-      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Solicitar Pré-Agendamento</a>
-      <p style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:10px;max-width:420px;line-height:1.5;">
-        *Prescrição de fitocanabinoides quando clinicamente indicados e de acordo com a legislação vigente.
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.42);margin-top:10px;max-width:420px;line-height:1.5;text-wrap:balance;">
+        Prescrição de fitocanabinoides quando clinicamente indicados e de acordo com a legislação vigente.
       </p>
 
     </div>
@@ -1757,15 +1853,15 @@
     <div class="trust-bar-inner">
 <div class="tbar-item">
         <div class="tbar-icon"><i data-lucide="heart"></i></div>
-        Avaliação médica individualizada por profissional qualificado
+        Avaliação médica individualizada
       </div>
       <div class="tbar-item">
         <div class="tbar-icon"><i data-lucide="video"></i></div>
-        Teleconsulta por vídeo, on-line no conforto da sua casa
+        Teleconsulta por vídeo on-line
       </div>
       <div class="tbar-item">
         <div class="tbar-icon"><i data-lucide="check-circle"></i></div>
-        Análise do histórico clínico de saúde e sintomas
+        Análise do histórico clínico de saúde
       </div>
       <div class="tbar-item">
         <div class="tbar-icon"><i data-lucide="help-circle"></i></div>
@@ -1773,7 +1869,7 @@
       </div>
       <div class="tbar-item">
         <div class="tbar-icon"><i data-lucide="thumbs-up"></i></div>
-        Orientações claras sobre tratamento e próximos passos
+        Orientações claras sobre próximos passos
       </div>
     </div>
   </div>
@@ -1902,7 +1998,7 @@
     <div class="cred-split rv">
 
       <div class="cred-split-img">
-        <img src="/LPS/Assets/cbd-doctor-hands.jpg" alt="Médico apresentando frasco de CBD para paciente" />
+        <img src="/LPS/Assets/cbd-frasco.jpg" alt="Médico apresentando frasco de CBD para paciente" />
       </div>
 
       <div class="cred-split-content">
@@ -1955,26 +2051,6 @@
 <!-- ================================================================
      VÍDEO DO MÉDICO — Background
 ================================================================ -->
-<section id="video-sec">
-  <!-- Vídeo como fundo -->
-  <video class="vid-bg" autoplay muted loop playsinline preload="auto">
-    <source src="https://www.cannabisesaude.com.br/wp-content/uploads/2025/12/CS-1.mp4" type="video/mp4" />
-  </video>
-  <div class="vid-overlay"></div>
-
-  <div class="container">
-    <div class="video-sec-inner">
-      <div class="video-copy">
-        <span class="eyebrow">Você não está sozinho</span>
-        <h2 class="sec-title">Você não precisa aceitar a dor como parte da sua vida</h2>
-        <p class="sec-sub">
-          Com o <strong>acompanhamento médico certo, por telemedicina</strong>, é possível avaliar a causa da dor, definir um plano e retomar o controle da sua rotina — sem sair de casa.
-        </p>
-        <a href="#form-sec" class="btn btn-primary mt16" style="display:inline-block;">Iniciar Pré-Agendamento →</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ================================================================
      ABORDAGEM — copy + 4 cards verdes
@@ -1984,29 +2060,11 @@
 
     <!-- Cabeçalho centralizado -->
     <div class="abord-header rv">
-      <span class="eyebrow">O que dizem os médicos</span>
-      <h2 class="abord-title" style="text-align: center;">Profissionais experientes com foco em dor crônica</h2>
+      <h2 class="abord-title" style="text-align: center;">O que médicos dizem sobre essa abordagem terapêutica</h2>
     </div>
 
     <!-- Depoimentos de médicos -->
     <div class="med-dep-grid">
-
-      <!-- Depoimento 1 -->
-      <div class="med-dep-card rv">
-        <div class="med-dep-photo">
-          <img src="/LPS/Assets/med-dep-1.jpg" alt="Foto do médico 1" />
-        </div>
-        <div class="med-dep-body">
-          <div class="med-dep-quote">
-            <i data-lucide="quote" class="med-quote-icon"></i>
-            <p>"Eu tinha muito paciente com fibromialgia e queria alguma coisa para passar essa dor que é um misto de ansiedade, geralmente com distúrbio de sono. Foi aí que tive a ideia de utilizar o CBD."</p>
-          </div>
-          <div class="med-dep-info">
-            <strong class="med-dep-name">Dr. Mario Antônio Sallenave Filho</strong>
-            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
-          </div>
-        </div>
-      </div>
 
       <!-- Depoimento 2 -->
       <div class="med-dep-card rv rv-d1">
@@ -2016,11 +2074,12 @@
         <div class="med-dep-body">
           <div class="med-dep-quote">
             <i data-lucide="quote" class="med-quote-icon"></i>
-            <p>"A Cannabis tem propriedades que vão além do alívio da dor. Em muitos casos, observei melhorias significativas, não apenas na parte física, mas também no bem-estar mental dos pacientes, que adotam essa abordagem para tratar quadros difíceis e dolorosos e suas comorbidades, como insônia, ansiedade e a catastrofização."</p>
+            <p>"Este tipo de abordagem tem propriedades que vão além do alívio da dor. Em muitos casos, observei melhorias significativas, não apenas na parte física, mas também no bem-estar mental dos pacientes."</p>
           </div>
           <div class="med-dep-info">
             <strong class="med-dep-name">Dra. Tainá de Freitas</strong>
-            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
+            <span class="med-dep-spec">Acupuntura · Medicina da Dor</span>
+            <span class="med-dep-crm">CRM 15235/SC · RQE 12743 · RQE 19895</span>
           </div>
         </div>
       </div>
@@ -2033,11 +2092,12 @@
         <div class="med-dep-body">
           <div class="med-dep-quote">
             <i data-lucide="quote" class="med-quote-icon"></i>
-            <p>"Eu faço o uso compassivo da Cannabis. Por mais que não haja estudos completamente sólidos para sustentar essa terapia como primeira opção, a gente vê resultados muito positivos em diversas patologias e em diversos sintomas."</p>
+            <p>"Em casos onde os tratamentos tradicionais não funcionam bem, muitos pacientes procuram a medicina endocanabinoide e temos observado resultados positivos em diversas patologias."</p>
           </div>
           <div class="med-dep-info">
             <strong class="med-dep-name">Dr. Alexandre Assuane</strong>
-            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
+            <span class="med-dep-spec">Generalista</span>
+            <span class="med-dep-crm">CRM 213170/SP</span>
           </div>
         </div>
       </div>
@@ -2050,11 +2110,12 @@
         <div class="med-dep-body">
           <div class="med-dep-quote">
             <i data-lucide="quote" class="med-quote-icon"></i>
-            <p>"A gente vive numa sociedade que produz estresse crônico. A gente vive rodeado de adoecimento relacionado a esse estresse, como as demências, dores crônicas, ansiedade, insônia."</p>
+            <p>"Essa abordagem funciona como uma ferramenta de cuidado que potencializa a rotina. Pode facilitar a conexão com a natureza, com a atividade física e contribuir para mais disposição nas atividades diárias, com menos estresse."</p>
           </div>
           <div class="med-dep-info">
-            <strong class="med-dep-name">Dr. Rodrigo Pacheco</strong>
-            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
+            <strong class="med-dep-name">Dr. Rodrigo M. Pacheco</strong>
+            <span class="med-dep-spec">Medicina de Família e Comunidade</span>
+            <span class="med-dep-crm">CRM 833975/RJ · RQE 47379</span>
           </div>
         </div>
       </div>
@@ -2062,33 +2123,17 @@
       <!-- Depoimento 5 -->
       <div class="med-dep-card rv rv-d2">
         <div class="med-dep-photo">
-          <img src="/LPS/Assets/med-dep-5.jpg" alt="Foto do médico 5" />
+          <img src="/LPS/Assets/med-dep-marcos.jpg" alt="Dr. Marcos Pereira Dias" />
         </div>
         <div class="med-dep-body">
           <div class="med-dep-quote">
             <i data-lucide="quote" class="med-quote-icon"></i>
-            <p>"Considero o passo número um controlar a dor mais aguda, pois ela pode ser o gatilho do quadro psicológico, como a ansiedade, a depressão e, consequentemente, a perda da qualidade do sono."</p>
+            <p>"Recebo pacientes com dores intensas, hipersensibilidade ao toque e que já passaram por diversos tratamentos, muitas vezes sem obter alívio significativo dos sintomas."</p>
           </div>
           <div class="med-dep-info">
             <strong class="med-dep-name">Dr. Marcos Pereira Dias</strong>
-            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Depoimento 6 -->
-      <div class="med-dep-card rv rv-d1">
-        <div class="med-dep-photo">
-          <img src="/LPS/Assets/med-dep-6.jpg" alt="Foto do médico 6" />
-        </div>
-        <div class="med-dep-body">
-          <div class="med-dep-quote">
-            <i data-lucide="quote" class="med-quote-icon"></i>
-            <p>"Os fitocanabinoides entram como uma possibilidade de melhorar o tratamento. Pode ser para potencializar os efeitos dessa resposta parcial, ou até para permitir a diminuição de dosagem da alopatia, aliviando os efeitos colaterais adversos."</p>
-          </div>
-          <div class="med-dep-info">
-            <strong class="med-dep-name">Dra. Thais Oliveira Ferreira</strong>
-            <span class="med-dep-spec"><!-- ESPECIALIDADE / CRM --></span>
+            <span class="med-dep-spec">Ortopedia e Traumatologia</span>
+            <span class="med-dep-crm">CRM 20905/SC · RQE 12176</span>
           </div>
         </div>
       </div>
@@ -2137,7 +2182,7 @@
 <section id="depoimentos" class="section">
   <div class="container">
     <span class="eyebrow">Depoimentos</span>
-    <h2 class="sec-title">Confira depoimentos de pacientes</h2>
+    <h2 class="sec-title">Mais de 30 mil pacientes atendidos. Veja como eles descrevem a experiência:</h2>
     <div class="rating-row">
       <span class="stars">★★★★★</span>
       <span class="rating-num">4.9/5</span>
@@ -2146,7 +2191,7 @@
 
     <div class="testi-stats rv">
       <div class="testi-stat">
-        <strong>+10.000</strong>
+        <strong>+30 mil</strong>
         <span>pacientes atendidos</span>
       </div>
       <div class="testi-stat testi-stat-accent">
@@ -2165,31 +2210,40 @@
 
     <div class="testi-grid">
 
-      <!-- Card 1 -->
+      <!-- Hero testimonial -->
       <div class="testi-card rv">
-        <div class="testi-quote">"Mal conseguia trabalhar e dormir. Depois de 3 meses de acompanhamento, a dor diminuiu muito e voltei a ter energia."</div>
+        <div class="testi-quote">"Eu mal conseguia trabalhar ou dormir. Após alguns meses de acompanhamento, a dor diminuiu muito, recuperei minha energia e hoje voltei a ter uma rotina ativa."</div>
         <div class="testi-footer">
-          <div class="testi-name">Neide dos Santos</div>
+          <img src="/LPS/Assets/testi-neide.jpg" alt="Neide dos Santos" class="testi-avatar" />
+          <div>
+            <div class="testi-name">Neide dos Santos</div>
+            <div class="testi-problem">Dor crônica · fibromialgia</div>
+          </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="testi-card rv rv-d1">
-        <div class="testi-quote">"A osteoartrite me limitava a cada passo. O médico montou um plano personalizado e em poucas semanas minha mobilidade melhorou visivelmente."</div>
-        <div class="testi-footer">
-          <div class="testi-name">M.A.B.</div>
+      <!-- Secundários -->
+      <div class="testi-secondary-col">
+        <div class="testi-card-secondary rv rv-d1">
+          <div class="testi-quote">"A osteoartrite me limitava a cada passo. O médico montou um plano personalizado e em poucas semanas minha mobilidade melhorou visivelmente."</div>
+          <div class="testi-footer">
+            <div class="testi-name">M.A.B.</div>
+          </div>
         </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="testi-card rv rv-d2">
-        <div class="testi-quote">"Vivia tomando analgésico todo dia e nada resolvia. Com o acompanhamento certo, reduzi os remédios e recuperei minha qualidade de vida."</div>
-        <div class="testi-footer">
-          <div class="testi-name">Loren Daniele</div>
+        <div class="testi-card-secondary rv rv-d2">
+          <div class="testi-quote">"Vivia tomando analgésico todo dia e nada resolvia. Com o acompanhamento certo, reduzi os remédios e recuperei minha qualidade de vida."</div>
+          <div class="testi-footer">
+            <div class="testi-name">Loren Daniele</div>
+          </div>
         </div>
       </div>
 
     </div>
+
+    <div style="text-align:center;margin-top:36px;">
+      <a href="#form-sec" class="btn btn-primary btn-lg"><i data-lucide="calendar-clock"></i> Pré-agendar avaliação</a>
+    </div>
+
   </div>
 </section>
 
@@ -2202,7 +2256,7 @@
       <div class="form-header">
         <span class="eyebrow">Telemedicina</span>
         <h2 class="sec-title">Pré-Agendamento</h2>
-        <p class="sec-sub" style="margin:0 auto">Preencha o formulário abaixo. A consulta é 100% por telemedicina.</p>
+        <p class="sec-sub" style="margin:0 auto">Consulta com <strong>Médicos Prescritores</strong><br><span style="display:inline-block;margin-top:0.3rem;color:var(--green-deeper);font-family:'Gabarito',sans-serif;font-size:1.45rem;font-weight:900;letter-spacing:-0.01em;">por apenas R$ 200</span></p>
         <div class="form-horario">
           <i data-lucide="clock"></i>
           Atendimento de segunda a sexta, das 8h às 18h
@@ -2282,50 +2336,50 @@
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          A consulta é realmente online?
+          Qual o valor da consulta?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Sim, 100% online por videochamada. Você pode ser atendido de qualquer lugar do Brasil, no conforto da sua casa, sem precisar se deslocar.</div>
+        <div class="faq-a">A consulta custa apenas R$ 200,00. O pagamento é realizado antes da consulta de forma 100% segura.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          Quanto custa a consulta?
+          O uso de cannabis medicinal é regulamentado no Brasil?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">A consulta custa R$ 200,00. Atendemos apenas de forma particular — não aceitamos convênios ou planos de saúde. O pagamento é realizado antes da consulta de forma segura.</div>
+        <div class="faq-a">Sim. O uso de cannabis para fins medicinais é regulamentado no Brasil. A prescrição deve ser feita por um médico habilitado, conforme as normas da Anvisa. A partir dessa avaliação, o paciente pode ter acesso ao tratamento seguindo os critérios estabelecidos pela regulamentação vigente.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          Preciso levar exames ou laudos?
+          Como funciona a consulta online?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Não é obrigatório, mas se tiver exames anteriores ou laudos médicos, traga-os — isso ajuda o profissional a ter uma avaliação mais precisa. O profissional realiza uma anamnese completa mesmo sem exames prévios.</div>
+        <div class="faq-a">Você pode ser atendido de qualquer lugar do Brasil, no conforto da sua casa, sem precisar se deslocar.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          Como funciona a primeira consulta?
+          Posso receber prescrição após a consulta?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">O médico realiza uma anamnese completa, avalia seu histórico de saúde, a intensidade e os padrões da sua dor, e junto com você define o melhor plano de tratamento individualizado — com orientações detalhadas ao final.</div>
+        <div class="faq-a">Caso o médico avalie que o tratamento é indicado para o seu caso, a prescrição será emitida durante a própria consulta, seguindo as normas da Anvisa.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          O plano de tratamento é personalizado para meu caso?
+          Esse tipo de tratamento é seguro?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Sim. Cada pessoa tem uma história, sintomas e estilo de vida únicos. Por isso, o plano terapêutico é construído de forma individualizada, levando em conta seu histórico, a intensidade da dor e suas necessidades específicas. Não existe receita pronta — o tratamento é feito para você.</div>
+        <div class="faq-a">Sim, quando há indicação médica, o tratamento é conduzido com segurança. Tudo começa com uma avaliação individual, onde o médico analisa o seu caso e define a melhor abordagem, seguindo as normas da Anvisa.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          É possível recuperar a qualidade de vida com o tratamento?
+          Como posso iniciar o atendimento?
           <div class="faq-chevron"><i data-lucide="chevron-down"></i></div>
         </div>
-        <div class="faq-a">Viver com dor não precisa ser a sua rotina. Com o acompanhamento médico adequado, muitos pacientes relatam redução significativa da dor, melhora do sono, do humor e da disposição. Os resultados variam de pessoa para pessoa — o profissional avalia cada caso individualmente e indica o melhor caminho.</div>
+        <div class="faq-a">Basta preencher o formulário nesta página para solicitar o pré-agendamento. Nossa equipe entrará em contato para confirmar a data e os próximos passos.</div>
       </div>
 
     </div>
